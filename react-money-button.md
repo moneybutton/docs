@@ -21,56 +21,64 @@ How to use it to receive a specific amount at a specific address:
 <MoneyButton to=[address] amount=[amount] currency=[currency] />
 ```
 
-* **to** can be an address or userId
-* **amount** is a number
-* **currency** is 'USD', 'BCH', etc.
+The MoneyButton component can take a number of props:
 
-How to pass in a long list of outputDescriptions:
+| prop           | type                                      | default value |
+| -------------- | ----------------------------------------- | ------------- |
+| `type`         | `string` (`'pay', 'tip'`)                 | `'pay'`       |
+| `to`           | `string` (either a BCH address or userId) | Yours Inc.    |
+| `amount`       | `string`                                  | `null`        |
+| `currency`     | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
+| `opReturnData` | `string`                                  | `null`        |
+| `outputs`      | `array`                                   | `[]`          |
+| `ownerId`      | `string`                                  | `null`        |
+| `buttonId`     | `string`                                  | `null`        |
+| `buttonData`   | `string`                                  | nu`l`l        |
+| `size`         | `string`                                  | `'med'`       |
+| `color`        | `string`                                  | `'light'`     |
+| `callback`     | `function`                                | `null`        |
 
-```
-<MoneyButton outputDescriptions=[outputDescriptions] />
-```
+`outputs` is a list of `output` objects. Each `output` object has these parameters:
 
-* **outputDescriptions** is an array of objects. Those objects specify to, amount, currency, like this:
+| name       | type                          | required? |
+| ---------- | ----------------------------- | --------- |
+| `address`  | `string` (`'pay', 'tip'`)     | optional  |
+| `userId`   | `string`                      | optional  |
+| `script`   | `string`                      | optional  |
+| `amount`   | `string`                      | required  |
+| `currency` | `string` (`USD`, `BCH`, etc.) | required  |
 
-```
-let outputDescription = {to, amount, currency}
-```
-
-How to use the onPayment callback:
-
-```
-<MoneyButton onPayment=[onPayment] />
-```
-
-How to specify the color:
-
-```
-<MoneyButton color=[color] />
-```
-
-* **color** can be 'red', 'blue', 'light', 'dark'
-
-How to specify the size:
+Also, the `callback` function must look like this:
 
 ```
-<MoneyButton size=[size] />
+function myCallback (err, payment) {
+    // ...
+}
 ```
 
-* **size** can be 'small', 'medium', 'large'
+Where the `payment` is an object that looks like this:
 
-How to specify the type:
+| name         | type     |
+| ------------ | -------- |
+| `id`         | `string` |
+| `buttonId`   | `string` |
+| `buttonData` | `string` |
+| `status`     | `string` |
+| `txid`       | `string` |
+| `ntxid`      | `string` |
+| `amount`     | `string` |
+| `currency`   | `string` |
+| `satoshis`   | `string` |
+| `outputs`    | `array`  |
 
-```
-<MoneyButton type=[type] />
-```
+Where in this case the outputs are slightly more sophisticated:
 
-* **type** can be 'tip', 'pay', 'buy', 'vote'
-
-Whether to display amount:
-
-```
-<MoneyButton displayAmount=[displayAmount] />
-```
-
-* **displayAmount** is a boolean that can be either true or false.
+| name       | type                                       |
+| ---------- | ------------------------------------------ |
+| `type`     | `string` (`'address', 'userId', 'script'`) |
+| `address`  | `string`                                   |
+| `userId`   | `string`                                   |
+| `script`   | `string`                                   |
+| `amount`   | `string`                                   |
+| `currency` | `string`                                   |
+| `satoshis` | `number`                                   |
