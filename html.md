@@ -7,30 +7,45 @@ How to use in HTML:
 
 ```
 <!-- place once in your HTML at the top -->
-<script src="https://www.moneybutton.com/moneybutton.js" />
+<script src="https://moneybutton.com/moneybutton.js" />
 ```
 
 ```
 <!-- place your button(s) anywhere you want in your HTML -->
-<div data-to=[to] data-address=[address] data-currency=[currency] />
+<div class="money-button"
+  data-to=[to]
+  data-type=[type]
+  data-amount=[amount]
+  data-currency=[currency]
+  data-op-return=[op-return]
+  data-outputs=[outputs]
+  data-owner-id=[owner-id]
+  data-button-id=[button-id]
+  data-button-data=[button-data]
+  data-callback=[callback]
+  data-size=[size]
+  data-color=[color]
+  data-hide-amount=[hide-amount]
+  data-dropdown=[dropdown]
+/>
 ```
 
 The MoneyButton div can take a number of params:
 
-| prop              | type                                      | default value |
-| ----------------- | ----------------------------------------- | ------------- |
-| `data-type`       | `string` (`'pay', 'tip'`)                 | `'pay'`       |
-| `data-to`         | `string` (either a BCH address or userId) | Yours Inc.    |
-| `data-amount`     | `string`                                  | `null`        |
-| `data-currency`   | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
-| `data-opreturn`   | `string`                                  | `null`        |
-| `data-outputs`    | `array`                                   | `[]`          |
-| `data-ownerid`    | `string`                                  | `null`        |
-| `data-buttonid`   | `string`                                  | `null`        |
-| `data-buttondata` | `string`                                  | `null`        |
-| `data-size`       | `string`                                  | `'med'`       |
-| `data-color`      | `string`                                  | `'light'`     |
-| `data-callback`   | `string`                                  | `null`        |
+| prop               | type                                      | default value |
+| ------------------ | ----------------------------------------- | ------------- |
+| `data-type`        | `string` (`'pay', 'tip'`)                 | `'pay'`       |
+| `data-to`          | `string` (either a BCH address or userId) | Yours Inc.    |
+| `data-amount`      | `string`                                  | `null`        |
+| `data-currency`    | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
+| `data-op-return`   | `string`                                  | `null`        |
+| `data-outputs`     | `array`                                   | `[]`          |
+| `data-owner-id`    | `string`                                  | `null`        |
+| `data-button-id`   | `string`                                  | `null`        |
+| `data-button-data` | `string`                                  | `null`        |
+| `data-size`        | `string`                                  | `'med'`       |
+| `data-color`       | `string`                                  | `'light'`     |
+| `data-callback`    | `string`                                  | `null`        |
 
 `outputs` is a JSON stringified list of `output` objects. Each `output` object has these parameters:
 
