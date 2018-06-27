@@ -1,0 +1,15 @@
+{
+  "name": "mb-docs",
+  "version": "0.1.0",
+  "description": "MoneyButton documentation.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd website && yarn",
+    "build": "cd website && yarn build",
+    "dev": "cd website && yarn dev"
+  },
+  "repository": "https://github.com/yoursnetwork/yours/",
+  "author": "Yours Inc.",
+  "license": "UNLICENSED",
+  "private": true
+}
