@@ -18,22 +18,27 @@ let MoneyButton = require('react-money-button')
 How to use it to receive a specific amount at a specific address:
 
 ```
-<MoneyButton to=[address] amount=[amount] currency=[currency] />
+<MoneyButton
+  to=[address]
+  amount=[amount]
+  currency=[currency]
+/>
 ```
 
 The MoneyButton component can take a number of props:
 
 | prop           | type                                      | default value |
 | -------------- | ----------------------------------------- | ------------- |
-| `type`         | `string` (`'pay', 'tip'`)                 | `'pay'`       |
-| `to`           | `string` (either a BCH address or userId) | Yours Inc.    |
+| `to`           | `string` (either a BCH address or userId) | `null`        |
 | `amount`       | `string`                                  | `null`        |
 | `currency`     | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
+| `hideAmount`   | `boolean`                                 | `false`       |
 | `opReturnData` | `string`                                  | `null`        |
 | `outputs`      | `array`                                   | `[]`          |
 | `ownerId`      | `string`                                  | `null`        |
 | `buttonId`     | `string`                                  | `null`        |
-| `buttonData`   | `string`                                  | nu`l`l        |
+| `buttonData`   | `string`                                  | `null`        |
+| `type`         | `string` (`'pay', 'tip'`)                 | `'pay'`       |
 | `size`         | `string`                                  | `'med'`       |
 | `color`        | `string`                                  | `'light'`     |
 | `callback`     | `function`                                | `null`        |

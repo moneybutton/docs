@@ -14,19 +14,8 @@ How to use in HTML:
 <!-- place your button(s) anywhere you want in your HTML -->
 <div class="money-button"
   data-to=[to]
-  data-type=[type]
   data-amount=[amount]
   data-currency=[currency]
-  data-op-return=[op-return]
-  data-outputs=[outputs]
-  data-owner-id=[owner-id]
-  data-button-id=[button-id]
-  data-button-data=[button-data]
-  data-callback=[callback]
-  data-size=[size]
-  data-color=[color]
-  data-hide-amount=[hide-amount]
-  data-dropdown=[dropdown]
 />
 ```
 
@@ -34,15 +23,16 @@ The MoneyButton div can take a number of params:
 
 | prop               | type                                      | default value |
 | ------------------ | ----------------------------------------- | ------------- |
-| `data-type`        | `string` (`'pay', 'tip'`)                 | `'pay'`       |
-| `data-to`          | `string` (either a BCH address or userId) | Yours Inc.    |
+| `data-to`          | `string` (either a BCH address or userId) | `null`        |
 | `data-amount`      | `string`                                  | `null`        |
 | `data-currency`    | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
+| `data-hide-amount` | `boolean`                                 | `false`       |
 | `data-op-return`   | `string`                                  | `null`        |
 | `data-outputs`     | `array`                                   | `[]`          |
 | `data-owner-id`    | `string`                                  | `null`        |
 | `data-button-id`   | `string`                                  | `null`        |
 | `data-button-data` | `string`                                  | `null`        |
+| `data-type`        | `string` (`'pay', 'tip'`)                 | `'pay'`       |
 | `data-size`        | `string`                                  | `'med'`       |
 | `data-color`       | `string`                                  | `'light'`     |
 | `data-callback`    | `string`                                  | `null`        |
