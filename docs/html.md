@@ -29,7 +29,7 @@ The MoneyButton div can take a number of params:
 | `data-hide-amount` | `boolean`                                 | `false`       |
 | `data-op-return`   | `string`                                  | `null`        |
 | `data-outputs`     | `array`                                   | `[]`          |
-| `data-owner-id`    | `string`                                  | `null`        |
+| `data-client-identifier`     | `string`                                  | `null`        |
 | `data-button-id`   | `string`                                  | `null`        |
 | `data-button-data` | `string`                                  | `null`        |
 | `data-type`        | `string` (`'pay', 'tip'`)                 | `'pay'`       |

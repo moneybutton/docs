@@ -35,7 +35,7 @@ The MoneyButton component can take a number of props:
 | `hideAmount`   | `boolean`                                 | `false`       |
 | `opReturnData` | `string`                                  | `null`        |
 | `outputs`      | `array`                                   | `[]`          |
-| `ownerId`      | `string`                                  | `null`        |
+| `clientIdentifier`       | `string`                                  | `null`        |
 | `buttonId`     | `string`                                  | `null`        |
 | `buttonData`   | `string`                                  | `null`        |
 | `type`         | `string` (`'pay', 'tip'`)                 | `'pay'`       |
