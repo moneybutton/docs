@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "cd website && yarn",
     "build": "cd website && yarn build",
-    "dev": "cd website && yarn dev"
+    "dev": "cd website && yarn dev",
+    "start": "cd website && yarn start"
   },
   "repository": "https://github.com/yoursnetwork/yours/",
   "author": "Yours Inc.",
