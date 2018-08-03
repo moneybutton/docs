@@ -27,21 +27,21 @@ How to use it to receive a specific amount at a specific address:
 
 The MoneyButton component can take a number of props:
 
-| prop           | type                                      | default value |
-| -------------- | ----------------------------------------- | ------------- |
-| `to`           | `string` (either a BCH address or userId) | `null`        |
-| `amount`       | `string`                                  | `null`        |
-| `currency`     | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
-| `hideAmount`   | `boolean`                                 | `false`       |
-| `opReturnData` | `string`                                  | `null`        |
-| `outputs`      | `array`                                   | `[]`          |
-| `clientIdentifier`       | `string`                                  | `null`        |
-| `buttonId`     | `string`                                  | `null`        |
-| `buttonData`   | `string`                                  | `null`        |
-| `type`         | `string` (`'pay', 'tip'`)                 | `'pay'`       |
-| `size`         | `string`                                  | `'med'`       |
-| `color`        | `string`                                  | `'light'`     |
-| `callback`     | `function`                                | `null`        |
+| prop               | type                                      | default value  |
+| ------------------ | ----------------------------------------- | -------------- |
+| `to`               | `string` (either a BCH address or userId) | `null`         |
+| `amount`           | `string`                                  | `null`         |
+| `currency`         | `string` (`USD`, `BCH`, etc.)             | `'USD'`        |
+| `label`            | `string`                                  | `''`           |
+| `hideAmount`       | `boolean`                                 | `false`        |
+| `opReturnData`     | `string`                                  | `null`         |
+| `outputs`          | `array`                                   | `[]`           |
+| `clientIdentifier` | `string`                                  | `null`         |
+| `buttonId`         | `string`                                  | `null`         |
+| `buttonData`       | `string`                                  | `null`         |
+| `type`             | `string` (`'pay', 'tip'`)                 | `'pay'`        |
+| `onPayment`        | `function`                                | `null`         |
+| `onError`          | `function`                                | `null`         |
 
 `outputs` is a list of `output` objects. Each `output` object has these parameters:
 
@@ -53,10 +53,10 @@ The MoneyButton component can take a number of props:
 | `amount`   | `string`                      | required  |
 | `currency` | `string` (`USD`, `BCH`, etc.) | required  |
 
-Also, the `callback` function must look like this:
+Also, the `onPayment` function must look like this:
 
 ```
-function myCallback (err, payment) {
+function myOnPaymentCallback (payment) {
     // ...
 }
 ```
@@ -87,3 +87,14 @@ Where in this case the outputs are slightly more sophisticated:
 | `amount`   | `string`                                   |
 | `currency` | `string`                                   |
 | `satoshis` | `number`                                   |
+
+
+´onError´ function look like this:
+
+```
+function myOnErrorCallback (error) {
+    // ...
+}
+```
+
+It receives an object describing the error.

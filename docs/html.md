@@ -21,21 +21,20 @@ How to use in HTML:
 
 The MoneyButton div can take a number of params:
 
-| prop               | type                                      | default value |
-| ------------------ | ----------------------------------------- | ------------- |
-| `data-to`          | `string` (either a BCH address or userId) | `null`        |
-| `data-amount`      | `string`                                  | `null`        |
-| `data-currency`    | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
-| `data-hide-amount` | `boolean`                                 | `false`       |
-| `data-op-return`   | `string`                                  | `null`        |
-| `data-outputs`     | `array`                                   | `[]`          |
-| `data-client-identifier`     | `string`                                  | `null`        |
-| `data-button-id`   | `string`                                  | `null`        |
-| `data-button-data` | `string`                                  | `null`        |
-| `data-type`        | `string` (`'pay', 'tip'`)                 | `'pay'`       |
-| `data-size`        | `string`                                  | `'med'`       |
-| `data-color`       | `string`                                  | `'light'`     |
-| `data-callback`    | `string`                                  | `null`        |
+| prop                     | type                                      | default value |
+| ------------------------ | ----------------------------------------- | ------------- |
+| `data-to`                | `string` (either a BCH address or userId) | `null`        |
+| `data-amount`            | `string`                                  | `null`        |
+| `data-currency`          | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
+| `data-label`             | `string`                                  | `''`          |
+| `data-hide-amount`       | `boolean`                                 | `false`       |
+| `data-op-return`         | `string`                                  | `null`        |
+| `data-outputs`           | `array`                                   | `[]`          |
+| `data-client-identifier` | `string`                                  | `null`        |
+| `data-button-id`         | `string`                                  | `null`        |
+| `data-button-data`       | `string`                                  | `null`        |
+| `data-type`              | `string` (`'pay', 'tip'`)                 | `'pay'`       |
+| `data-callback`          | `string`                                  | `null`        |
 
 `outputs` is a JSON stringified list of `output` objects. Each `output` object has these parameters:
 
