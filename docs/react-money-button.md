@@ -27,22 +27,22 @@ How to use it to receive a specific amount at a specific address:
 
 The MoneyButton component can take a number of props:
 
-| prop               | type                                      | default value  |
-| ------------------ | ----------------------------------------- | -------------- |
-| `to`               | `string` (either a BCH address or userId) | `null`         |
-| `amount`           | `string`                                  | `null`         |
-| `currency`         | `string` (`USD`, `BCH`, etc.)             | `'USD'`        |
-| `label`            | `string`                                  | `''`           |
-| `hideAmount`       | `boolean`                                 | `false`        |
-| `opReturnData`     | `string`                                  | `null`         |
-| `outputs`          | `array`                                   | `[]`           |
-| `clientIdentifier` | `string`                                  | `null`         |
-| `buttonId`         | `string`                                  | `null`         |
-| `buttonData`       | `string`                                  | `null`         |
-| `type`             | `string` (`'pay', 'tip'`)                 | `'pay'`        |
-| `onPayment`        | `function`                                | `null`         |
-| `onError`          | `function`                                | `null`         |
-| `devMode`          | `boolean`                                 | `false`        |
+| prop               | type                                      | default value |
+| ------------------ | ----------------------------------------- | ------------- |
+| `to`               | `string` (either a BCH address or userId) | `null`        |
+| `amount`           | `string`                                  | `null`        |
+| `currency`         | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
+| `label`            | `string`                                  | `''`          |
+| `hideAmount`       | `boolean`                                 | `false`       |
+| `opReturnData`     | `string`                                  | `null`        |
+| `outputs`          | `array`                                   | `[]`          |
+| `clientIdentifier` | `string`                                  | `null`        |
+| `buttonId`         | `string`                                  | `null`        |
+| `buttonData`       | `string`                                  | `null`        |
+| `type`             | `string` (`'pay', 'tip'`)                 | `'pay'`       |
+| `onPayment`        | `function`                                | `null`        |
+| `onError`          | `function`                                | `null`        |
+| `devMode`          | `boolean`                                 | `false`       |
 
 `outputs` is a list of `output` objects. Each `output` object has these parameters:
 
@@ -89,7 +89,6 @@ Where in this case the outputs are slightly more sophisticated:
 | `currency` | `string`                                   |
 | `satoshis` | `number`                                   |
 
-
 ´onError´ function look like this:
 
 ```
@@ -99,7 +98,6 @@ function myOnErrorCallback (error) {
 ```
 
 It receives an object describing the error.
-
 
 When `devMode` is set to true no transactions are made when you swipe the button. It's just to try
 the button.

@@ -36,7 +36,7 @@ The MoneyButton div can take a number of params:
 | `data-type`              | `string` (`'pay', 'tip'`)                 | `'pay'`       |
 | `data-onpayment`         | `string`                                  | `null`        |
 | `data-onerror`           | `string`                                  | `null`        |
-| `data-dev-mode`          | `boolean`                                 | `false`        |
+| `data-dev-mode`          | `boolean`                                 | `false`       |
 
 `outputs` is a JSON stringified list of `output` objects. Each `output` object has these parameters:
 
@@ -86,6 +86,5 @@ Where in this case the outputs are slightly more sophisticated:
 | `amount`   | `string`                                   |
 | `currency` | `string`                                   |
 | `satoshis` | `number`                                   |
-
 
 When `devMode` is enabled the button desn't make any transaction.
