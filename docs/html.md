@@ -34,7 +34,9 @@ The MoneyButton div can take a number of params:
 | `data-button-id`         | `string`                                  | `null`        |
 | `data-button-data`       | `string`                                  | `null`        |
 | `data-type`              | `string` (`'pay', 'tip'`)                 | `'pay'`       |
-| `data-callback`          | `string`                                  | `null`        |
+| `data-onpayment`         | `string`                                  | `null`        |
+| `data-onerror`           | `string`                                  | `null`        |
+| `data-dev-mode`          | `boolean`                                 | `false`        |
 
 `outputs` is a JSON stringified list of `output` objects. Each `output` object has these parameters:
 
@@ -46,10 +48,14 @@ The MoneyButton div can take a number of params:
 | `amount`   | `string`                      | required  |
 | `currency` | `string` (`USD`, `BCH`, etc.) | required  |
 
-Also, the `callback` string is actually the name of a function in the global namespace. That function must look like this:
+Also, the `onPayment` and `onError` strings are actually the name of a function in the global namespace. Those functions must look like this:
 
 ```
-function myCallback (err, payment) {
+function onPayment (payment) {
+    // ...
+}
+
+function onError (error) {
     // ...
 }
 ```
@@ -80,3 +86,6 @@ Where in this case the outputs are slightly more sophisticated:
 | `amount`   | `string`                                   |
 | `currency` | `string`                                   |
 | `satoshis` | `number`                                   |
+
+
+When `devMode` is enabled the button desn't make any transaction.
