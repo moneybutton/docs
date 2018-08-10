@@ -20,10 +20,8 @@ The status of a payment can be one of these things:
 Your webhook URL must accept a POST request with JSON. The object we send you looks like this:
 
 ```
-{ err, payment }
+{ secret, payment }
 ```
-
-If there was an error of some sort, `err` is a string. Otherwise you receive `payment` which is an object.
 
 The `payment` object looks like this:
 
@@ -39,6 +37,8 @@ The `payment` object looks like this:
 | `currency`   | `string` |
 | `satoshis`   | `string` |
 | `outputs`    | `array`  |
+
+Note that merely receiving a webhook does not necessarily indicate a successful payment. The `payment` object has a `status`, and `status` can be `DOUBLE_SPENT` indicating an earlier payment is no longer valid.
 
 Where the outputs look like this:
 
