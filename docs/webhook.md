@@ -13,7 +13,6 @@ The status of a payment can be one of these things:
 | `BROADCASTED`  | tx has been signed and broadcasted                                                |
 | `UNCONFIRMED`  | tx has been received via the network but has not yet confirmed                    |
 | `CONFIRMED`    | tx has been confirmed at least once                                               |
-| `COMPLETED`    | tx has been confirmed at least six times                                          |
 | `MALLEATED`    | tx has been malleated, but outputs are still the same, so you still got the money |
 | `DOUBLE_SPENT` | tx has been double spent - you may not get your money                             |
 
