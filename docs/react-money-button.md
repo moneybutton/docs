@@ -39,7 +39,7 @@ The MoneyButton component can take a number of props:
 | `clientIdentifier` | `string`                                  | `null`        |
 | `buttonId`         | `string`                                  | `null`        |
 | `buttonData`       | `string`                                  | `null`        |
-| `type`             | `string` (`'pay', 'tip'`)                 | `'pay'`       |
+| `type`             | `string` (`'buy', 'tip'`)                 | `'buy'`       |
 | `onPayment`        | `function`                                | `null`        |
 | `onError`          | `function`                                | `null`        |
 | `devMode`          | `boolean`                                 | `false`       |
@@ -48,7 +48,7 @@ The MoneyButton component can take a number of props:
 
 | name       | type                          | required? |
 | ---------- | ----------------------------- | --------- |
-| `address`  | `string` (`'pay', 'tip'`)     | optional  |
+| `address`  | `string`                      | optional  |
 | `userId`   | `string`                      | optional  |
 | `script`   | `string`                      | optional  |
 | `amount`   | `string`                      | required  |

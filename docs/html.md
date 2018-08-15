@@ -25,24 +25,24 @@ The MoneyButton div can take a number of params:
 | ------------------------ | ----------------------------------------- | ------------- |
 | `data-to`                | `string` (either a BCH address or userId) | `null`        |
 | `data-amount`            | `string`                                  | `null`        |
-| `data-currency`          | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
+| `data-currency`          | `string` (`'USD'`, `'BCH'`, etc.)         | `'USD'`       |
 | `data-label`             | `string`                                  | `''`          |
-| `data-hide-amount`       | `boolean`                                 | `false`       |
+| `data-hide-amount`       | `string` (`'true'` or `'false'`)          | `'false'`     |
 | `data-op-return`         | `string`                                  | `null`        |
-| `data-outputs`           | `array`                                   | `[]`          |
+| `data-outputs`           | `string`                                  | `'[]'`        |
 | `data-client-identifier` | `string`                                  | `null`        |
 | `data-button-id`         | `string`                                  | `null`        |
 | `data-button-data`       | `string`                                  | `null`        |
-| `data-type`              | `string` (`'pay', 'tip'`)                 | `'pay'`       |
+| `data-type`              | `string` (`'buy', 'tip'`)                 | `'buy'`       |
 | `data-onpayment`         | `string`                                  | `null`        |
 | `data-onerror`           | `string`                                  | `null`        |
-| `data-dev-mode`          | `boolean`                                 | `false`       |
+| `data-dev-mode`          | `string` (`'true'` or `'false'`)          | `'false'`     |
 
 `outputs` is a JSON stringified list of `output` objects. Each `output` object has these parameters:
 
 | name       | type                          | required? |
 | ---------- | ----------------------------- | --------- |
-| `address`  | `string` (`'pay', 'tip'`)     | optional  |
+| `address`  | `string`                      | optional  |
 | `userId`   | `string`                      | optional  |
 | `script`   | `string`                      | optional  |
 | `amount`   | `string`                      | required  |
