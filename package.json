@@ -6,6 +6,7 @@
   "scripts": {
     "postinstall": "cd website && yarn",
     "build": "cd website && yarn build",
+    "build:prod": "cd website && yarn build",
     "dev": "cd website && yarn dev",
     "start": "cd website && yarn start"
   },
