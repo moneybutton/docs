@@ -1,7 +1,7 @@
 {
   "name": "mb-docs",
   "version": "0.1.0",
-  "description": "MoneyButton documentation.",
+  "description": "Money Button documentation.",
   "main": "index.js",
   "scripts": {
     "postinstall": "cd website && yarn",
