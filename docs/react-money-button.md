@@ -81,6 +81,7 @@ Where in this case the outputs are slightly more sophisticated:
 
 | name       | type                                       |
 | ---------- | ------------------------------------------ |
+| `to`       | `string`                                   |
 | `type`     | `string` (`'address', 'userId', 'script'`) |
 | `address`  | `string`                                   |
 | `userId`   | `string`                                   |
@@ -88,6 +89,10 @@ Where in this case the outputs are slightly more sophisticated:
 | `amount`   | `string`                                   |
 | `currency` | `string`                                   |
 | `satoshis` | `number`                                   |
+
+`to` is optional. It can be a bch address, a user id or a script.
+if `to` is present then `type`, `address`, `userId` and `currency`
+should not be present.
 
 ´onError´ function look like this:
 
