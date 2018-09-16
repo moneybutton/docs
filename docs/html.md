@@ -34,8 +34,8 @@ The MoneyButton div can take a number of params:
 | `data-button-id`         | `string`                                  | `null`        |
 | `data-button-data`       | `string`                                  | `null`        |
 | `data-type`              | `string` (`'buy', 'tip'`)                 | `'buy'`       |
-| `data-onpayment`         | `string`                                  | `null`        |
-| `data-onerror`           | `string`                                  | `null`        |
+| `data-on-payment`        | `string`                                  | `null`        |
+| `data-on-error`          | `string`                                  | `null`        |
 | `data-dev-mode`          | `string` (`'true'` or `'false'`)          | `'false'`     |
 
 `outputs` is a JSON stringified list of `output` objects. Each `output` object has these parameters:
