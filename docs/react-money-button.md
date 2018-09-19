@@ -6,13 +6,13 @@ title: React Component
 How to install the React component:
 
 ```
-npm install react-money-button
+npm install @moneybutton/react-money-button
 ```
 
 How to use it in your react project:
 
 ```
-let MoneyButton = require('react-money-button')
+let MoneyButton = require('@moneybutton/react-money-button')
 ```
 
 How to use it to receive a specific amount at a specific address:
