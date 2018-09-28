@@ -1,8 +1,6 @@
 {
   "docs": {
-    "Auth": ["auth"],
     "HTML": ["html"],
-    "iframe": ["iframe"],
     "React Component": ["react-money-button"],
     "Webhook": ["webhook"]
   }

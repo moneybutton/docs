@@ -76,13 +76,13 @@ class HomeSplash extends React.Component {
     let language = this.props.language || ''
     return (
       <SplashContainer>
-        <Logo img_src={imgUrl('docusaurus.svg')} />
+        {/* <Logo img_src={imgUrl('moneybutton.jpg')} /> */}
         <div className='inner'>
           <ProjectTitle />
           <PromoSection>
-            <Button href='#try'>Try It Out</Button>
-            <Button href={docUrl('doc1.html', language)}>Example Link</Button>
-            <Button href={docUrl('doc2.html', language)}>Example Link 2</Button>
+            <Button href={docUrl('html.html', language)}> HTML </Button>
+            <Button href={docUrl('react-money-button.html', language)}>React</Button>
+            <Button href={docUrl('webhook.html', language)}>Webhook</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -206,11 +206,11 @@ class Index extends React.Component {
       <div>
         <HomeSplash language={language} />
         <div className='mainContainer'>
-          <Features />
-          <FeatureCallout />
-          <LearnHow />
-          <TryOut />
-          <Description />
+          {/* <Features /> */}
+          {/* <FeatureCallout /> */}
+          {/* <LearnHow /> */}
+          {/* <TryOut /> */}
+          {/* <Description /> */}
           <Showcase language={language} />
         </div>
       </div>

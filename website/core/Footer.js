@@ -35,14 +35,14 @@ class Footer extends React.Component {
           </a>
           <div>
             <h5>Docs</h5>
-            <a href={this.docUrl('doc1.html', this.props.language)}>
-              Getting Started (or other categories)
+            <a href={this.docUrl('html.html', this.props.language)}>
+              HTML
             </a>
-            <a href={this.docUrl('doc2.html', this.props.language)}>
-              Guides (or other categories)
+            <a href={this.docUrl('react-money-button.html', this.props.language)}>
+              React
             </a>
-            <a href={this.docUrl('doc3.html', this.props.language)}>
-              API Reference (or other categories)
+            <a href={this.docUrl('webhook.html', this.props.language)}>
+              Webhook
             </a>
           </div>
           <div>
@@ -51,15 +51,15 @@ class Footer extends React.Component {
               User Showcase
             </a>
             <a
-              href='http://stackoverflow.com/questions/tagged/'
+              href='https://www.youtube.com/c/moneybutton'
               target='_blank'
               rel='noreferrer noopener'
             >
-              Stack Overflow
+              Youtube
             </a>
-            <a href='https://discordapp.com/'>Project Chat</a>
+            <a href='https://t.me/joinchat/GAzSXRFsIU6zyuGAVXeyTQ'>Telegram</a>
             <a
-              href='https://twitter.com/'
+              href='https://twitter.com/money_button'
               target='_blank'
               rel='noreferrer noopener'
             >
@@ -68,14 +68,15 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>More</h5>
-            <a href={this.props.config.baseUrl + 'blog'}>Blog</a>
-            <a href='https://github.com/'>GitHub</a>
+            <a href='https://blog.moneybutton.com'>Blog</a>
+            <a href='https://www.instagram.com/money_button'>Instagram</a>
+            <a href='https://github.com/moneybutton'>GitHub</a>
             <a
               className='github-button'
-              href={this.props.config.repoUrl}
+              href='https://github.com/moneybutton'
               data-icon='octicon-star'
-              data-count-href='/facebook/docusaurus/stargazers'
-              data-show-count={true}
+              data-count-href='/react-money-button'
+              data-show-count={false}
               data-count-aria-label='# stargazers on GitHub'
               aria-label='Star this project on GitHub'
             >
@@ -84,7 +85,7 @@ class Footer extends React.Component {
           </div>
         </section>
 
-        <a
+        {/* <a
           href='https://code.facebook.com/projects/'
           target='_blank'
           rel='noreferrer noopener'
@@ -96,7 +97,7 @@ class Footer extends React.Component {
             width='170'
             height='45'
           />
-        </a>
+        </a> */}
         <section className='copyright'>{this.props.config.copyright}</section>
       </footer>
     )

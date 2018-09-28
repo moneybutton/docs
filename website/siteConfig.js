@@ -14,7 +14,7 @@ const users = [
     caption: 'User1',
     // You will need to prepend the image path with your baseUrl
     // if it is not '/', like: '/test-site/img/docusaurus.svg'.
-    image: '/img/docusaurus.svg',
+    image: '/img/moneybutton.jpg',
     infoLink: 'https://www.moneybutton.com',
     pinned: true
   }
@@ -41,22 +41,22 @@ const siteConfig = {
     { doc: 'html', label: 'HTML' },
     { doc: 'react-money-button', label: 'React' },
     { doc: 'webhook', label: 'Webhook' },
-    { doc: 'auth', label: 'Auth' },
-    { doc: 'iframe', label: 'iframe' }
+    // { doc: 'auth', label: 'Auth' },
+    // { doc: 'iframe', label: 'iframe' }
   ],
 
   // If you have users set above, you add it here:
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/docusaurus.svg',
-  footerIcon: 'img/docusaurus.svg',
+  headerIcon: 'img/moneybutton.jpg',
+  footerIcon: 'img/moneybutton.jpg',
   favicon: 'img/favicon.png',
 
   /* colors for website */
   colors: {
-    primaryColor: '#2E8555',
-    secondaryColor: '#205C3B'
+    primaryColor: '#4872F6',
+    secondaryColor: '#222230'
   },
 
   /* custom fonts for website */
@@ -86,8 +86,8 @@ const siteConfig = {
   onPageNav: 'separate',
 
   /* Open Graph and Twitter card images */
-  ogImage: 'img/docusaurus.png',
-  twitterImage: 'img/docusaurus.png'
+  ogImage: 'img/moneybutton.jpg',
+  twitterImage: 'img/moneybutton.jpg'
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
