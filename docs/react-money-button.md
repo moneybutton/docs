@@ -34,7 +34,7 @@ The MoneyButton component can take a number of props:
 | `currency`         | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
 | `label`            | `string`                                  | `''`          |
 | `hideAmount`       | `boolean`                                 | `false`       |
-| `opReturnData`     | `string`                                  | `null`        |
+| `opReturn`         | `string`                                  | `null`        |
 | `outputs`          | `array`                                   | `[]`          |
 | `clientIdentifier` | `string`                                  | `null`        |
 | `buttonId`         | `string`                                  | `null`        |
