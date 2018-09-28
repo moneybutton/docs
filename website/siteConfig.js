@@ -22,7 +22,7 @@ const users = [
 
 const siteConfig = {
   title: 'Money Button Documentation' /* title for your website */,
-  tagline: 'How to money button.',
+  tagline: 'How to develop apps with Money Button.',
   url: 'https://docs.moneybutton.com' /* your website url */,
   baseUrl: '/' /* base url for your project */,
   // For github.io type URLs, you would set the url and baseUrl like:

@@ -47,8 +47,12 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>Community</h5>
-            <a href={this.pageUrl('users.html', this.props.language)}>
-              User Showcase
+            <a
+              href='https://www.reddit.com/r/moneybutton'
+              target='_blank'
+              rel='noreferrer noopener'
+            >
+              reddit
             </a>
             <a
               href='https://www.youtube.com/c/moneybutton'
