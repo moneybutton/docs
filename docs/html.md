@@ -5,86 +5,254 @@ title: HTML
 
 How to use in HTML:
 
-```
+``` html
 <!-- place once in your HTML at the top -->
 <script src="https://api.moneybutton.com/moneybutton.js" />
 ```
 
-```
+This script allows the user to create Money Button components in two different
+ways:
+
+* Using HTML tags with specific attributes that work as place holders for the button.
+* Using the global `moneyButton` object to define Money Button components
+dynamically with javascript.
+
+## Defining buttons with HTML
+
+When the document finishes loading, our script looks around the document for `<div>` elements with
+the `money-button` class and certain attributes. Every `<div>` that matches the search is transformed into a Money Button component.
+
+``` html
 <!-- place your button(s) anywhere you want in your HTML -->
 <div class="money-button"
   data-to=[to]
   data-amount=[amount]
   data-currency=[currency]
-/>
+></div>
 ```
 
-The MoneyButton div can take a number of params:
+A Money Button `<div>` can take the following attributes:
 
-| prop                     | type                                      | default value |
-| ------------------------ | ----------------------------------------- | ------------- |
-| `data-to`                | `string` (either a BCH address or userId) | `null`        |
-| `data-amount`            | `string`                                  | `null`        |
-| `data-currency`          | `string` (`'USD'`, `'BCH'`, etc.)         | `'USD'`       |
-| `data-label`             | `string`                                  | `''`          |
-| `data-hide-amount`       | `string` (`'true'` or `'false'`)          | `'false'`     |
-| `data-op-return`         | `string`                                  | `null`        |
-| `data-outputs`           | `string`                                  | `'[]'`        |
-| `data-client-identifier` | `string`                                  | `null`        |
-| `data-button-id`         | `string`                                  | `null`        |
-| `data-button-data`       | `string`                                  | `null`        |
-| `data-type`              | `string` (`'buy', 'tip'`)                 | `'buy'`       |
-| `data-on-payment`        | `string`                                  | `null`        |
-| `data-on-error`          | `string`                                  | `null`        |
-| `data-dev-mode`          | `string` (`'true'` or `'false'`)          | `'false'`     |
+| prop                     | type                                                           | default value |
+| ------------------------ | -------------------------------------------------------------- | ------------- |
+| `data-to`                | `string` (either a BCH address, a user number or a BCH script) | `null`        |
+| `data-amount`            | `string`                                                       | `null`        |
+| `data-currency`          | `string` (`'USD'`, `'BCH'`, etc.)                              | `'USD'`       |
+| `data-label`             | `string`                                                       | `''`          |
+| `data-op-return`         | `string`                                                       | `null`        |
+| `data-outputs`           | `string`                                                       | `'[]'`        |
+| `data-client-identifier` | `string`                                                       | `null`        |
+| `data-button-id`         | `string`                                                       | `null`        |
+| `data-button-data`       | `string`                                                       | `null`        |
+| `data-type`              | `string` (`'buy', 'tip'`)                                      | `'buy'`       |
+| `data-on-payment`        | `string`                                                       | `null`        |
+| `data-on-error`          | `string`                                                       | `null`        |
+| `data-dev-mode`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
 
-`outputs` is a JSON stringified list of `output` objects. Each `output` object has these parameters:
+### data-to
+
+This attribute specifies who is going to receive the payment. It's a string, and depending on
+its format it is interpreted in different ways:
+
+* Natural number: If the value matches with a natural number ( `/^\d+$/` ) then it is iterpreted
+as a user number, so the receiver is a Money Button user with that exact user number.
+* BCH Address: In this case the recipient of the transaction is going to be that address. The address does not need to belong to a Money Button user.
+* Script: When the value can be interpreted as a valid BCH script using ASM format, then we use
+that script as an output script.
+* If the this attribute doesn't match with any of the previous forms, the button fails.
+
+This argument works together with `data-amount` and `data-currency`. If one of them is present
+the other two have to be present too.
+
+If this attribute is present then `data-outputs` attributes cannot be present.
+
+### data-amount and data-currency
+
+`data-amount` is a decimal number expressed as a string.
+`data-currency` is the ISO code of the currency for fiat, or the ticker symbol for cryptocurrencies. It's always
+a three letter code.
+
+These two combined specify the amount of money to be transfered when the button is swiped. The amount
+is converted into BCH at the moment of the swipe.
+
+Both of them work together with `data-to`. If any of the three is present, the other two have to be present too.
+
+### data-label
+
+Is the label of the button.
+
+![lala](assets/labelexample.png)
+
+### data-op-return
+
+If this attribute is present an extra output is added to the transaction with a simple `OP_RETURN` script
+to post data on the BCH blockchain. The string is encoded in UTF-8 and used directly in the script.
+The size limit is 220 bytes as determined by the BCH protocol.
+
+### data-outputs
+
+This attribute is used to specify a lists of outputs on the BCH transaction. It can't be used at the same
+time with `data-to`, `data-amount` or `data-currency`.
+
+`outputs` is a JSON string containing a lists of outputs. Each `element` may have the following properties:
 
 | name       | type                          | required? |
 | ---------- | ----------------------------- | --------- |
+| `to`       | `string`                      | optional  |
+| `type`     | `string`                      | optional  |
 | `address`  | `string`                      | optional  |
 | `userId`   | `string`                      | optional  |
 | `script`   | `string`                      | optional  |
 | `amount`   | `string`                      | required  |
 | `currency` | `string` (`USD`, `BCH`, etc.) | required  |
 
-Also, the `onPayment` and `onError` strings are actually the name of a function in the global namespace. Those functions must look like this:
+`to`, `amount` and `currecy` work exactly as the top level attributes with the same name, except for the
+detail that all the outputs have to use the same currency. If there are 2 outputs using different
+currencies the button will fail before rendering.
 
+Instead of using `to` argument you can specify wich kind of output you are using with the attribute `type`. `type`
+can take any of these values:
+
+| value        | description                                                              |
+| ------------ | ------------------------------------------------------------------------ |
+| `USER`       | Refers to a Money Button User. The attribute `userId` must be present.  |
+| `ADDRESS`    | Refers to a BCH addres. The attribute `address` mustt be present.       |
+| `SCRIPT`     | Refers to an output script. The attribute `script` must be present.     |
+
+### data-client-identifier
+
+Each app that uses Money Button is called a "client" in the jargon of OAuth. Money Button supports multiple clients per account. This is useful when a user wants to use Money Button to build
+several apps. When a transaction is done on a specific client the owner of the client can see the transaction even if they are not a recipient or sender of the funds.
+
+More documentation about clients and OAuth will be available soon.
+
+### data-button-id
+
+This attribute is an identifier of the payment of the button. It can be used as an invoice number or reference number. It can be any string and it's attached to the payments
+created with a specific button. Payments are stored with that string and then can be queried later using this attribute.
+
+More documentation about Payments API will be available soon.
+
+# data-button-data
+
+This attribute can be any string, but is meant to be a valid JSON string. The user can set arbitrary
+data here, that is associated with the payment and sent on the webhooks and retrieved with the API.
+
+# data-on-payment
+
+It's the name of a function defined in the global scope. The function is called when the user makes a successful payment.
+
+``` html
+<script>
+  function myCustomCallback (payment) {
+    console.log('Yay! A Payment!')
+  }
+</script>
+
+<div class="money-button"
+  data-to="[to]"
+  data-amount="[amount]"
+  data-currency="[currency]"
+  data-on-paymeny="myCustomCallback"
+></div>
 ```
-function onPayment (payment) {
-    // ...
-}
 
-function onError (error) {
-    // ...
-}
+They payment attribute is a javascript object with the following attributes:
+
+| name         | type     | description                                                           |
+| ------------ | -------- | --------------------------------------------------------------------- |
+| `id`         | `string` | Unique Money Button id of the payment.                                |
+| `buttonId`   | `string` | The identifier specified in the button used to pay.                   |
+| `buttonData` | `string` | The data indicated in the button.                                     |
+| `status`     | `string` | Status of the payment. More information on `webhooks` documentation.  |
+| `txid`       | `string` | id of the BCH transaction.                                            |
+| `ntxid`      | `string` | Normalized id of the BCH transaction.                                 |
+| `amount`     | `string` | Total amount paid.                                                    |
+| `currency`   | `string` | Currency of the button.                                               |
+| `satoshis`   | `string` | Total amount expressed in Satoshis.                                   |
+| `outputs`    | `array`  | Output details                                                        |
+
+The function is always called in the context of 'window' object.
+
+### data-on-error
+
+It's the name of a function defined in the global scope. The function is called when an error occurs during the payment.
+Is not called if there is a problem with the paramers of the button or if there is a problem related with compatibility.
+
+``` html
+<script>
+  function myCustomCallback (error) {
+    console.log(`Oh no! Something went wrong: ${error}`)
+  }
+</script>
+
+<div class="money-button"
+  data-to="[to]"
+  data-amount="[amount]"
+  data-currency="[currency]"
+  data-on-error="myCustomCallback"
+></div>
 ```
 
-Where the `payment` is an object that looks like this:
+The parameter received by the function is the description of the error.
+The function is always called in the context of `window` object.
 
-| name         | type     |
-| ------------ | -------- |
-| `id`         | `string` |
-| `buttonId`   | `string` |
-| `buttonData` | `string` |
-| `status`     | `string` |
-| `txid`       | `string` |
-| `ntxid`      | `string` |
-| `amount`     | `string` |
-| `currency`   | `string` |
-| `satoshis`   | `string` |
-| `outputs`    | `array`  |
+### data-dev-mode
 
-Where in this case the outputs are slightly more sophisticated:
+This attribute is `false` by default. If it is set to `true` the button becomes a dummy component. It doesn't
+execute any callback and doesn't interact with the backend at all. Instead it always succeeds.
 
-| name       | type                                       |
-| ---------- | ------------------------------------------ |
-| `type`     | `string` (`'address', 'userId', 'script'`) |
-| `address`  | `string`                                   |
-| `userId`   | `string`                                   |
-| `script`   | `string`                                   |
-| `amount`   | `string`                                   |
-| `currency` | `string`                                   |
-| `satoshis` | `number`                                   |
+## The `moneyButton` object
 
-When `devMode` is enabled the button desn't make any transaction.
+Our script also defines a global object called `moneyButton`. Right now
+it provides only one function `render`.
+
+### render
+
+``` html
+<div id='some-div'></div>
+<script>
+  const div = document.findElementById('some-div')
+  moneyButton.render(div, {
+    amount: "1",
+    to: "bitcoincash:qz2dcdn8knkadgz8fjgue8c5la7pshggt5c4e3swsk",
+    currency: "USD",
+    label: "Wait...",
+    clientIdentifier: "some public client identifier",
+    buttonId: "234325",
+    buttonData: "{}",
+    type: "tip",
+    onPayment: function (arg) { console.log('onPayment', arg) },
+    onError: function (arg) { console.log('onError', arg) }
+  })
+</script>
+```
+
+`moneyButton.render` takes two parameters. The first one is an DOM node. The button
+is going to be placed inside that DOM node. The second one is an object with options.
+
+The available options are:
+
+
+| prop                | type                                      | default value  |
+| ------------------- | ----------------------------------------- | -------------- |
+| `to`                | `string` (either a BCH address or userId) | `null`         |
+| `amount`            | `string`                                  | `null`         |
+| `currency`          | `string` (`'USD'`, `'BCH'`, etc.)         | `'USD'`        |
+| `label`             | `string`                                  | `''`           |
+| `opReturn`          | `string`                                  | `null`         |
+| `outputs`           | `array`                                   | `[]`           |
+| `clientIdentifier ` | `string`                                  | `null`         |
+| `buttonId`          | `string`                                  | `null`         |
+| `buttonData`        | `string`                                  | `null`         |
+| `type`              | `string` (`'buy', 'tip'`)                 | `'buy'`        |
+| `onPayment`         | `function`                                | `null`         |
+| `onError`           | `function`                                | `null`         |
+| `devMode`           | `string` (`'true'` or `'false'`)          | `'false'`      |
+
+
+All the options are matched with the attributes of the HTML API, and have the exact
+same behavior.
+
+The callbacks are only called on events related to payments, and they are always
+executed in the context of the `window` object.
