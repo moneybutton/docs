@@ -61,7 +61,7 @@ class Footer extends React.Component {
             >
               Youtube
             </a>
-            <a href='https://t.me/joinchat/GAzSXRFsIU6zyuGAVXeyTQ'>Telegram</a>
+            <a href='https://t.me/moneybuttonhelp'>Telegram</a>
             <a
               href='https://twitter.com/money_button'
               target='_blank'
