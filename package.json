@@ -1,6 +1,6 @@
 {
-  "name": "mb-docs",
-  "version": "0.1.0",
+  "name": "@moneybutton/docs",
+  "version": "0.1.7",
   "description": "Money Button documentation.",
   "main": "index.js",
   "scripts": {
