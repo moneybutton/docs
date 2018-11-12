@@ -307,7 +307,7 @@
     "gulplog": "^1.0.0",
     "har-schema": "^2.0.0",
     "gzip-size": "^3.0.0",
-    "har-validator": "^5.0.3",
+    "har-validator": "5.0.3",
     "has-gulplog": "^0.1.0",
     "has-ansi": "^2.0.0",
     "has": "^1.0.3",
