@@ -35,9 +35,9 @@ A Money Button `<div>` can take the following attributes:
 
 | prop                     | type                                                           | default value |
 | ------------------------ | -------------------------------------------------------------- | ------------- |
-| `data-to`                | `string` (either a BCH address, a user number or a BCH script) | `null`        |
+| `data-to`                | `string` (either a BSV address, a user number or a BSV script) | `null`        |
 | `data-amount`            | `string`                                                       | `null`        |
-| `data-currency`          | `string` (`'USD'`, `'BCH'`, etc.)                              | `'USD'`       |
+| `data-currency`          | `string` (`'USD'`, `'BSV'`, etc.)                              | `'USD'`       |
 | `data-label`             | `string`                                                       | `''`          |
 | `data-op-return`         | `string`                                                       | `null`        |
 | `data-outputs`           | `string`                                                       | `'[]'`        |
@@ -54,10 +54,10 @@ A Money Button `<div>` can take the following attributes:
 This attribute specifies who is going to receive the payment. It's a string, and depending on
 its format it is interpreted in different ways:
 
-* Natural number: If the value matches with a natural number ( `/^\d+$/` ) then it is iterpreted
+* Natural number: If the value matches with a natural number ( `/^\d+$/` ) then it is interpreted
 as a user number, so the receiver is a Money Button user with that exact user number.
-* BCH Address: In this case the recipient of the transaction is going to be that address. The address does not need to belong to a Money Button user.
-* Script: When the value can be interpreted as a valid BCH script using ASM format, then we use
+* BSV Address: In this case the recipient of the transaction is going to be that address. The address does not need to belong to a Money Button user.
+* Script: When the value can be interpreted as a valid BSV script using ASM format, then we use
 that script as an output script.
 * If the this attribute doesn't match with any of the previous forms, the button fails.
 
@@ -72,8 +72,8 @@ If this attribute is present then `data-outputs` attributes cannot be present.
 `data-currency` is the ISO code of the currency for fiat, or the ticker symbol for cryptocurrencies. It's always
 a three letter code.
 
-These two combined specify the amount of money to be transfered when the button is swiped. The amount
-is converted into BCH at the moment of the swipe.
+These two combined specify the amount of money to be transferred when the button is swiped. The amount
+is converted into BSV at the moment of the swipe.
 
 Both of them work together with `data-to`. If any of the three is present, the other two have to be present too.
 
@@ -86,12 +86,12 @@ Is the label of the button.
 ### data-op-return
 
 If this attribute is present an extra output is added to the transaction with a simple `OP_RETURN` script
-to post data on the BCH blockchain. The string is encoded in UTF-8 and used directly in the script.
-The size limit is 220 bytes as determined by the BCH protocol.
+to post data on the BSV blockchain. The string is encoded in UTF-8 and used directly in the script.
+The size limit is 220 bytes as determined by the BSV protocol.
 
 ### data-outputs
 
-This attribute is used to specify a lists of outputs on the BCH transaction. It can't be used at the same
+This attribute is used to specify a lists of outputs on the BSV transaction. It can't be used at the same
 time with `data-to`, `data-amount` or `data-currency`.
 
 `outputs` is a JSON string containing a lists of outputs. Each `element` may have the following properties:
@@ -104,19 +104,19 @@ time with `data-to`, `data-amount` or `data-currency`.
 | `userId`   | `string`                      | optional  |
 | `script`   | `string`                      | optional  |
 | `amount`   | `string`                      | required  |
-| `currency` | `string` (`USD`, `BCH`, etc.) | required  |
+| `currency` | `string` (`USD`, `BSV`, etc.) | required  |
 
-`to`, `amount` and `currecy` work exactly as the top level attributes with the same name, except for the
+`to`, `amount` and `currency` work exactly as the top level attributes with the same name, except for the
 detail that all the outputs have to use the same currency. If there are 2 outputs using different
 currencies the button will fail before rendering.
 
-Instead of using `to` argument you can specify wich kind of output you are using with the attribute `type`. `type`
+Instead of using `to` argument you can specify which kind of output you are using with the attribute `type`. `type`
 can take any of these values:
 
 | value        | description                                                              |
 | ------------ | ------------------------------------------------------------------------ |
 | `USER`       | Refers to a Money Button User. The attribute `userId` must be present.  |
-| `ADDRESS`    | Refers to a BCH addres. The attribute `address` mustt be present.       |
+| `ADDRESS`    | Refers to a BSV address. The attribute `address` must be present.       |
 | `SCRIPT`     | Refers to an output script. The attribute `script` must be present.     |
 
 ### data-client-identifier
@@ -165,8 +165,8 @@ They payment attribute is a javascript object with the following attributes:
 | `buttonId`   | `string` | The identifier specified in the button used to pay.                   |
 | `buttonData` | `string` | The data indicated in the button.                                     |
 | `status`     | `string` | Status of the payment. More information on `webhooks` documentation.  |
-| `txid`       | `string` | id of the BCH transaction.                                            |
-| `ntxid`      | `string` | Normalized id of the BCH transaction.                                 |
+| `txid`       | `string` | id of the BSV transaction.                                            |
+| `ntxid`      | `string` | Normalized id of the BSV transaction.                                 |
 | `amount`     | `string` | Total amount paid.                                                    |
 | `currency`   | `string` | Currency of the button.                                               |
 | `satoshis`   | `string` | Total amount expressed in Satoshis.                                   |
@@ -177,7 +177,7 @@ The function is always called in the context of 'window' object.
 ### data-on-error
 
 It's the name of a function defined in the global scope. The function is called when an error occurs during the payment.
-Is not called if there is a problem with the paramers of the button or if there is a problem related with compatibility.
+Is not called if there is a problem with the parameters of the button or if there is a problem related with compatibility.
 
 ``` html
 <script>
@@ -236,9 +236,9 @@ The available options are:
 
 | prop                | type                                      | default value  |
 | ------------------- | ----------------------------------------- | -------------- |
-| `to`                | `string` (either a BCH address or userId) | `null`         |
+| `to`                | `string` (either a BSV address or userId) | `null`         |
 | `amount`            | `string`                                  | `null`         |
-| `currency`          | `string` (`'USD'`, `'BCH'`, etc.)         | `'USD'`        |
+| `currency`          | `string` (`'USD'`, `'BSV'`, etc.)         | `'USD'`        |
 | `label`             | `string`                                  | `''`           |
 | `opReturn`          | `string`                                  | `null`         |
 | `outputs`           | `array`                                   | `[]`           |

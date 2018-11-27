@@ -29,9 +29,9 @@ The MoneyButton component can take a number of props:
 
 | prop               | type                                      | default value |
 | ------------------ | ----------------------------------------- | ------------- |
-| `to`               | `string` (either a BCH address or userId) | `null`        |
+| `to`               | `string` (either a BSV address or userId) | `null`        |
 | `amount`           | `string`                                  | `null`        |
-| `currency`         | `string` (`USD`, `BCH`, etc.)             | `'USD'`       |
+| `currency`         | `string` (`USD`, `BSV`, etc.)             | `'USD'`       |
 | `label`            | `string`                                  | `''`          |
 | `hideAmount`       | `boolean`                                 | `false`       |
 | `opReturn`         | `string`                                  | `null`        |
@@ -52,7 +52,7 @@ The MoneyButton component can take a number of props:
 | `userId`   | `string`                      | optional  |
 | `script`   | `string`                      | optional  |
 | `amount`   | `string`                      | required  |
-| `currency` | `string` (`USD`, `BCH`, etc.) | required  |
+| `currency` | `string` (`USD`, `BSV`, etc.) | required  |
 
 Also, the `onPayment` function must look like this:
 
