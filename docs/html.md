@@ -215,7 +215,7 @@ it provides only one function `render`.
   const div = document.findElementById('some-div')
   moneyButton.render(div, {
     amount: "1",
-    to: "bitcoincash:qz2dcdn8knkadgz8fjgue8c5la7pshggt5c4e3swsk",
+    to: "12cRRk9wn2LofWKE2wwxb7mw5qNeMaW7zH",
     currency: "USD",
     label: "Wait...",
     clientIdentifier: "some public client identifier",
