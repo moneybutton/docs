@@ -47,6 +47,7 @@ A Money Button `<div>` can take the following attributes:
 | `data-type`              | `string` (`'buy', 'tip'`)                                      | `'buy'`       |
 | `data-on-payment`        | `string`                                                       | `null`        |
 | `data-on-error`          | `string`                                                       | `null`        |
+| `data-editable`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
 | `data-dev-mode`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
 
 ### data-to
@@ -201,6 +202,13 @@ The function is always called in the context of `window` object.
 
 This attribute is `false` by default. If it is set to `true` the button becomes a dummy component. It doesn't
 execute any callback and doesn't interact with the backend at all. Instead it always succeeds.
+
+### data-editable
+
+When this attribute is true the button is displayed in an editable mode, allowing the user
+to set the amount of the transaction before pay. When this attribute is set to `true` the
+values of `data-to`, `data-amount`, `data-currency` and `data-outputs` are ignored.
+Editable buttons are able to have `OP_RETURN` using the attribute `data-op-return`.
 
 ## The `moneyButton` object
 

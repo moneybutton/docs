@@ -42,6 +42,7 @@ The MoneyButton component can take a number of props:
 | `type`             | `string` (`'buy', 'tip'`)                 | `'buy'`       |
 | `onPayment`        | `function`                                | `null`        |
 | `onError`          | `function`                                | `null`        |
+| `editable`         | `boolean`                                 | `false`       |
 | `devMode`          | `boolean`                                 | `false`       |
 
 `outputs` is a list of `output` objects. Each `output` object has these parameters:
@@ -106,3 +107,5 @@ It receives an object describing the error.
 
 When `devMode` is set to true no transactions are made when you swipe the button. It's just to try
 the button.
+
+For more information about how the parameters work, please reffer to [html version documentation](html.md)
