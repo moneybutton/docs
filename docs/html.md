@@ -154,7 +154,7 @@ It's the name of a function defined in the global scope. The function is called 
   data-to="[to]"
   data-amount="[amount]"
   data-currency="[currency]"
-  data-on-paymeny="myCustomCallback"
+  data-on-payment="myCustomCallback"
 ></div>
 ```
 
