@@ -220,7 +220,7 @@ it provides only one function `render`.
 ``` html
 <div id='some-div'></div>
 <script>
-  const div = document.findElementById('some-div')
+  const div = document.getElementById('some-div')
   moneyButton.render(div, {
     amount: "1",
     to: "12cRRk9wn2LofWKE2wwxb7mw5qNeMaW7zH",
