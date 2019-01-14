@@ -7,7 +7,7 @@ How to use in HTML:
 
 ``` html
 <!-- place once in your HTML at the top -->
-<script src="https://www.moneybutton.com/moneybutton.js" />
+<script src="https://www.moneybutton.com/moneybutton.js"></script>
 ```
 
 This script allows the user to create Money Button components in two different
