@@ -40,7 +40,7 @@ const siteConfig = {
   headerLinks: [
     { doc: 'html', label: 'HTML' },
     { doc: 'react-money-button', label: 'React' },
-    { doc: 'webhook', label: 'Webhook' },
+    { doc: 'webhook', label: 'Webhook' }
     // { doc: 'auth', label: 'Auth' },
     // { doc: 'iframe', label: 'iframe' }
   ],
