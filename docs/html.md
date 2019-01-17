@@ -39,6 +39,7 @@ A Money Button `<div>` can take the following attributes:
 | `data-amount`            | `string`                                                       | `null`        |
 | `data-currency`          | `string` (`'USD'`, `'BSV'`, etc.)                              | `'USD'`       |
 | `data-label`             | `string`                                                       | `''`          |
+| `data-success-message`   | `string`                                                       | `It's yours!` |
 | `data-op-return`         | `string`                                                       | `null`        |
 | `data-outputs`           | `string`                                                       | `'[]'`        |
 | `data-client-identifier` | `string`                                                       | `null`        |
@@ -83,6 +84,14 @@ Both of them work together with `data-to`. If any of the three is present, the o
 Is the label of the button.
 
 ![lala](assets/labelexample.png)
+
+### data-success-message
+
+After a successful payment the button shows a success animation with a success message.
+This attribute allows to spicify a custom success message.
+
+When this value is not present the button has different defaults regarding it's type.
+Tip buttons shows `You tipped!`, and buy buttons show `It's yours!`.
 
 ### data-op-return
 

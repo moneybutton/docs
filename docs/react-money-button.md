@@ -27,23 +27,24 @@ How to use it to receive a specific amount at a specific address:
 
 The MoneyButton component can take a number of props:
 
-| prop               | type                                      | default value |
-| ------------------ | ----------------------------------------- | ------------- |
-| `to`               | `string` (either a BSV address or userId) | `null`        |
-| `amount`           | `string`                                  | `null`        |
-| `currency`         | `string` (`USD`, `BSV`, etc.)             | `'USD'`       |
-| `label`            | `string`                                  | `''`          |
-| `hideAmount`       | `boolean`                                 | `false`       |
-| `opReturn`         | `string`                                  | `null`        |
-| `outputs`          | `array`                                   | `[]`          |
-| `clientIdentifier` | `string`                                  | `null`        |
-| `buttonId`         | `string`                                  | `null`        |
-| `buttonData`       | `string`                                  | `null`        |
-| `type`             | `string` (`'buy', 'tip'`)                 | `'buy'`       |
-| `onPayment`        | `function`                                | `null`        |
-| `onError`          | `function`                                | `null`        |
-| `editable`         | `boolean`                                 | `false`       |
-| `devMode`          | `boolean`                                 | `false`       |
+| prop               | type                                      | default value   |
+| ------------------ | ----------------------------------------- | --------------- |
+| `to`               | `string` (either a BSV address or userId) | `null`          |
+| `amount`           | `string`                                  | `null`          |
+| `currency`         | `string` (`USD`, `BSV`, etc.)             | `'USD'`         |
+| `label`            | `string`                                  | `''`            |
+| `successMessage`   | `string`                                  | `'It's yours!'` |
+| `hideAmount`       | `boolean`                                 | `false`         |
+| `opReturn`         | `string`                                  | `null`          |
+| `outputs`          | `array`                                   | `[]`            |
+| `clientIdentifier` | `string`                                  | `null`          |
+| `buttonId`         | `string`                                  | `null`          |
+| `buttonData`       | `string`                                  | `null`          |
+| `type`             | `string` (`'buy', 'tip'`)                 | `'buy'`         |
+| `onPayment`        | `function`                                | `null`          |
+| `onError`          | `function`                                | `null`          |
+| `editable`         | `boolean`                                 | `false`         |
+| `devMode`          | `boolean`                                 | `false`         |
 
 `outputs` is a list of `output` objects. Each `output` object has these parameters:
 
