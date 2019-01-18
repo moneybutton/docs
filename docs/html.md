@@ -88,9 +88,9 @@ Is the label of the button.
 ### data-success-message
 
 After a successful payment the button shows a success animation with a success message.
-This attribute allows to spicify a custom success message.
+This attribute allows you to specify a custom success message.
 
-When this value is not present the button has different defaults regarding it's type.
+When this value is not present the button has different defaults regarding its type.
 Tip buttons shows `You tipped!`, and buy buttons show `It's yours!`.
 
 ### data-op-return
