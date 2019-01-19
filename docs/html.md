@@ -91,7 +91,7 @@ After a successful payment the button shows a success animation with a success m
 This attribute allows you to specify a custom success message.
 
 When this value is not present the button has different defaults regarding its type.
-Tip buttons shows `You tipped!`, and buy buttons show `It's yours!`.
+Tip buttons shows `Thank you!`, and buy buttons show `It's yours!`.
 
 ### data-op-return
 
