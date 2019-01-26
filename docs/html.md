@@ -97,7 +97,7 @@ Tip buttons shows `Thank you!`, and buy buttons show `It's yours!`.
 
 If this attribute is present an extra output is added to the transaction with a simple `OP_RETURN` script
 to post data on the BSV blockchain. The string is encoded in UTF-8 and used directly in the script.
-The size limit is 220 bytes as determined by the BSV protocol.
+The size limit is 99000 bytes as determined by the BSV protocol.
 
 ### data-outputs
 
