@@ -35,7 +35,7 @@ A Money Button `<div>` can take the following attributes:
 
 | prop                     | type                                                           | default value |
 | ------------------------ | -------------------------------------------------------------- | ------------- |
-| `data-to`                | `string` (either a BSV address, a user number or a BSV script) | `null`        |
+| `data-to`                | `string` (either a BSV address, a user ID or a BSV script)     | `null`        |
 | `data-amount`            | `string`                                                       | `null`        |
 | `data-currency`          | `string` (`'USD'`, `'BSV'`, etc.)                              | `'USD'`       |
 | `data-label`             | `string`                                                       | `''`          |
@@ -57,7 +57,7 @@ This attribute specifies who is going to receive the payment. It's a string, and
 its format it is interpreted in different ways:
 
 * Natural number: If the value matches with a natural number ( `/^\d+$/` ) then it is interpreted
-as a user number, so the receiver is a Money Button user with that exact user number.
+as a user ID, so the receiver is a Money Button user with that exact user ID.
 * BSV Address: In this case the recipient of the transaction is going to be that address. The address does not need to belong to a Money Button user.
 * Script: When the value can be interpreted as a valid BSV script using ASM format, then we use
 that script as an output script.
