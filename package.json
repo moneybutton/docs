@@ -13,5 +13,8 @@
   "repository": "https://github.com/moneybutton/yours/",
   "author": "Yours Inc.",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "standard": "12.0.1"
+  }
 }
