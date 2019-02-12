@@ -92,7 +92,7 @@ Where in this case the outputs are slightly more sophisticated:
 | `currency` | `string`                                   |
 | `satoshis` | `number`                                   |
 
-`to` is optional. It can be a bch address, a user id or a script.
+`to` is optional. It can be a BSV address, a user id or a script.
 if `to` is present then `type`, `address`, `userId` and `currency`
 should not be present.
 
