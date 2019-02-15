@@ -3,24 +3,27 @@ id: mb-html
 title: HTML
 ---
 
-How to use in HTML:
+The easiest way to add a Money Button to a website is with the HTML Money
+Button. First, add this script to your HTML somewhere:
 
 ``` html
-<!-- place once in your HTML at the top -->
 <script src="https://www.moneybutton.com/moneybutton.js"></script>
 ```
 
 This script allows the user to create Money Button components in two different
 ways:
 
-* Using HTML tags with specific attributes that work as place holders for the button.
+* Using HTML tags with specific attributes that work as place holders for the
+  button. That is what this document is about.
 * Using the global `moneyButton` object to define Money Button components
-dynamically with javascript.
+  dynamically with javascript. To learn more about that, see the
+  [Javascript](./mb-javascript.html) document.
 
 ## Defining buttons with HTML
 
-When the document finishes loading, our script looks around the document for `<div>` elements with
-the `money-button` class and certain attributes. Every `<div>` that matches the search is transformed into a Money Button component.
+When the document finishes loading, our script looks around the document for
+`<div>` elements with the `money-button` class and certain attributes. Every
+`<div>` that matches the search is transformed into a Money Button component.
 
 ``` html
 <!-- place your button(s) anywhere you want in your HTML -->
@@ -56,28 +59,35 @@ A Money Button `<div>` can take the following attributes:
 This attribute specifies who is going to receive the payment. It's a string, and depending on
 its format it is interpreted in different ways:
 
-* Natural number: If the value matches with a natural number ( `/^\d+$/` ) then it is interpreted
-as a user ID, so the receiver is a Money Button user with that exact user ID.
-* BSV Address: In this case the recipient of the transaction is going to be that address. The address does not need to belong to a Money Button user.
-* Script: When the value can be interpreted as a valid BSV script using ASM format, then we use
-that script as an output script.
-* If the this attribute doesn't match with any of the previous forms, the button fails.
+* Natural number: If the value matches with a natural number ( `/^\d+$/` ) then
+  it is interpreted as a user ID, so the receiver is a Money Button user with
+  that exact user ID.
+* BSV Address: In this case the recipient of the transaction is going to be that
+  address. The address does not need to belong to a Money Button user.
+* Script: When the value can be interpreted as a valid BSV script using ASM
+  format, then we use that script as an output script.
+* If the this attribute doesn't match with any of the previous forms, the button
+  fails.
 
-This argument works together with `data-amount` and `data-currency`. If one of them is present
-the other two have to be present too.
+This argument works together with `data-amount` and `data-currency`. If one of
+them is present the other two have to be present too.
 
 If this attribute is present then `data-outputs` attributes cannot be present.
 
 ### data-amount and data-currency
 
 `data-amount` is a decimal number expressed as a string.
-`data-currency` is the ISO code of the currency for fiat, or the ticker symbol for cryptocurrencies. It's always
-a three letter code.
 
-These two combined specify the amount of money to be transferred when the button is swiped. The amount
-is converted into BSV at the moment of the swipe.
+`data-currency` is the ISO code of the currency for fiat, or the ticker symbol
+for cryptocurrencies. It's always a three letter code. Popular currencies
+include 'USD', 'ARS', 'GBP', and many others. For a full list, see [your user
+settings page](https://www.moneybutton.com/settings).
 
-Both of them work together with `data-to`. If any of the three is present, the other two have to be present too.
+These two combined specify the amount of money to be transferred when the button
+is swiped. The amount is converted into BSV at the moment of the swipe.
+
+Both of them work together with `data-to`. If any of the three is present, the
+other two have to be present too.
 
 ### data-label
 
@@ -87,24 +97,26 @@ Is the label of the button.
 
 ### data-success-message
 
-After a successful payment the button shows a success animation with a success message.
-This attribute allows you to specify a custom success message.
+After a successful payment the button shows a success animation with a success
+message. This attribute allows you to specify a custom success message.
 
-When this value is not present the button has different defaults regarding its type.
-Tip buttons shows `Thank you!`, and buy buttons show `It's yours!`.
+When this value is not present the button has different defaults regarding its
+type. Tip buttons shows `Thank you!`, and buy buttons show `It's yours!`.
 
 ### data-op-return
 
-If this attribute is present an extra output is added to the transaction with a simple `OP_RETURN` script
-to post data on the BSV blockchain. The string is encoded in UTF-8 and used directly in the script.
-The size limit is 99000 bytes as determined by the BSV protocol.
+If this attribute is present an extra output is added to the transaction with a
+simple `OP_RETURN` script to post data on the BSV blockchain. The string is
+encoded in UTF-8 and used directly in the script. The size limit is 99000 bytes
+as determined by the BSV protocol.
 
 ### data-outputs
 
-This attribute is used to specify a lists of outputs on the BSV transaction. It can't be used at the same
-time with `data-to`, `data-amount` or `data-currency`.
+This attribute is used to specify a lists of outputs on the BSV transaction. It
+can't be used at the same time with `data-to`, `data-amount` or `data-currency`.
 
-`outputs` is a JSON string containing a lists of outputs. Each `element` may have the following properties:
+`outputs` is a stringified JSON array containing a lists of output objects. Each
+`element` may have the following properties:
 
 | name       | type                          | required? |
 | ---------- | ----------------------------- | --------- |
@@ -116,12 +128,13 @@ time with `data-to`, `data-amount` or `data-currency`.
 | `amount`   | `string`                      | required  |
 | `currency` | `string` (`USD`, `BSV`, etc.) | required  |
 
-`to`, `amount` and `currency` work exactly as the top level attributes with the same name, except for the
-detail that all the outputs have to use the same currency. If there are 2 outputs using different
-currencies the button will fail before rendering.
+`to`, `amount` and `currency` work exactly as the top level attributes with the
+same name, except for the detail that all the outputs have to use the same
+currency. If there are 2 outputs using different currencies the button will fail
+before rendering.
 
-Instead of using `to` argument you can specify which kind of output you are using with the attribute `type`. `type`
-can take any of these values:
+Instead of using `to` argument you can specify which kind of output you are
+using with the attribute `type`. `type` can take any of these values:
 
 | value        | description                                                              |
 | ------------ | ------------------------------------------------------------------------ |
@@ -131,26 +144,33 @@ can take any of these values:
 
 ### data-client-identifier
 
-Each app that uses Money Button is called a "client" in the jargon of OAuth. Money Button supports multiple clients per account. This is useful when a user wants to use Money Button to build
-several apps. When a transaction is done on a specific client the owner of the client can see the transaction even if they are not a recipient or sender of the funds.
+Each app that uses Money Button is called a "client" in the jargon of OAuth.
+Money Button supports multiple clients per account. This is useful when a user
+wants to use Money Button to build several apps. When a transaction is done on a
+specific client the owner of the client can see the transaction even if they are
+not a recipient or sender of the funds.
 
 More documentation about clients and OAuth will be available soon.
 
 ### data-button-id
 
-This attribute is an identifier of the payment of the button. It can be used as an invoice number or reference number. It can be any string and it's attached to the payments
-created with a specific button. Payments are stored with that string and then can be queried later using this attribute.
+This attribute is an identifier of the payment of the button. It can be used as
+an invoice number or reference number. It can be any string and it's attached to
+the payments created with a specific button. Payments are stored with that
+string and then can be queried later using this attribute.
 
 More documentation about Payments API will be available soon.
 
 # data-button-data
 
-This attribute can be any string, but is meant to be a valid JSON string. The user can set arbitrary
-data here, that is associated with the payment and sent on the webhooks and retrieved with the API.
+This attribute can be any string, but is meant to be a valid JSON string. The
+user can set arbitrary data here, that is associated with the payment and sent
+on the webhooks and retrieved with the API.
 
 # data-on-payment
 
-It's the name of a function defined in the global scope. The function is called when the user makes a successful payment.
+It's the name of a function defined in the global scope. The function is called
+when the user makes a successful payment.
 
 ``` html
 <script>
@@ -186,8 +206,10 @@ The function is always called in the context of 'window' object.
 
 ### data-on-error
 
-It's the name of a function defined in the global scope. The function is called when an error occurs during the payment.
-Is not called if there is a problem with the parameters of the button or if there is a problem related with compatibility.
+It's the name of a function defined in the global scope. The function is called
+when an error occurs during the payment. Is not called if there is a problem
+with the parameters of the button or if there is a problem related with
+compatibility.
 
 ``` html
 <script>
@@ -209,12 +231,14 @@ The function is always called in the context of `window` object.
 
 ### data-dev-mode
 
-This attribute is `false` by default. If it is set to `true` the button becomes a dummy component. It doesn't
-execute any callback and doesn't interact with the backend at all. Instead it always succeeds.
+This attribute is `false` by default. If it is set to `true` the button becomes
+a dummy component. It doesn't execute any callback and doesn't interact with the
+backend at all. Instead it always succeeds.
 
 ### data-editable
 
-When this attribute is true the button is displayed in an editable mode, allowing the user
-to set the amount of the transaction before pay. When this attribute is set to `true` the
-values of `data-to`, `data-amount`, `data-currency` and `data-outputs` are ignored.
-Editable buttons are able to have `OP_RETURN` using the attribute `data-op-return`.
+When this attribute is true the button is displayed in an editable mode,
+allowing the user to set the amount of the transaction before pay. When this
+attribute is set to `true` the values of `data-to`, `data-amount`,
+`data-currency` and `data-outputs` are ignored. Editable buttons are able to
+have `OP_RETURN` using the attribute `data-op-return`.

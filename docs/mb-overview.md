@@ -1,6 +1,6 @@
 ---
 id: mb-overview
-title: Money Button Overview
+title: Overview
 ---
 
 Money Button is an API and a UI/UX layer for the Bitcoin SV blockchain. It is

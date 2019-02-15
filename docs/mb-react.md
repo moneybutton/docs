@@ -46,7 +46,8 @@ The MoneyButton component can take a number of props:
 | `editable`         | `boolean`                                 | `false`         |
 | `devMode`          | `boolean`                                 | `false`         |
 
-`outputs` is a list of `output` objects. Each `output` object has these parameters:
+`outputs` is a list of `output` objects. Each `output` object has these
+parameters:
 
 | name       | type                          | required? |
 | ---------- | ----------------------------- | --------- |
@@ -106,7 +107,8 @@ function myOnErrorCallback (error) {
 
 It receives an object describing the error.
 
-When `devMode` is set to true no transactions are made when you swipe the button. It's just to try
-the button.
+When `devMode` is set to true no transactions are made when you swipe the
+button. It's just to try the button.
 
-For more information about how the parameters work, please reffer to [html version documentation](html.md)
+For more information about how the parameters work, please reffer to [html
+version documentation](html.md)

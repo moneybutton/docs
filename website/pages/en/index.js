@@ -84,6 +84,21 @@ class HomeSplash extends React.Component {
             <Button href={docUrl('design-overview.html', language)}>Design</Button>
             <Button href={docUrl('bsv-overview.html', language)}>bsv</Button>
           </PromoSection>
+          <p style={{ maxWidth: '600px', textAlign: 'left', margin: '20px auto' }}>
+            Money Button is an API and a UI/UX layer for the Bitcoin SV blockchain. It is
+            very easy to add a Money Button to websites and apps to accept payments. In a
+            few lines of code, you can accept tips or display content behind a pay wall.
+          </p>
+
+          <p style={{ maxWidth: '600px', textAlign: 'left', margin: '20px auto' }}>
+            However, Money Button is far more than that. There is built-in currency
+            conversion, authentication, smart contracts, support for multiple outputs, and
+            the ability to write data such as files, receipts or invoices to the blockchain.
+            Additionally, with our API, design components, and bsv library, one can build
+            sophisticated full-featured on-chain apps. Our technical mission is to support
+            every feature of Bitcoin SV in a manner that is as easy to use as possible, both
+            for developers and end-users.
+          </p>
         </div>
       </SplashContainer>
     )
