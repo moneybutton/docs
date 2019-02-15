@@ -1,6 +1,6 @@
 ---
-id: react-money-button
-title: React Component
+id: mb-react
+title: React
 ---
 
 How to install the React component:

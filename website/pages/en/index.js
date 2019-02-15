@@ -76,13 +76,13 @@ class HomeSplash extends React.Component {
     let language = this.props.language || ''
     return (
       <SplashContainer>
-        {/* <Logo img_src={imgUrl('moneybutton.jpg')} /> */}
         <div className='inner'>
           <ProjectTitle />
           <PromoSection>
-            <Button href={docUrl('html.html', language)}> HTML </Button>
-            <Button href={docUrl('react-money-button.html', language)}>React</Button>
-            <Button href={docUrl('webhook.html', language)}>Webhook</Button>
+            <Button href={docUrl('mb-overview.html', language)}>Money Button</Button>
+            <Button href={docUrl('api-overview.html', language)}>API</Button>
+            <Button href={docUrl('design-overview.html', language)}>Design</Button>
+            <Button href={docUrl('bsv-overview.html', language)}>bsv</Button>
           </PromoSection>
         </div>
       </SplashContainer>

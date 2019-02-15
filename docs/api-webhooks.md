@@ -1,6 +1,6 @@
 ---
-id: webhook
-title: Webhook
+id: api-webhooks
+title: Webhooks
 ---
 
 When one of your users makes a payment, you need to know the status of that payment. The payment goes through several different status in its lifetime. When the status of a payment changes, we ping your webhook URL.

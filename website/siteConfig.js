@@ -38,11 +38,10 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: 'html', label: 'HTML' },
-    { doc: 'react-money-button', label: 'React' },
-    { doc: 'webhook', label: 'Webhook' }
-    // { doc: 'auth', label: 'Auth' },
-    // { doc: 'iframe', label: 'iframe' }
+    { doc: 'mb-overview', label: 'Money Button' },
+    { doc: 'api-overview', label: 'API' },
+    { doc: 'design-overview', label: 'Design' },
+    { doc: 'bsv-overview', label: 'bsv' }
   ],
 
   // If you have users set above, you add it here:
