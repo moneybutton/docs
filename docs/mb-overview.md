@@ -49,7 +49,7 @@ The simplest Money Button in Javascript looks like this:
   const div = document.getElementById('my-money-button')
   moneyButton.render(div, {
     to: "[address or user ID]",
-    amount: "[address]",
+    amount: "[amount]",
     currency: "[currency]"
   })
 </script>
