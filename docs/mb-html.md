@@ -52,6 +52,7 @@ A Money Button `<div>` can take the following attributes:
 | `data-on-payment`        | `string`                                                       | `null`        |
 | `data-on-error`          | `string`                                                       | `null`        |
 | `data-editable`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
+| `data-disabled`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
 | `data-dev-mode`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
 
 ### data-to
@@ -229,12 +230,6 @@ compatibility.
 The parameter received by the function is the description of the error.
 The function is always called in the context of `window` object.
 
-### data-dev-mode
-
-This attribute is `false` by default. If it is set to `true` the button becomes
-a dummy component. It doesn't execute any callback and doesn't interact with the
-backend at all. Instead it always succeeds.
-
 ### data-editable
 
 When this attribute is true the button is displayed in an editable mode,
@@ -242,3 +237,14 @@ allowing the user to set the amount of the transaction before pay. When this
 attribute is set to `true` the values of `data-to`, `data-amount`,
 `data-currency` and `data-outputs` are ignored. Editable buttons are able to
 have `OP_RETURN` using the attribute `data-op-return`.
+
+### data-disabled
+
+When this attribute is true the button is displayed in a disabled mode where it
+cannot be swiped.
+
+### data-dev-mode
+
+This attribute is `false` by default. If it is set to `true` the button becomes
+a dummy component. It doesn't execute any callback and doesn't interact with the
+backend at all. Instead it always succeeds.

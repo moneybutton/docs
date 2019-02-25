@@ -69,6 +69,7 @@ The available options are:
 | `onPayment`        | `function`                                | `null`          |
 | `onError`          | `function`                                | `null`          |
 | `editable`         | `boolean`                                 | `false`         |
+| `disabled`         | `boolean`                                 | `false`         |
 | `devMode`          | `boolean`                                 | `false`         |
 
 All the options are matched with the attributes of the HTML API, and have the
