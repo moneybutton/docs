@@ -17,7 +17,7 @@ ways:
   button. That is what this document is about.
 * Using the global `moneyButton` object to define Money Button components
   dynamically with javascript. To learn more about that, see the
-  [Javascript](./mb-javascript.html) document.
+  [Javascript](./mb-javascript.md) document.
 
 ## Defining buttons with HTML
 

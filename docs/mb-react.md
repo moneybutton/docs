@@ -111,5 +111,5 @@ It receives an object describing the error.
 When `devMode` is set to true no transactions are made when you swipe the
 button. It's just to try the button.
 
-For more information about how the parameters work, please reffer to [html
+For more information about how the parameters work, please refer to [html
 version documentation](mb-html.md)

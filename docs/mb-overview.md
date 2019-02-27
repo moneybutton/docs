@@ -18,9 +18,9 @@ for developers and end-users.
 The easiest way to use Money Button is to click around on the [config
 page](https://www.moneybutton.com/config) and copy and paste the HTML into your
 website. For users who wish to do sophisticated things, we provide three primary
-ways to create a Money Button in a webapp. The first is [HTML](./mb-html.html),
-the second is [Javascript](./mb-javascript.html), and the third is
-[React](./mb-react.html).
+ways to create a Money Button in a webapp. The first is [HTML](./mb-html.md),
+the second is [Javascript](./mb-javascript.md), and the third is
+[React](./mb-react.md).
 
 The simplest Money Button in HTML looks like this:
 
