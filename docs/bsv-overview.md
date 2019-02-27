@@ -3,7 +3,7 @@ id: bsv-overview
 title: Overview
 ---
 
-bsv is a library for managing user keys, building and signing bitcoin transctions (including inputs, outputs and scripts), signing generic data, encrypting generic data, or doing anything that a client-side web wallet is likely to need to do.
+bsv is a library for managing user keys, building and signing bitcoin transactions (including inputs, outputs and scripts), signing generic data, encrypting generic data, or doing anything that a client-side web wallet is likely to need to do.
 
 It is not necessary to use bsv to use Money Button. However, advanced applications will often want to do sophisticated low-level Bitcoin operations that need a library for that purpose.
 

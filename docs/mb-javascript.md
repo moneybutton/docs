@@ -117,7 +117,7 @@ Where in this case the outputs are slightly more sophisticated:
 | name       | type                                       |
 | ---------- | ------------------------------------------ |
 | `to`       | `string`                                   |
-| `type`     | `string` (`'address', 'userId', 'script'`) |
+| `type`     | `string` (`'ADDRESS', 'USER', 'SCRIPT'`) |
 | `address`  | `string`                                   |
 | `userId`   | `string`                                   |
 | `script`   | `string`                                   |
@@ -126,8 +126,17 @@ Where in this case the outputs are slightly more sophisticated:
 | `satoshis` | `number`                                   |
 
 `to` is optional. It can be a BSV address, a user id or a script.
-if `to` is present then `type`, `address`, `userId` and `currency`
+if `to` is present then `type`, `address`, `userId` and `script`
 should not be present.
+
+Instead of using `to` argument you can specify which kind of output you are
+using with the attribute `type`. `type` can take any of these values:
+
+| value        | description                                                              |
+| ------------ | ------------------------------------------------------------------------ |
+| `USER`       | Refers to a Money Button User. The attribute `userId` must be present.  |
+| `ADDRESS`    | Refers to a BSV address. The attribute `address` must be present.       |
+| `SCRIPT`     | Refers to an output script. The attribute `script` must be present.     |
 
 ´onError´ function look like this:
 
