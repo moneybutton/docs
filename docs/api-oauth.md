@@ -15,3 +15,46 @@ Therefore, the flow is as follows:
 2. The user presses a button which opens a popup hosted at moneybutton.com that asks if the user agrees to sign in and grant these permissions to the app.
 3. If the user agrees, they are redirected back to the app at the redirect URL.
 4. The app now has a token which they can store anywhere (client-side or server-side) to access the permissions that has been granted by the user (such as viewing the user ID).
+
+Sign In Button
+--------------
+
+First, you need to have an [app](api-apps.md). Your app will have two properties that you will need:
+* CLIENT_IDENTIFIER
+* OAUTH_IDENTIFIER
+
+Now, make an instance of the Money Button [api-client](api-client.html).
+
+Import it into your app like so:
+``` javascript
+let MoneyButtonClient = require('@moneybutton/client')
+```
+
+Now create a new client by passing in your client identifier:
+``` javascript
+moneyButtonClient = new MoneyButtonClient(CLIENT_IDENTIFIER)
+```
+
+This api-client is in the web browser. Now you can request authorization to read the user's ID:
+
+``` javascript
+moneyButtonClient.requestAuthorization(
+  'auth.user_identity:read',
+  OAUTH_REDIRECT_URI
+)
+```
+
+This will open a popup that will have the user sign in and you will get read permissions on their user ID.
+
+Get Token
+---------
+
+It's important that your app has set the redirect URL in the app settings. After the user signs in, they will be redirected to the redirect URL, and that URL will contain a token.
+
+On your redirect page, you can have logic like this to get the token:
+``` javascript
+  await moneyButtonClient.handleAuthorizationResponse()
+  const { id: moneyButtonId } = await moneyButtonClient.getIdentity()
+```
+
+The access token has automatically been handled by api-client and is stored in localStorage. You can now use api-client to query for information that the user has granted you access to.
