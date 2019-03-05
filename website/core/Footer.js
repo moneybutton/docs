@@ -105,7 +105,10 @@ class Footer extends React.Component {
             height='45'
           />
         </a> */}
-        <section className='copyright'>{this.props.config.copyright}</section>
+        <section className='copyright'>
+          See an error in our documentation? <a target='_blank' href='https://github.com/moneybutton/docs'>Issue a pull request to fix it.</a><br />
+          {this.props.config.copyright}
+        </section>
       </footer>
     )
   }
