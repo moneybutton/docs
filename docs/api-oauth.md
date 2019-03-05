@@ -58,3 +58,13 @@ On your redirect page, you can have logic like this to get the token:
 ```
 
 The access token has automatically been handled by api-client and is stored in localStorage. You can now use api-client to query for information that the user has granted you access to.
+
+OAuth Example: Markdown Paywall
+-------------------------------
+
+We built an app called Markdown Paywall to demonstrate the auth system and other
+major features of Money Button. See [Markdown
+Paywall](https://github.com/moneybutton/markdown-paywall) on GitHub. This app
+allows users to sign in, post content, and view content. The content can have a
+pay wall. When a user buys content, they can log in again on another device and
+the content they purchased is still accessible.
