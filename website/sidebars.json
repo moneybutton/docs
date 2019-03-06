@@ -3,6 +3,6 @@
     "Money Button": ["mb-overview", "mb-html", "mb-javascript", "mb-react"],
     "API": ["api-overview", "api-client", "api-apps", "api-webhooks", "api-oauth"],
     "Design": ["design-overview", "design-components"],
-    "bsv": ["bsv-overview", "bsv-op-return"]
+    "bsv": ["bsv-overview", "bsv-bn", "bsv-op-return"]
   }
 }

@@ -12,22 +12,22 @@ The most important use of bsv for Money Button apps right now is to [write OP_RE
 To add bsv to your application, you can either use node.js or web browsers.
 
 In node.js, first install the library using yarn:
-```
+```sh
 yarn add bsv
 ```
 
 Or npm:
-```
+```sh
 npm install --save --save-exact bsv
 ```
 
 And then add to your code:
-```
+```javascript
 let bsv = require('bsv')
 ```
 
 In a web browser, we recommend using webpack and React. However, a good way to get going quickly is to use unpkg. Add this to the top of your HTML in the head tag:
-```
+```html
 <script type="text/javascript" src="https://unpkg.com/bsv@0.21.5/bsv.min.js"></script>
 ```
 
