@@ -3,6 +3,10 @@ id: bsv-point
 title: Points (Elliptic Curves)
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0pfffrVlELQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---------------------
+
 Summary of Elliptic Curves
 --------------------------
 

@@ -3,6 +3,10 @@ id: bsv-hash
 title: Hash Functions
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Oviz0k3OHNU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---------------------
+
 Bitcoin makes extensive use of cryptographic hash functions. The id of a block
 is the reverse double SHA256 hash of the block. This is the value that is
 iterated with a nonce when miners are mining - they are trying to get a hash
