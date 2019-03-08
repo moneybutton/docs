@@ -1,6 +1,6 @@
 ---
 id: design-overview
-title: Overview
+title: Design Overview
 ---
 
 Coming soon.

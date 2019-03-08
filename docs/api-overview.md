@@ -1,6 +1,6 @@
 ---
 id: api-overview
-title: Overview
+title: API Overview
 ---
 
 Money Button has a powerful API that allows you to accept secure webhooks

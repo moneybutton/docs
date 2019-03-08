@@ -63,6 +63,7 @@ class HomeSplash extends React.Component {
             <Button href={docUrl('mb-overview.html', language)}>Money Button</Button>
             <Button href={docUrl('api-overview.html', language)}>API</Button>
             <Button href={docUrl('design-overview.html', language)}>Design</Button>
+            <Button href={docUrl('ex-overview.html', language)}>Examples</Button>
             <Button href={docUrl('bsv-overview.html', language)}>bsv</Button>
           </PromoSection>
           <p style={{ maxWidth: '600px', textAlign: 'left', margin: '20px auto' }}>
