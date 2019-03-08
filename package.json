@@ -4,6 +4,8 @@
   "description": "Money Button documentation.",
   "main": "index.js",
   "scripts": {
+    "lint": "standard --parser=babel-eslint",
+    "test": "yarn lint",
     "postinstall": "cd website && yarn",
     "build": "cd website && yarn build",
     "build:prod": "cd website && yarn build",
