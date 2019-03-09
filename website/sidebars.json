@@ -4,6 +4,6 @@
     "API": ["api-overview", "api-client", "api-apps", "api-webhooks", "api-oauth"],
     "Design": ["design-overview", "design-components"],
     "Examples": ["ex-overview", "ex-op-return"],
-    "bsv": ["bsv-overview", "bsv-bn", "bsv-point", "bsv-hash"]
+    "bsv": ["bsv-overview", "bsv-bn", "bsv-point", "bsv-hash", "bsv-base58"]
   }
 }
