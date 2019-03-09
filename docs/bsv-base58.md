@@ -27,7 +27,7 @@ string" which I wish to encode. This is how we encode it into base58:
 
 ```javascript
 var str = "this is my string"
-var base58 = bsv.encoding.Base58.encode(Buffer.from(str))
+var base58 = bsv.encoding.Base58.fromBuffer(Buffer.from(str)).toString()
 
 console.log(base58)
 // prints:
@@ -38,7 +38,7 @@ And this is how we decode it:
 
 ```javascript
 var base58 = '26St9k2Wa1oUK3T9MYpNXtzr'
-var buf = bsv.encoding.Base58.decode(base58)
+var buf = bsv.encoding.Base58.fromString(base58).toBuffer()
 
 console.log(buf.toString())
 // prints:
@@ -58,7 +58,7 @@ is how we encode it into base58check:
 
 ```javascript
 var str = "this is my string"
-var base58check = bsv.encoding.Base58Check.encode(Buffer.from(str))
+var base58check = bsv.encoding.Base58Check.fromBuffer(Buffer.from(str)).toString()
 
 console.log(base58check)
 // prints:
@@ -73,7 +73,7 @@ And this is how we decode it:
 
 ```javascript
 var base58check = '8AArJ45YvcrtshadAYjNgHtXHRGtA'
-var buf = bsv.encoding.Base58Check.decode(base58check)
+var buf = bsv.encoding.Base58Check.fromString(base58check).toBuffer()
 
 console.log(buf.toString())
 // prints:
