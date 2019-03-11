@@ -3,6 +3,10 @@ id: bsv-base58
 title: Base 58
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U9rDi2SANRk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+-------------------------
+
 A Bitcoin address is the hash of a public key. In the early days of Bitcoin, and
 still often today, users have to copy and paste addresses around, and there is a
 lot of opportunity to make mistakes. It would be really bad to accidentally send
