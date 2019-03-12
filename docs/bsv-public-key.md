@@ -3,6 +3,10 @@ id: bsv-public-key
 title: Public Keys
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wYpifoXE7H0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+--------------------------------
+
 A public key is a key that is derived from a private key and under normal
 circumstances can be shared publicly. Public keys can be used for encryption,
 Diffie-Helman shared secrets, and deriving addresses for receiving money.

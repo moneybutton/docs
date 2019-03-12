@@ -3,6 +3,10 @@ id: bsv-address
 title: Addresses
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/a32dlV2xgIw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+----------------------------
+
 A Bitcoin address is the hash of a public key. It is hashed twice (SHA256 and
 then RIPEMD160). Although we do not know for sure why Satoshi designed addresses
 this way, it is likely the two layers of hashing are there to provide an extra

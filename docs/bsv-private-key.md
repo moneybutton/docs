@@ -3,6 +3,10 @@ id: bsv-private-key
 title: Private Keys
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XPWZ0Sih59o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---------------------------------
+
 A private key can be used to spend Bitcoin. A private key is to be kept private
 - normally, a user should not share their private key. Anyone who has access to
 the private key can spend funds. A private key can be used to derive a
