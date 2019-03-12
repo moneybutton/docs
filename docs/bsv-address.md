@@ -1,0 +1,55 @@
+---
+id: bsv-address
+title: Addresses
+---
+
+A Bitcoin address is the hash of a public key. It is hashed twice (SHA256 and then RIPEMD160). Although we do not know for sure why Satoshi designed addresses this way, it is likely the two layers of hashing are there to provide an extra layer of security in case the underlying elliptic curve cryptography is ever broken. If attackers have to break through two hash functions just to get your public key, that makes attacks on the public key harder.
+
+Addresses are 20 bytes long in raw buffer format but are almost always encoded in [Base 58 Check](./bsv-base58.md) format, which is a convenient format for using on the internet. It is also robust against copy errors - if an error occurs in copying, the address is no longer valid, meaning you are very unlikely to send money to an address for which no one has the private key.
+
+Addresses are derived from public keys, which in turn are derived from private keys. Two convenience methods allow you to derive addresses either from the public key or directly from the private key. For instance:
+
+```javascript
+let privateKey = bsv.PrivateKey.fromRandom()
+let publicKey = bsv.PublicKey.fromPrivateKey(privateKey)
+let address = bsv.Address.fromPublicKey(publicKey)
+let address2 = bsv.Address.fromPrivateKey(privateKey)
+
+console.log(address.toString())
+// prints:
+// 1JvFXyZMC31ShnD8PSKgN1HKQ2kGQLVpCt
+
+console.log(address2.toString())
+// prints:
+// 1JvFXyZMC31ShnD8PSKgN1HKQ2kGQLVpCt
+```
+
+You can use mainnet or testnet. Everything is mainnet by default, but if you are developing an app and want to do lots of testing without risking losing real money, you may want to use testnet. For instance:
+
+```javascript
+let privateKey = bsv.PrivateKey.fromRandom('testnet')
+let publicKey = bsv.PublicKey.fromPrivateKey(privateKey)
+let address = bsv.Address.fromPublicKey(publicKey, 'testnet')
+let address2 = bsv.Address.fromPrivateKey(privateKey, 'testnet')
+
+console.log(address.toString())
+// prints:
+// n2DoUfi8oUkTALKdd3AvVeTTyWg1AQmXCD
+
+console.log(address2.toString())
+// prints:
+// n2DoUfi8oUkTALKdd3AvVeTTyWg1AQmXCD
+```
+
+Mainnet addresses always start with a '1' and testnet addresses always start either with an 'm' or an 'n'.
+
+You can also read an address back in and print it back out again:
+```javascript
+let address = bsv.Address.fromString('1JvFXyZMC31ShnD8PSKgN1HKQ2kGQLVpCt')
+
+console.log(address.toString())
+// prints:
+// 1JvFXyZMC31ShnD8PSKgN1HKQ2kGQLVpCt
+```
+
+Invalid addresses will throw an error if you try to read them in.
