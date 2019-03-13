@@ -123,7 +123,7 @@ which is the number that factors into deriving new keys from this one.
 Here is now we can derive a new key from this one:
 
 ```javascript
-let hdPrivateKey3 = hdPrivateKey.derive("m/5/2/8").toString()
+let hdPrivateKey3 = hdPrivateKey.deriveChild("m/5/2/8").toString()
 
 console.log(hdPrivateKey3.toString())
 // prints:
@@ -133,7 +133,7 @@ console.log(hdPrivateKey3.toString())
 Here is how we can derive a *hardened* extended private key from this one:
 
 ```javascript
-hlet hdPrivateKey4 = dPrivateKey.derive("m/5'/2/8").toString()
+hlet hdPrivateKey4 = dPrivateKey.deriveChild("m/5'/2/8").toString()
 
 console.log(hdPrivateKey4.toString())
 // prints:

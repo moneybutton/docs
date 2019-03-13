@@ -39,13 +39,13 @@ other private keys and public keys, and the public key can be used to derive
 other public keys (but not private ones). Like so:
 
 ```javascript
-var hdPrivateKey2 = hdPrivateKey.derive("m/5/2/8").toString()
+var hdPrivateKey2 = hdPrivateKey.deriveChild("m/5/2/8").toString()
 
 console.log(hdPrivateKey2.toString())
 // prints:
 // xprv9ymKnkscdL7pTQgQQVh4Depsm7Y4JZEbwQrhxGEvaawPe7CTk3LdGWyfxx7uCeCwL9YQpArGnXzGEUvVWNduXwByVDBPLHaQ67sGLSRiDHE
 
-var hdPublicKey2 = hdPublicKey.derive("m/5/2/8").toString()
+var hdPublicKey2 = hdPublicKey.deriveChild("m/5/2/8").toString()
 
 console.log(hdPublicKey2.toString())
 // prints:
@@ -64,13 +64,13 @@ But there is no way to derive the private key from the public key.
 
 Now suppose we derive a hardened path:
 ```javascript
-var hdPrivateKey2 = hdPrivateKey.derive("m/5'/2/8").toString()
+var hdPrivateKey2 = hdPrivateKey.deriveChild("m/5'/2/8").toString()
 
 console.log(hdPrivateKey2.toString())
 // prints:
 // xprv9z79GdL4VLf2F69bZ3Zxem5zvVXMvngsHSge32HGUPsQgUEvMQdb7ATBVXtMzMYLjNb38F7J1d9gpWnhEYzCmoWJ8QYtGDWnYdwhJUjYQKK
 
-var hdPublicKey2 = hdPublicKey.derive("m/5'/2/8").toString()
+var hdPublicKey2 = hdPublicKey.deriveChild("m/5'/2/8").toString()
 // throws an error:
 // Invalid argument: creating a hardened path requires an HDPrivateKey
 ```
