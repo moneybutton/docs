@@ -3,6 +3,10 @@ id: bsv-hd-private-key
 title: HD Private Keys (BIP32)
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/twXnPw9VR8Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+------------------
+
 Theretical Overview
 -------------------
 

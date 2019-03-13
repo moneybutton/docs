@@ -5,7 +5,7 @@ title: HD Public Keys (BIP32)
 
 The HDPublicKey class is the public form of the HDPrivateKey class. Please see
 the [HD Private Key](./bsv-hd-private-key.md) documentation for an important
-theoretical overview of how these keys work.
+theoretical overview and video of how these keys work.
 
 HDPublicKey
 -----------
