@@ -4,6 +4,6 @@
     "API": ["api-overview", "api-client", "api-apps", "api-webhooks", "api-oauth"],
     "Design": ["design-overview", "design-components"],
     "Examples": ["ex-overview", "ex-op-return"],
-    "bsv": ["bsv-overview", "bsv-bn", "bsv-point", "bsv-hash", "bsv-base58", "bsv-private-key", "bsv-public-key", "bsv-address", "bsv-hd-private-key", "bsv-hd-public-key", "bsv-mnemonic"]
+    "bsv": ["bsv-overview", "bsv-bn", "bsv-point", "bsv-hash", "bsv-base58", "bsv-private-key", "bsv-public-key", "bsv-address", "bsv-ecdsa", "bsv-hd-private-key", "bsv-hd-public-key", "bsv-mnemonic"]
   }
 }
