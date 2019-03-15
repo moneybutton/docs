@@ -3,6 +3,10 @@ id: bsv-mnemonic
 title: Mnemonics (BIP39)
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IQYN-QqGXAI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+--------------------
+
 Overview of Mnemonics
 ---------------------
 
@@ -142,9 +146,10 @@ m/44'/0'/0'
 Then there is an "external path" /0 and "internal path" /1. "External" means the
 addresses that you give to other people to receive money. "Internal" means the
 addresses that your wallet generates for all unspent money in a transaction,
-which is usually called "change" addresses. The number "44'" means Bitcoin, and
-other numbers are used for other cryptocurrencies. The first "0'" means account
-number zero, and the same wallet can have many accounts.
+which is usually called "change" addresses. The number "44'" means BIP 44. The
+first "0'" means Bitcoin, and other numbers are used to indicate different
+cryptocurrencies. The second "0'" means account number zero, and the same wallet
+can have many accounts.
 
 The table explaining this in the BIP 44 spec is as follows:
 
