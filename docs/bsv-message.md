@@ -3,6 +3,10 @@ id: bsv-message
 title: Bitcoin Signed Messages
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FonrSDyUqjI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+----------------------
+
 There is a standard way to sign arbitrary non-transaction data with a Bitcoin
 private key that is appropriate for any type of authentication such as signing a
 public statement of ownership of a particular Bitcoin address. The standard is
