@@ -3,6 +3,10 @@ id: bsv-signature
 title: Signatures
 ---
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6w3eokMYcRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+-------------------------
+
 An [ECDSA](./bsv-ecdsa.md) signature consists of two numbers, r and s, both of
 which are [big numbers](./bsv-bn.md). A signature is produced from a private key
 and a message and a signature is verified using a public key, a signature and
