@@ -56,11 +56,13 @@ Here is an example building a DER signature (found inside a Bitcoin transction) 
 ```javascript
 var data = 'my data'
 var privateKey = bsv.PrivateKey.fromRandom()
-var ecdsa = bsv.crypto.ECDSA().set({ hashbuf: bsv.crypto.Hash.sha256(Buffer.from(data)), privkey: privateKey }).sign().calci()
-console.log(ecdsa.sig.toDER().toString('hex'))
+var hash = bsv.crypto.Hash.sha256(Buffer.from(data))
+var sig1 = bsv.crypto.ECDSA.sign(hash, privateKey)
+console.log(sig1.toString('hex'))
 // prints:
-// 30440220099ac73817b3e735e697bbb8808100bea9517c49f3c65731686c31929f0151f802205ef68f8d945f2ad8228743ebbef464419a47e40822f3a14bc1f13692499380e3
-console.log(ecdsa.sig.toCompact().toString('base64'))
+// 30440220683f3c385edc42223c4efa00493c34532379ac88c1d2fa57997d903de44a7e9302202175d70f029515f0013c1d10de82b116984c7511f3f52928470ddfb49505ac00
+var sig2 = bsv.crypto.ECDSA.signWithCalcI(hash, privateKey)
+console.log(sig2.toCompact().toString('base64'))
 // prints:
-// IAmaxzgXs+c15pe7uICBAL6pUXxJ88ZXMWhsMZKfAVH4XvaPjZRfKtgih0PrvvRkQZpH5Agi86FLwfE2kkmTgOM=
+// H2g/PDhe3EIiPE76AEk8NFMjeayIwdL6V5l9kD3kSn6TIXXXDwKVFfABPB0Q3oKxFphMdRHz9SkoRw3ftJUFrAA=
 ```
