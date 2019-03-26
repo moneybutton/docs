@@ -59,7 +59,6 @@ The available options are:
 | `currency`         | `string` (`USD`, `BSV`, etc.)             | `'USD'`         |
 | `label`            | `string`                                  | `''`            |
 | `successMessage`   | `string`                                  | `'It's yours!'` |
-| `hideAmount`       | `boolean`                                 | `false`         |
 | `opReturn`         | `string`                                  | `null`          |
 | `outputs`          | `array`                                   | `[]`            |
 | `clientIdentifier` | `string`                                  | `null`          |
