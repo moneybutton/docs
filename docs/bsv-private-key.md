@@ -7,6 +7,8 @@ title: Private Keys
 
 ---------------------------------
 
+Source code: [privatekey.js](https://github.com/moneybutton/bsv/blob/master/lib/privatekey.js)
+
 A private key can be used to spend Bitcoin. A private key is to be kept private
 - normally, a user should not share their private key. Anyone who has access to
 the private key can spend funds. A private key can be used to derive a

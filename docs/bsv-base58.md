@@ -7,6 +7,8 @@ title: Base 58
 
 -------------------------
 
+Source code: [base58.js](https://github.com/moneybutton/bsv/blob/master/lib/encoding/base58.js), [base58check.js](https://github.com/moneybutton/bsv/blob/master/lib/encoding/base58check.js)
+
 A Bitcoin address is the hash of a public key. In the early days of Bitcoin, and
 still often today, users have to copy and paste addresses around, and there is a
 lot of opportunity to make mistakes. It would be really bad to accidentally send

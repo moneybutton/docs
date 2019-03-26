@@ -7,6 +7,8 @@ title: Points (Elliptic Curves)
 
 ---------------------
 
+Source code: [point.js](https://github.com/moneybutton/bsv/blob/master/lib/crypto/point.js)
+
 Summary of Elliptic Curves
 --------------------------
 

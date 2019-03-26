@@ -7,6 +7,8 @@ title: Hash Functions
 
 ---------------------
 
+Source code: [hash.js](https://github.com/moneybutton/bsv/blob/master/lib/crypto/hash.js)
+
 Bitcoin makes extensive use of cryptographic hash functions. The id of a block
 is the reverse double SHA256 hash of the block. This is the value that is
 iterated with a nonce when miners are mining - they are trying to get a hash

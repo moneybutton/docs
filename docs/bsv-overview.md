@@ -1,6 +1,6 @@
 ---
 id: bsv-overview
-title: bsv Overview
+title: Bitcoin SV Library (bsv)
 ---
 
 bsv is a library for managing user keys, building and signing bitcoin transactions (including inputs, outputs and scripts), signing generic data, encrypting generic data, or doing anything that a client-side web wallet is likely to need to do.
@@ -32,3 +32,5 @@ In a web browser, we recommend using webpack and React. However, a good way to g
 ```
 
 Please be sure to always specify the exact version of the library. In the above example, we are using v0.21.5. You can always find the latest version number [on npm](https://www.npmjs.com/package/bsv).
+
+[The source code can be found on GitHub.](https://github.com/moneybutton/bsv)

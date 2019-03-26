@@ -7,6 +7,8 @@ title: Bitcoin Signed Messages
 
 ----------------------
 
+Source code: [message.js](https://github.com/moneybutton/bsv/blob/master/lib/message/message.js)
+
 There is a standard way to sign arbitrary non-transaction data with a Bitcoin
 private key that is appropriate for any type of authentication such as signing a
 public statement of ownership of a particular Bitcoin address. The standard is

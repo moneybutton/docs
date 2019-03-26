@@ -7,6 +7,8 @@ title: Big Numbers
 
 ---------------------
 
+Source code: [bn.js](https://github.com/moneybutton/bsv/blob/master/lib/crypto/bn.js)
+
 Because Javascript does not (as of this writing) support big numbers natively,
 bsv has a wrapper for a big number library
 ([bn.js](https://github.com/indutny/bn.js/)). This library is used extensively

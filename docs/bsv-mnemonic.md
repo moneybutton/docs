@@ -7,6 +7,8 @@ title: Mnemonics (BIP39)
 
 --------------------
 
+Source code: [mnemonic.js](https://github.com/moneybutton/bsv/blob/master/lib/mnemonic/mnemonic.js)
+
 Overview of Mnemonics
 ---------------------
 

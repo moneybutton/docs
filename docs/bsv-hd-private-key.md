@@ -7,6 +7,8 @@ title: HD Private Keys (BIP32)
 
 ------------------
 
+Source code: [hdprivatekey.js](https://github.com/moneybutton/bsv/blob/master/lib/hdprivatekey.js)
+
 Theretical Overview
 -------------------
 

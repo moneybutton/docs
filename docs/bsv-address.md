@@ -7,6 +7,8 @@ title: Addresses
 
 ----------------------------
 
+Source code: [address.js](https://github.com/moneybutton/bsv/blob/master/lib/address.js)
+
 A Bitcoin address is the hash of a public key. It is hashed twice (SHA256 and
 then RIPEMD160). Although we do not know for sure why Satoshi designed addresses
 this way, it is likely the two layers of hashing are there to provide an extra
