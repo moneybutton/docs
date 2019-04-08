@@ -9,6 +9,10 @@ title: ECDSA
 
 Source code: [ecdsa.js](https://github.com/moneybutton/bsv/blob/master/lib/crypto/ecdsa.js)
 
+Note that ECDSA is handled automatically by Money Button behind the scenes and
+it is not necessary to deal with ECDSA directly unless you are building an
+advanced application.
+
 Elliptic Curve Digital Signature Algorithm: Overview
 ----------------------------------------------------
 

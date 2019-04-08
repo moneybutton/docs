@@ -9,6 +9,10 @@ title: Signatures
 
 Source code: [signature.js](https://github.com/moneybutton/bsv/blob/master/lib/crypto/signature.js)
 
+Note that signatures are handled automatically by Money Button behind the scenes
+and it is not necessary to deal with signatures directly unless you are building
+an advanced application.
+
 An [ECDSA](./bsv-ecdsa.md) signature consists of two numbers, r and s, both of
 which are [big numbers](./bsv-bn.md). A signature is produced from a private key
 and a message and a signature is verified using a public key, a signature and

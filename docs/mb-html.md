@@ -81,8 +81,8 @@ If this attribute is present then `data-outputs` attributes cannot be present.
 
 `data-currency` is the ISO code of the currency for fiat, or the ticker symbol
 for cryptocurrencies. It's always a three letter code. Popular currencies
-include 'USD', 'ARS', 'GBP', and many others. For a full list, see [your user
-settings page](https://www.moneybutton.com/settings).
+include 'USD', 'ARS', 'GBP', and many others. For a full list, see
+[currencies](./api-currencies.md).
 
 These two combined specify the amount of money to be transferred when the button
 is swiped. The amount is converted into BSV at the moment of the swipe.
@@ -109,12 +109,15 @@ type. Tip buttons shows `Thank you!`, and buy buttons show `It's yours!`.
 If this attribute is present an extra output is added to the transaction with a
 simple `OP_RETURN` script to post data on the BSV blockchain. The string is
 encoded in UTF-8 and used directly in the script. The size limit is 99000 bytes
-as determined by the BSV protocol.
+as determined by the BSV protocol. If you want to put large amounts of data in
+an `OP_RETURN` output, please [follow these instructions](./ex-op-return.md).
 
 ### data-outputs
 
-This attribute is used to specify a lists of outputs on the BSV transaction. It
-can't be used at the same time with `data-to`, `data-amount` or `data-currency`.
+This attribute is used to specify a lists of outputs on the BSV transaction.
+This is what you want to use if you want to send to multiple different people at
+the same time, or "multiple recipients." It can't be used at the same time with
+`data-to`, `data-amount` or `data-currency`.
 
 `outputs` is a stringified JSON array containing a lists of output objects. Each
 `element` may have the following properties:
@@ -143,6 +146,48 @@ using with the attribute `type`. `type` can take any of these values:
 | `ADDRESS`    | Refers to a BSV address. The attribute `address` must be present.       |
 | `SCRIPT`     | Refers to an output script. The attribute `script` must be present.     |
 
+An example of a button that pays to two addresses looks like this:
+
+```html
+<div class='money-button'
+  data-outputs='[
+    {
+      "type": "ADDRESS",
+      "address": "16gsUKFNLSqVVg6ax5TXmvx1GWjffxMGV6",
+      "amount": "0.085",
+      "currency": "USD"
+    },
+    {
+      "type": "ADDRESS",
+      "address": "1KWzpdQAwd4kDEaLu5cWJ54yJ8WCgAGizQ",
+      "amount": "0.015",
+      "currency": "USD"
+    }
+  ]'
+></div>
+```
+
+An example of a button that pays to two users looks like this:
+
+```html
+<div class='money-button'
+  data-outputs='[
+    {
+      "type": "USER",
+      "userId": "6",
+      "amount": "0.085",
+      "currency": "USD"
+    },
+    {
+      "type": "USER",
+      "userId": "1040",
+      "amount": "0.015",
+      "currency": "USD"
+    }
+  ]'
+></div>
+```
+
 ### data-client-identifier
 
 Each app that uses Money Button is called a "client" in the jargon of OAuth.
@@ -162,13 +207,13 @@ string and then can be queried later using this attribute.
 
 More documentation about Payments API will be available soon.
 
-# data-button-data
+### data-button-data
 
 This attribute can be any string, but is meant to be a valid JSON string. The
 user can set arbitrary data here, that is associated with the payment and sent
 on the webhooks and retrieved with the API.
 
-# data-on-payment
+### data-on-payment
 
 It's the name of a function defined in the global scope. The function is called
 when the user makes a successful payment.
@@ -176,7 +221,7 @@ when the user makes a successful payment.
 ``` html
 <script>
   function myCustomCallback (payment) {
-    console.log('Yay! A Payment!')
+    console.log('A payment has occurred!', payment)
   }
 </script>
 
@@ -188,7 +233,7 @@ when the user makes a successful payment.
 ></div>
 ```
 
-They payment attribute is a javascript object with the following attributes:
+The payment attribute is a javascript object with the following attributes:
 
 | name         | type     | description                                                           |
 | ------------ | -------- | --------------------------------------------------------------------- |
@@ -204,6 +249,31 @@ They payment attribute is a javascript object with the following attributes:
 | `outputs`    | `array`  | Output details                                                        |
 
 The function is always called in the context of 'window' object.
+
+You can make a simple pay wall using the onPayment callback. An example is as
+follows:
+
+```html
+<script>
+  function displayHiddenContent (payment) {
+    // be sure to validate the transaction - does it have the right outputs?
+    document.getElementById('my-hidden-content').innerHTML = 'Hidden content.'
+  }
+</script>
+
+<div class="money-button"
+  data-to="1040"
+  data-amount="0.01"
+  data-currency="USD"
+  data-on-payment="displayHiddenContent"
+></div>
+
+<div id="my-hidden-content"></div>
+```
+
+Note that this simple example is not very secure. If you want to make a secure
+pay wall, you should use the [api-client](./api-client.md) and/or
+[webhooks](./api-webhooks.md).
 
 ### data-on-error
 

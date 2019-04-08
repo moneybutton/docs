@@ -3,6 +3,10 @@ id: mb-react
 title: React
 ---
 
+The React version of Money Button is what we use throughout the main Money
+Button app and every other app we build. It is very similar to and is based on
+the pure javascript version of Money Button.
+
 How to install the React component:
 
 ```

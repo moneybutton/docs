@@ -9,6 +9,10 @@ title: HD Private Keys (BIP32)
 
 Source code: [hdprivatekey.js](https://github.com/moneybutton/bsv/blob/master/lib/hdprivatekey.js)
 
+Note that HD Private Keys are handled automatically by Money Button behind the scenes
+and it is not necessary to deal with HD Private Keys directly unless you are building
+an advanced application.
+
 Theretical Overview
 -------------------
 

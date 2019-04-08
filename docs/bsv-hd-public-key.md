@@ -5,6 +5,10 @@ title: HD Public Keys (BIP32)
 
 Source code: [hdpublickey.js](https://github.com/moneybutton/bsv/blob/master/lib/hdpublickey.js)
 
+Note that HD Public Keys are handled automatically by Money Button behind the scenes
+and it is not necessary to deal with HD Public Keys directly unless you are building
+an advanced application.
+
 The HDPublicKey class is the public form of the HDPrivateKey class. Please see
 the [HD Private Key](./bsv-hd-private-key.md) documentation for an important
 theoretical overview and video of how these keys work.

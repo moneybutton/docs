@@ -9,6 +9,10 @@ title: Hash Functions
 
 Source code: [hash.js](https://github.com/moneybutton/bsv/blob/master/lib/crypto/hash.js)
 
+Note that hash functions are handled automatically by Money Button behind the scenes
+and it is not necessary to deal with hash functions directly unless you are building
+an advanced application.
+
 Bitcoin makes extensive use of cryptographic hash functions. The id of a block
 is the reverse double SHA256 hash of the block. This is the value that is
 iterated with a nonce when miners are mining - they are trying to get a hash

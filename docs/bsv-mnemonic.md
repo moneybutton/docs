@@ -9,6 +9,10 @@ title: Mnemonics (BIP39)
 
 Source code: [mnemonic.js](https://github.com/moneybutton/bsv/blob/master/lib/mnemonic/mnemonic.js)
 
+Note that mnemonics are handled automatically by Money Button behind the scenes
+and it is not necessary to deal with mnemonics directly unless you are building
+an advanced application.
+
 Overview of Mnemonics
 ---------------------
 

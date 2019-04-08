@@ -9,6 +9,10 @@ title: Public Keys
 
 Source code: [publickey.js](https://github.com/moneybutton/bsv/blob/master/lib/publickey.js)
 
+Note that public keys are handled automatically by Money Button behind the scenes
+and it is not necessary to deal with public keys directly unless you are building
+an advanced application.
+
 A public key is a key that is derived from a private key and under normal
 circumstances can be shared publicly. Public keys can be used for encryption,
 Diffie-Helman shared secrets, and deriving addresses for receiving money.

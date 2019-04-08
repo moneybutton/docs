@@ -9,6 +9,10 @@ title: Points (Elliptic Curves)
 
 Source code: [point.js](https://github.com/moneybutton/bsv/blob/master/lib/crypto/point.js)
 
+Note that points are handled automatically by Money Button behind the scenes
+and it is not necessary to deal with points directly unless you are building
+an advanced application.
+
 Summary of Elliptic Curves
 --------------------------
 
