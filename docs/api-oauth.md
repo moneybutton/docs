@@ -27,7 +27,7 @@ Now, make an instance of the Money Button [api-client](api-client.html).
 
 Import it into your app like so:
 ``` javascript
-let MoneyButtonClient = require('@moneybutton/client')
+let MoneyButtonClient = require('@moneybutton/api-client')
 ```
 
 Now create a new client by passing in your client identifier:
