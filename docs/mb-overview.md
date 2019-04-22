@@ -61,7 +61,7 @@ React component that does the same thing as the Javascript version. So we made a
 react component. The easiest way to create a React Money Button is like this:
 
 ```
-let MoneyButton = require('@moneybutton/react-money-button')
+let MoneyButton = require('@moneybutton/react-money-button').default
 
 class MyComponent {
   return (

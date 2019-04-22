@@ -16,7 +16,7 @@ npm install @moneybutton/react-money-button
 How to use it in your react project:
 
 ```
-let MoneyButton = require('@moneybutton/react-money-button')
+let MoneyButton = require('@moneybutton/react-money-button').default
 ```
 
 How to use it to receive a specific amount at a specific address:
