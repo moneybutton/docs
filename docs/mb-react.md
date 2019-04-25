@@ -97,9 +97,8 @@ Where in this case the outputs are slightly more sophisticated:
 | `currency` | `string`                                   |
 | `satoshis` | `number`                                   |
 
-`to` is optional. It can be a BSV address, a user id or a script.
-if `to` is present then `type`, `address`, `userId` and `currency`
-should not be present.
+`to` is optional. It can be a BSV address, a user ID or a script. If `to` is
+present then `type`, `address`, and `userId` should not be present.
 
 ´onError´ function look like this:
 

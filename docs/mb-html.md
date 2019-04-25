@@ -125,7 +125,6 @@ the same time, or "multiple recipients." It can't be used at the same time with
 | name       | type                          | required? |
 | ---------- | ----------------------------- | --------- |
 | `to`       | `string`                      | optional  |
-| `type`     | `string`                      | optional  |
 | `address`  | `string`                      | optional  |
 | `userId`   | `string`                      | optional  |
 | `script`   | `string`                      | optional  |
@@ -138,13 +137,7 @@ currency. If there are 2 outputs using different currencies the button will fail
 before rendering.
 
 Instead of using `to` argument you can specify which kind of output you are
-using with the attribute `type`. `type` can take any of these values:
-
-| value        | description                                                              |
-| ------------ | ------------------------------------------------------------------------ |
-| `USER`       | Refers to a Money Button User. The attribute `userId` must be present.  |
-| `ADDRESS`    | Refers to a BSV address. The attribute `address` must be present.       |
-| `SCRIPT`     | Refers to an output script. The attribute `script` must be present.     |
+using with one of the attributes `address`, `userId`, or `script`.
 
 An example of a button that pays to two addresses looks like this:
 
@@ -152,13 +145,11 @@ An example of a button that pays to two addresses looks like this:
 <div class='money-button'
   data-outputs='[
     {
-      "type": "ADDRESS",
       "address": "16gsUKFNLSqVVg6ax5TXmvx1GWjffxMGV6",
       "amount": "0.085",
       "currency": "USD"
     },
     {
-      "type": "ADDRESS",
       "address": "1KWzpdQAwd4kDEaLu5cWJ54yJ8WCgAGizQ",
       "amount": "0.015",
       "currency": "USD"
@@ -173,13 +164,11 @@ An example of a button that pays to two users looks like this:
 <div class='money-button'
   data-outputs='[
     {
-      "type": "USER",
       "userId": "6",
       "amount": "0.085",
       "currency": "USD"
     },
     {
-      "type": "USER",
       "userId": "1040",
       "amount": "0.015",
       "currency": "USD"
