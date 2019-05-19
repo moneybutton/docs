@@ -19,8 +19,7 @@ Therefore, the flow is as follows:
 Sign In Button
 --------------
 
-First, you need to have an [app](api-apps.md). Your app will have two properties that you will need:
-* CLIENT_IDENTIFIER
+First, you need to have an [app](api-apps.md). Your app will have a number that you will need:
 * OAUTH_IDENTIFIER
 
 Now, make an instance of the Money Button [api-client](api-client.html).
@@ -30,9 +29,9 @@ Import it into your app like so:
 let { MoneyButtonClient } = require('@moneybutton/api-client')
 ```
 
-Now create a new client by passing in your client identifier:
+Now create a new client by passing in your OAuth identifier:
 ``` javascript
-moneyButtonClient = new MoneyButtonClient(CLIENT_IDENTIFIER)
+moneyButtonClient = new MoneyButtonClient(OAUTH_IDENTIFIER)
 ```
 
 This api-client is in the web browser. Now you can request authorization to read the user's ID:
