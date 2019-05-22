@@ -243,18 +243,18 @@ moneyButton.render(div, {
 
 The payment attribute is a javascript object with the following attributes:
 
-| name         | type     | description                                                           |
-| ------------ | -------- | --------------------------------------------------------------------- |
-| `id`         | `string` | Unique Money Button id of the payment.                                |
-| `buttonId`   | `string` | The identifier specified in the button used to pay.                   |
-| `buttonData` | `string` | The data indicated in the button.                                     |
-| `status`     | `string` | Status of the payment. More information on `webhooks` documentation.  |
-| `txid`       | `string` | id of the BSV transaction.                                            |
-| `ntxid`      | `string` | Normalized id of the BSV transaction.                                 |
-| `amount`     | `string` | Total amount paid.                                                    |
-| `currency`   | `string` | Currency of the button.                                               |
-| `satoshis`   | `string` | Total amount expressed in Satoshis.                                   |
-| `outputs`    | `array`  | Output details                                                        |
+| name             | type     | description                                                          |
+|------------------|----------|----------------------------------------------------------------------|
+| `id`             | `string` | Unique Money Button id of the payment.                               |
+| `buttonId`       | `string` | The identifier specified in the button used to pay.                  |
+| `buttonData`     | `string` | The data indicated in the button.                                    |
+| `status`         | `string` | Status of the payment. More information on `webhooks` documentation. |
+| `txid`           | `string` | id of the BSV transaction.                                           |
+| `normalizedTxid` | `string` | Normalized id of the BSV transaction.                                |
+| `amount`         | `string` | Total amount paid.                                                   |
+| `currency`       | `string` | Currency of the button.                                              |
+| `satoshis`       | `string` | Total amount expressed in Satoshis.                                  |
+| `outputs`        | `array`  | Output details                                                       |
 
 The function is always called in the context of 'window' object.
 

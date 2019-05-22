@@ -71,18 +71,18 @@ function myOnPaymentCallback (payment) {
 
 Where the `payment` is an object that looks like this:
 
-| name         | type     |
-| ------------ | -------- |
-| `id`         | `string` |
-| `buttonId`   | `string` |
-| `buttonData` | `string` |
-| `status`     | `string` |
-| `txid`       | `string` |
-| `ntxid`      | `string` |
-| `amount`     | `string` |
-| `currency`   | `string` |
-| `satoshis`   | `string` |
-| `outputs`    | `array`  |
+| name             | type     |
+|------------------|----------|
+| `id`             | `string` |
+| `buttonId`       | `string` |
+| `buttonData`     | `string` |
+| `status`         | `string` |
+| `txid`           | `string` |
+| `normalizedTxid` | `string` |
+| `amount`         | `string` |
+| `currency`       | `string` |
+| `satoshis`       | `string` |
+| `outputs`        | `array`  |
 
 Where in this case the outputs are slightly more sophisticated:
 
