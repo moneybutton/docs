@@ -67,6 +67,7 @@ The available options are:
 | `type`             | `string` (`'buy', 'tip'`)                 | `'buy'`         |
 | `onPayment`        | `function`                                | `null`          |
 | `onError`          | `function`                                | `null`          |
+| `onLoad`           | `function`                                | `null`          |
 | `editable`         | `boolean`                                 | `false`         |
 | `disabled`         | `boolean`                                 | `false`         |
 | `devMode`          | `boolean`                                 | `false`         |
@@ -309,6 +310,27 @@ related with compatibility.
 
 The parameter received by the function is the description of the error.
 The function is always called in the context of `window` object.
+
+### onLoad
+
+A function that is called when the button has finished loading.
+
+``` html
+<div id="my-button"></div>
+
+<script>
+  function myCustomCallback () {
+    console.log(`The button has loaded.`)
+  }
+
+  moneyButton.render(document.getElementById('my-button'), {
+    to: "1040",
+    amount: "0.01",
+    currency: "USD",
+    onLoad: myCustomCallback
+  })
+</script>
+```
 
 ### editable
 

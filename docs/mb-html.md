@@ -51,6 +51,7 @@ A Money Button `<div>` can take the following attributes:
 | `data-type`              | `string` (`'buy', 'tip'`)                                      | `'buy'`       |
 | `data-on-payment`        | `string`                                                       | `null`        |
 | `data-on-error`          | `string`                                                       | `null`        |
+| `data-on-load`           | `string`                                                       | `null`        |
 | `data-editable`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
 | `data-disabled`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
 | `data-dev-mode`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
@@ -287,6 +288,28 @@ compatibility.
 ```
 
 The parameter received by the function is the description of the error.
+The function is always called in the context of `window` object.
+
+### data-on-load
+
+It's the name of a function defined in the global scope. The function is called
+when the button has loaded.
+
+``` html
+<script>
+  function myCustomCallback (error) {
+    console.log(`The button has loaded.`)
+  }
+</script>
+
+<div class="money-button"
+  data-to="[to]"
+  data-amount="[amount]"
+  data-currency="[currency]"
+  data-on-load="myCustomCallback"
+></div>
+```
+
 The function is always called in the context of `window` object.
 
 ### data-editable

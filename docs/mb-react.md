@@ -46,6 +46,7 @@ The MoneyButton component can take a number of props:
 | `type`             | `string` (`'buy', 'tip'`)                 | `'buy'`         |
 | `onPayment`        | `function`                                | `null`          |
 | `onError`          | `function`                                | `null`          |
+| `onLoad`           | `function`                                | `null`          |
 | `editable`         | `boolean`                                 | `false`         |
 | `disabled`         | `boolean`                                 | `false`         |
 | `devMode`          | `boolean`                                 | `false`         |
@@ -109,6 +110,16 @@ function myOnErrorCallback (error) {
 ```
 
 It receives an object describing the error.
+
+´onLoad´ function look like this:
+
+```
+function myOnLoadCallback () {
+    // ...
+}
+```
+
+It is called when the button has loaded.
 
 When `devMode` is set to true no transactions are made when you swipe the
 button. It's just to try the button.
