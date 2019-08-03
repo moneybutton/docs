@@ -11,10 +11,10 @@ Scripts are written in binary inside a Bitcoin transaction using a custom format
 
 An example of an OP_RETURN script written in ASM format is this:
 ```sh
-OP_0 OP_RETURN 6d6f6e6579627574746f6e2e636f6d
+OP_FALSE OP_RETURN 6d6f6e6579627574746f6e2e636f6d
 ```
 
-You can see it starts with the OP_0 and OP_RETURN opcodes.
+You can see it starts with the OP_FALSE and OP_RETURN opcodes.
 
 The value "6d6f6e6579627574746f6e2e636f6d" is actually the string "moneybutton.com" encoded in hex format.
 
@@ -25,7 +25,7 @@ Buffer.from('moneybutton.com').toString('hex')
 
 A more sophisticiated OP_RETURN script looks like this:
 ```sh
-OP_0 OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f
+OP_FALSE OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f
 ```
 
 This script pushes three different values. The values are as follows:
@@ -44,7 +44,7 @@ bsv.Script.buildSafeDataOut(['moneybutton.com', 'utf8', 'hello. how are you?']).
 
 That code will return this string value:
 ```javascript
-'OP_0 OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f'
+'OP_FALSE OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f'
 ```
 
 You can insert this value into a Money Button output as follows. If you are using the HTML Money Button, it looks like this:
@@ -52,7 +52,7 @@ You can insert this value into a Money Button output as follows. If you are usin
 <div class='money-button'
   data-outputs='[{
     "type": "SCRIPT",
-    "script": "OP_0 OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f",
+    "script": "OP_FALSE OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f",
     "amount": "0",
     "currency": "BSV"
   }]'
@@ -67,20 +67,12 @@ If you are using the Javascript Money Button, it looks like this:
   moneyButton.render(div, {
     outputs: [{
       type: 'SCRIPT',
-      script: 'OP_0 OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f',
+      script: 'OP_FALSE OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f',
       amount: '0',
       currency: 'BSV'
     }]
   })
 </script>
-```
-
-Money Button only accepts isomorphic ASM scripts, which are scripts that can be inputted and outputted again and again while staying the same. For instance, OP_FALSE must always be written as 0. To see that your script is isomorphic, read it in and out again:
-
-```javascript
-let script = 'OP_0 OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f'
-let script2 = bsv.Script.fromASM(script).toASM()
-assert(script === script2)
 ```
 
 The most popular way to insert file data into the blockchain is to use [B](https://github.com/unwriter/B). However, data can be structure in any way and it is up to writers (wallets) and readers (block explorers or browsers) to decide what works best for their application.
