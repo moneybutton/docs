@@ -32,7 +32,7 @@ function: `render`.
 <script>
   const div = document.getElementById('my-money-button')
   moneyButton.render(div, {
-    to: "12cRRk9wn2LofWKE2wwxb7mw5qNeMaW7zH",
+    to: "ryan@moneybutton.com",
     amount: "1",
     currency: "USD",
     label: "Wait...",
@@ -52,25 +52,25 @@ with options.
 
 The available options are:
 
-| option             | type                                      | default value   |
-| ------------------ | ----------------------------------------- | --------------- |
-| `to`               | `string` (either a BSV address or userId) | `null`          |
-| `amount`           | `string`                                  | `null`          |
-| `currency`         | `string` (`USD`, `BSV`, etc.)             | `'USD'`         |
-| `label`            | `string`                                  | `''`            |
-| `successMessage`   | `string`                                  | `'It's yours!'` |
-| `opReturn`         | `string`                                  | `null`          |
-| `outputs`          | `array`                                   | `[]`            |
-| `clientIdentifier` | `string`                                  | `null`          |
-| `buttonId`         | `string`                                  | `null`          |
-| `buttonData`       | `string`                                  | `null`          |
-| `type`             | `string` (`'buy', 'tip'`)                 | `'buy'`         |
-| `onPayment`        | `function`                                | `null`          |
-| `onError`          | `function`                                | `null`          |
-| `onLoad`           | `function`                                | `null`          |
-| `editable`         | `boolean`                                 | `false`         |
-| `disabled`         | `boolean`                                 | `false`         |
-| `devMode`          | `boolean`                                 | `false`         |
+| option             | type                                            | default value   |
+|--------------------|-------------------------------------------------|-----------------|
+| `to`               | `string` (paymail, user ID, address, or script) | `null`          |
+| `amount`           | `string`                                        | `null`          |
+| `currency`         | `string` (`USD`, `BSV`, etc.)                   | `'USD'`         |
+| `label`            | `string`                                        | `''`            |
+| `successMessage`   | `string`                                        | `'It's yours!'` |
+| `opReturn`         | `string`                                        | `null`          |
+| `outputs`          | `array`                                         | `[]`            |
+| `clientIdentifier` | `string`                                        | `null`          |
+| `buttonId`         | `string`                                        | `null`          |
+| `buttonData`       | `string`                                        | `null`          |
+| `type`             | `string` (`'buy', 'tip'`)                       | `'buy'`         |
+| `onPayment`        | `function`                                      | `null`          |
+| `onError`          | `function`                                      | `null`          |
+| `onLoad`           | `function`                                      | `null`          |
+| `editable`         | `boolean`                                       | `false`         |
+| `disabled`         | `boolean`                                       | `false`         |
+| `devMode`          | `boolean`                                       | `false`         |
 
 All the options are matched with the attributes of the HTML API, and have the
 exact same behavior. The HTML version uses the Javascript version under the
@@ -81,6 +81,8 @@ hood.
 This attribute specifies who is going to receive the payment. It's a string, and
 depending on its format it is interpreted in different ways:
 
+* Paymail: If the value is a paymail, which looks like an email address, then
+  the value is assumed to be a paymail.
 * Natural number: If the value matches with a natural number ( `/^\d+$/` ) then
   it is interpreted as a user ID, so the receiver is a Money Button user with
   that exact user ID.
@@ -158,21 +160,26 @@ currency. If there are 2 outputs using different currencies the button will fail
 before rendering.
 
 Instead of using `to` argument you can specify which kind of output you are
-using with one of the attributes `address`, `userId`, or `script`.
+using with one of the attributes `paymail`, `userId`, `address`, or `script`.
 
-An example of a button that pays to two addresses looks like this:
+An example of a button that pays to three addresses looks like this:
 
 ```javascript
 moneyButton.render(div, {
   outputs=[
     {
-      address: "16gsUKFNLSqVVg6ax5TXmvx1GWjffxMGV6",
+      address: "ryan@moneybutton.com",
       amount: "0.085",
       currency: "USD"
     },
     {
-      address: "1KWzpdQAwd4kDEaLu5cWJ54yJ8WCgAGizQ",
-      amount: "0.015",
+      address: "huge@moneybutton.com",
+      amount: "0.075",
+      currency: "USD"
+    },
+    {
+      address: "hojarasca@moneybutton.com",
+      amount: "0.065",
       currency: "USD"
     }
   ]
@@ -206,7 +213,9 @@ wants to use Money Button to build several apps. When a transaction is done on a
 specific client the owner of the client can see the transaction even if they are
 not a recipient or sender of the funds.
 
-More documentation about clients and OAuth will be available soon.
+You can create an app, which includes a client and the associated
+clientIdentifier, on the apps page in your user settings. Please see
+[./api-apps.md].
 
 ### buttonId
 
@@ -214,8 +223,6 @@ This attribute is an identifier of the payment of the button. It can be used as
 an invoice number or reference number. It can be any string and it's attached to
 the payments created with a specific button. Payments are stored with that
 string and then can be queried later using this attribute.
-
-More documentation about Payments API will be available soon.
 
 ### buttonData
 
@@ -235,7 +242,7 @@ function myCustomCallback (payment) {
 }
 
 moneyButton.render(div, {
-  to: "16gsUKFNLSqVVg6ax5TXmvx1GWjffxMGV6",
+  to: "ryan@moneybutton.com",
   amount: "0.085",
   currency: "USD",
   onPayment: myCustomCallback

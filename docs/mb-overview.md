@@ -27,7 +27,7 @@ The simplest Money Button in HTML looks like this:
 ``` html
 <script src="https://www.moneybutton.com/moneybutton.js"></script>
 <div class="money-button"
-  data-to="[address or user ID]"
+  data-to="[paymail, user ID, address, or script]"
   data-amount="[amount]"
   data-currency="[currency]"
 ></div>
@@ -48,7 +48,7 @@ The simplest Money Button in Javascript looks like this:
 <script>
   const div = document.getElementById('my-money-button')
   moneyButton.render(div, {
-    to: "[address or user ID]",
+    to: "[paymail, user ID, address, or script]",
     amount: "[amount]",
     currency: "[currency]"
   })
@@ -66,7 +66,7 @@ let MoneyButton = require('@moneybutton/react-money-button').default
 class MyComponent {
   return (
     <MoneyButton
-      to=[address]
+      to=[paymail, user ID, address, or script]
       amount=[amount]
       currency=[currency]
     />
@@ -83,7 +83,7 @@ amount), you would do this in HTML:
 ``` html
 <script src="https://www.moneybutton.com/moneybutton.js"></script>
 <div class="money-button"
-  data-to="[address or user ID]"
+  data-to="[paymail, user ID, address, or script]"
   data-editable="true"
   data-currency="[currency]"
 ></div>
@@ -98,7 +98,7 @@ Javascript version you would do this:
 <script>
   const div = document.getElementById('my-money-button')
   moneyButton.render(div, {
-    to: "[address or user ID]",
+    to: "[paymail, user ID, address, or script]",
     editable: true,
     currency: "[currency]"
   })

@@ -28,39 +28,41 @@ When the document finishes loading, our script looks around the document for
 ``` html
 <!-- place your button(s) anywhere you want in your HTML -->
 <div class="money-button"
-  data-to=[to]
-  data-amount=[amount]
-  data-currency=[currency]
+  data-to="[paymail, user ID, address, or script]"
+  data-amount="[amount]"
+  data-currency="[currency]"
 ></div>
 ```
 
 A Money Button `<div>` can take the following attributes:
 
-| prop                     | type                                                           | default value |
-| ------------------------ | -------------------------------------------------------------- | ------------- |
-| `data-to`                | `string` (either a BSV address, a user ID or a BSV script)     | `null`        |
-| `data-amount`            | `string`                                                       | `null`        |
-| `data-currency`          | `string` (`'USD'`, `'BSV'`, etc.)                              | `'USD'`       |
-| `data-label`             | `string`                                                       | `''`          |
-| `data-success-message`   | `string`                                                       | `It's yours!` |
-| `data-op-return`         | `string`                                                       | `null`        |
-| `data-outputs`           | `string`                                                       | `'[]'`        |
-| `data-client-identifier` | `string`                                                       | `null`        |
-| `data-button-id`         | `string`                                                       | `null`        |
-| `data-button-data`       | `string`                                                       | `null`        |
-| `data-type`              | `string` (`'buy', 'tip'`)                                      | `'buy'`       |
-| `data-on-payment`        | `string`                                                       | `null`        |
-| `data-on-error`          | `string`                                                       | `null`        |
-| `data-on-load`           | `string`                                                       | `null`        |
-| `data-editable`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
-| `data-disabled`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
-| `data-dev-mode`          | `string` (`'true'` or `'false'`)                               | `'false'`     |
+| prop                     | type                                            | default value |
+|--------------------------|-------------------------------------------------|---------------|
+| `data-to`                | `string` (paymail, user ID, address, or script) | `null`        |
+| `data-amount`            | `string`                                        | `null`        |
+| `data-currency`          | `string` (`'USD'`, `'BSV'`, etc.)               | `'USD'`       |
+| `data-label`             | `string`                                        | `''`          |
+| `data-success-message`   | `string`                                        | `It's yours!` |
+| `data-op-return`         | `string`                                        | `null`        |
+| `data-outputs`           | `string`                                        | `'[]'`        |
+| `data-client-identifier` | `string`                                        | `null`        |
+| `data-button-id`         | `string`                                        | `null`        |
+| `data-button-data`       | `string`                                        | `null`        |
+| `data-type`              | `string` (`'buy', 'tip'`)                       | `'buy'`       |
+| `data-on-payment`        | `string`                                        | `null`        |
+| `data-on-error`          | `string`                                        | `null`        |
+| `data-on-load`           | `string`                                        | `null`        |
+| `data-editable`          | `string` (`'true'` or `'false'`)                | `'false'`     |
+| `data-disabled`          | `string` (`'true'` or `'false'`)                | `'false'`     |
+| `data-dev-mode`          | `string` (`'true'` or `'false'`)                | `'false'`     |
 
 ### data-to
 
 This attribute specifies who is going to receive the payment. It's a string, and depending on
 its format it is interpreted in different ways:
 
+* Paymail: If the value is a paymail, which looks like an email address, then
+  the value is assumed to be a paymail.
 * Natural number: If the value matches with a natural number ( `/^\d+$/` ) then
   it is interpreted as a user ID, so the receiver is a Money Button user with
   that exact user ID.
@@ -124,10 +126,11 @@ the same time, or "multiple recipients." It can't be used at the same time with
 `element` may have the following properties:
 
 | name       | type                          | required? |
-| ---------- | ----------------------------- | --------- |
+|------------|-------------------------------|-----------|
 | `to`       | `string`                      | optional  |
-| `address`  | `string`                      | optional  |
+| `paymail`  | `string`                      | optional  |
 | `userId`   | `string`                      | optional  |
+| `address`  | `string`                      | optional  |
 | `script`   | `string`                      | optional  |
 | `amount`   | `string`                      | required  |
 | `currency` | `string` (`USD`, `BSV`, etc.) | required  |
@@ -138,7 +141,7 @@ currency. If there are 2 outputs using different currencies the button will fail
 before rendering.
 
 Instead of using `to` argument you can specify which kind of output you are
-using with one of the attributes `address`, `userId`, or `script`.
+using with one of the attributes `paymail`, `userId`, `address`, or `script`.
 
 An example of a button that pays to two addresses looks like this:
 

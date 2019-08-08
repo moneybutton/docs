@@ -7,6 +7,9 @@ The React version of Money Button is what we use throughout the main Money
 Button app and every other app we build. It is very similar to and is based on
 the pure javascript version of Money Button.
 
+This page has only introductory information. For more detailed information,
+please see the [javascript documentation](./md-javascript.md).
+
 How to install the React component:
 
 ```
@@ -23,7 +26,7 @@ How to use it to receive a specific amount at a specific address:
 
 ```
 <MoneyButton
-  to=[address]
+  to=[paymail, user ID, address, or script]
   amount=[amount]
   currency=[currency]
 />
@@ -31,33 +34,34 @@ How to use it to receive a specific amount at a specific address:
 
 The MoneyButton component can take a number of props:
 
-| prop               | type                                      | default value   |
-| ------------------ | ----------------------------------------- | --------------- |
-| `to`               | `string` (either a BSV address or userId) | `null`          |
-| `amount`           | `string`                                  | `null`          |
-| `currency`         | `string` (`USD`, `BSV`, etc.)             | `'USD'`         |
-| `label`            | `string`                                  | `''`            |
-| `successMessage`   | `string`                                  | `'It's yours!'` |
-| `opReturn`         | `string`                                  | `null`          |
-| `outputs`          | `array`                                   | `[]`            |
-| `clientIdentifier` | `string`                                  | `null`          |
-| `buttonId`         | `string`                                  | `null`          |
-| `buttonData`       | `string`                                  | `null`          |
-| `type`             | `string` (`'buy', 'tip'`)                 | `'buy'`         |
-| `onPayment`        | `function`                                | `null`          |
-| `onError`          | `function`                                | `null`          |
-| `onLoad`           | `function`                                | `null`          |
-| `editable`         | `boolean`                                 | `false`         |
-| `disabled`         | `boolean`                                 | `false`         |
-| `devMode`          | `boolean`                                 | `false`         |
+| prop               | type                                            | default value   |
+|--------------------|-------------------------------------------------|-----------------|
+| `to`               | `string` (paymail, user ID, address, or script) | `null`          |
+| `amount`           | `string`                                        | `null`          |
+| `currency`         | `string` (`USD`, `BSV`, etc.)                   | `'USD'`         |
+| `label`            | `string`                                        | `''`            |
+| `successMessage`   | `string`                                        | `'It's yours!'` |
+| `opReturn`         | `string`                                        | `null`          |
+| `outputs`          | `array`                                         | `[]`            |
+| `clientIdentifier` | `string`                                        | `null`          |
+| `buttonId`         | `string`                                        | `null`          |
+| `buttonData`       | `string`                                        | `null`          |
+| `type`             | `string` (`'buy', 'tip'`)                       | `'buy'`         |
+| `onPayment`        | `function`                                      | `null`          |
+| `onError`          | `function`                                      | `null`          |
+| `onLoad`           | `function`                                      | `null`          |
+| `editable`         | `boolean`                                       | `false`         |
+| `disabled`         | `boolean`                                       | `false`         |
+| `devMode`          | `boolean`                                       | `false`         |
 
 `outputs` is a list of `output` objects. Each `output` object has these
 parameters:
 
 | name       | type                          | required? |
 | ---------- | ----------------------------- | --------- |
-| `address`  | `string`                      | optional  |
+| `paymail`  | `string`                      | optional  |
 | `userId`   | `string`                      | optional  |
+| `address`  | `string`                      | optional  |
 | `script`   | `string`                      | optional  |
 | `amount`   | `string`                      | required  |
 | `currency` | `string` (`USD`, `BSV`, etc.) | required  |
@@ -87,19 +91,18 @@ Where the `payment` is an object that looks like this:
 
 Where in this case the outputs are slightly more sophisticated:
 
-| name       | type                                       |
-| ---------- | ------------------------------------------ |
-| `to`       | `string`                                   |
-| `type`     | `string` (`'address', 'userId', 'script'`) |
-| `address`  | `string`                                   |
-| `userId`   | `string`                                   |
-| `script`   | `string`                                   |
-| `amount`   | `string`                                   |
-| `currency` | `string`                                   |
-| `satoshis` | `number`                                   |
+| name       | type                                                  |
+|------------|-------------------------------------------------------|
+| `to`       | `string`                                              |
+| `paymail`  | `string`                                              |
+| `userId`   | `string`                                              |
+| `script`   | `string`                                              |
+| `address`  | `string`                                              |
+| `amount`   | `string`                                              |
+| `currency` | `string`                                              |
+| `satoshis` | `number`                                              |
 
-`to` is optional. It can be a BSV address, a user ID or a script. If `to` is
-present then `type`, `address`, and `userId` should not be present.
+`to` is optional. It can be a paymail, a user ID, an address, or a script.
 
 ´onError´ function look like this:
 
