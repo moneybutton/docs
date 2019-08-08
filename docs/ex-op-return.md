@@ -51,7 +51,6 @@ You can insert this value into a Money Button output as follows. If you are usin
 ```html
 <div class='money-button'
   data-outputs='[{
-    "type": "SCRIPT",
     "script": "OP_FALSE OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f",
     "amount": "0",
     "currency": "BSV"
@@ -66,7 +65,6 @@ If you are using the Javascript Money Button, it looks like this:
   const div = document.getElementById('my-money-button')
   moneyButton.render(div, {
     outputs: [{
-      type: 'SCRIPT',
       script: 'OP_FALSE OP_RETURN 6d6f6e6579627574746f6e2e636f6d 75746638 68656c6c6f2e20686f772061726520796f753f',
       amount: '0',
       currency: 'BSV'
