@@ -166,7 +166,7 @@ An example of a button that pays to three addresses looks like this:
 
 ```javascript
 moneyButton.render(div, {
-  outputs=[
+  outputs: [
     {
       address: "ryan@moneybutton.com",
       amount: "0.085",
