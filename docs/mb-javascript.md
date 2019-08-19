@@ -117,7 +117,7 @@ other two have to be present too.
 
 Is the label of the button.
 
-![lala](assets/labelexample.png)
+![label example image](assets/labelexample.png)
 
 ### successMessage
 

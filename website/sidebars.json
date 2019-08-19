@@ -1,7 +1,15 @@
 {
   "docs": {
     "Money Button": ["mb-overview", "mb-html", "mb-javascript", "mb-react"],
-    "API": ["api-overview", "api-currencies", "api-client", "api-apps", "api-webhooks", "api-oauth"],
+    "Button API": ["api-overview", "api-currencies", "api-client", "api-apps", "api-webhooks"],
+    "REST API": [
+      "api-oauth",
+      "api-oauth-endpoints",
+      "api-oauth-jsclient",
+      "api-rest-endpoint-list",
+      "api-rest-user-idenity",
+      "api-rest-user-profile"
+    ],
     "Design": ["design-overview", "design-components"],
     "Examples": ["ex-overview", "ex-op-return"],
     "Bitcoin SV Library": ["bsv-overview", "bsv-bn", "bsv-point", "bsv-hash", "bsv-base58", "bsv-private-key", "bsv-public-key", "bsv-address", "bsv-ecdsa", "bsv-message", "bsv-signature", "bsv-hd-private-key", "bsv-hd-public-key", "bsv-mnemonic"]
