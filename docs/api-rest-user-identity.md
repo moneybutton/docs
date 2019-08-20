@@ -7,12 +7,11 @@ Returns the minimum data to identify a user.
 
 ## Facts.
 
-| Attribute | Value                                                           |
-|----------------|------------------------------------------------------------|
-| url            | `https://www.moneybuton.com/api/v1/auth/user_identity`     |
-| http verb      | `GET`                                                      |
-| Required scope | `auth.user_identity:read`
-
+| Attribute      | Value                                                   |
+|----------------|---------------------------------------------------------|
+| url            | `https://www.moneybutton.com/api/v1/auth/user_identity` |
+| http verb      | `GET`                                                   |
+| Required scope | `auth.user_identity:read`                               |
 
 ## Response
 

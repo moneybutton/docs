@@ -29,7 +29,6 @@ Returns profile info for the specified user..
     "id": "7",
     "attributes": {
       "created-at": "2019-06-24T17:08:48.201Z",
-      "email": "john@doe.com",
       "name": "John Doe",
       "default-currency": "USD",
       "default-language": "en",
