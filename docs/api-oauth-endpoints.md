@@ -150,7 +150,7 @@ the `client_credentials` flow. App tokens need to be requested using basic auth 
 curl --request POST \
   --url 'https://www.moneybutton.com/oauth/v1/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --header 'Autohrization: <Base64Encoded(CLIENT_IDENTIFIER:CLIENT_SECRET)>' \
+  --header 'Authorization: <Base64Encoded(CLIENT_IDENTIFIER:CLIENT_SECRET)>' \
   --data grant_type=client_credentials \
   --data scope=application_access:write
 ```
