@@ -1,6 +1,6 @@
 ---
 id: api-oauth-endpoints
-title: Authentication endpoints
+title: Authentication Endpoints
 ---
 
 In this section we are going to explain how to authenticate in Money Button using our API endpoints.

@@ -1,6 +1,6 @@
 ---
-id: api-rest-user-idenity
-title: User identity
+id: api-rest-user-identity
+title: User Identity
 ---
 
 Returns the minimum data to identify a user.

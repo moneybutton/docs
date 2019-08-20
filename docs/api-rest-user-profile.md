@@ -1,6 +1,6 @@
 ---
 id: api-rest-user-profile
-title: User profile
+title: User Profile
 ---
 
 Returns profile info for the specified user..

@@ -1,13 +1,17 @@
 {
   "docs": {
     "Money Button": ["mb-overview", "mb-html", "mb-javascript", "mb-react"],
-    "Button API": ["api-overview", "api-currencies", "api-client", "api-apps", "api-webhooks"],
-    "REST API": [
+    "API": [
+      "api-overview",
+      "api-currencies",
+      "api-client",
+      "api-apps",
+      "api-webhooks",
       "api-oauth",
       "api-oauth-endpoints",
       "api-oauth-jsclient",
       "api-rest-endpoint-list",
-      "api-rest-user-idenity",
+      "api-rest-user-identity",
       "api-rest-user-profile"
     ],
     "Design": ["design-overview", "design-components"],

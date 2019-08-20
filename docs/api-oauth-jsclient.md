@@ -1,6 +1,6 @@
 ---
 id: api-oauth-jsclient
-title: OAuth with JS client
+title: OAuth With JS Client
 ---
 
 We provide a javascript library to deal with our API. The concept of authentication is already built in there and
