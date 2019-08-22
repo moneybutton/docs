@@ -12,7 +12,8 @@
       "api-oauth-jsclient",
       "api-rest-endpoint-list",
       "api-rest-user-identity",
-      "api-rest-user-profile"
+      "api-rest-user-profile",
+      "api-rest-user-balance"
     ],
     "Design": ["design-overview", "design-components"],
     "Examples": ["ex-overview", "ex-op-return"],
