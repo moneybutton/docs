@@ -13,7 +13,9 @@
       "api-rest-endpoint-list",
       "api-rest-user-identity",
       "api-rest-user-profile",
-      "api-rest-user-balance"
+      "api-rest-user-balance",
+      "api-rest-get-payment-by-id",
+      "api-rest-get-payments"
     ],
     "Design": ["design-overview", "design-components"],
     "Examples": ["ex-overview", "ex-op-return"],
