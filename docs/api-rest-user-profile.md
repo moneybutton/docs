@@ -38,3 +38,21 @@ Returns profile info for the specified user..
   }
 }
 ```
+
+## Using our js api client
+
+``` js
+const { id: userId } = await mbClient.getUserIdentity()
+const profile = await mbClient.getUserProfile(userId)
+console.log(JSON.strigify(profile))
+// Output:
+// {
+//   id: 7,
+//   createdAt: "2019-06-24T17:08:48.201Z",
+//   name: "John Doe",
+//   defaultCurrency: "USD",
+//   defaultLanguage: "en",
+//   bio: "I looooooooooooooooove Money Button.",
+//   primaryPaymail: "johndoe@example.com"
+// }
+```

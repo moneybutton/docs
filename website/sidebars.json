@@ -4,7 +4,6 @@
     "API": [
       "api-overview",
       "api-currencies",
-      "api-client",
       "api-apps",
       "api-webhooks",
       "api-oauth",

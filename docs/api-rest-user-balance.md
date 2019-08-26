@@ -23,7 +23,7 @@ Returns the balance for the specified user.
 ``` json
 {
 	"data": {
-		"type": "users",
+		"type": "amounts",
 		"id": "fa7f9720-c51d-11e9-8504-8bc4464406ab",
 		"attributes": {
 			"amount": 124.89582116461148,
@@ -32,4 +32,18 @@ Returns the balance for the specified user.
 		}
 	}
 }
+```
+
+## Using our js api client
+
+``` js
+const { id: userId } = await mbClient.getUserIdentity()
+const balance = await mbClient.getUserBalance(userId)
+console.log(JSON.strigify(balance))
+// Output:
+// {
+//   amount: 122.34489772156972,
+//   currency: "USD",
+//   satoshis:"90944709"
+// }
 ```

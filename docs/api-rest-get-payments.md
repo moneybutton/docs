@@ -136,3 +136,26 @@ Retrieves the data related to a specific payment.
   ]
 }
 ```
+
+## Using our js api client
+
+``` js
+const mbClient = new MoneyButtonClient(CLIENT_IDENTIFIER, CLIENT_SECRET)
+await mbClient.logInAsApp()
+const payments = await mbClient.getOwnPayments()
+const data = payments.map (p => ({id: p.id, amount: p.amount, currency: p.currency}))
+console.log(data)
+// Output:
+// [
+//   {
+//     id: 51,
+//     amount: '0.00918671551247386',
+//     currency: 'USD'
+//   },
+//   {
+//     id: 77,
+//     amount: '0.9999997399525015',
+//     currency: 'USD'
+//   }
+// ]
+```

@@ -80,3 +80,14 @@ Returns a collection of payments belonging to the current user or app.
   }
 }
 ```
+
+## Using our js api client
+
+``` js
+const mbClient = new MoneyButtonClient(CLIENT_IDENTIFIER, CLIENT_SECRET)
+await mbClient.logInAsApp()
+const payments = await mbClient.getPaymentById(75)
+console.log('The txid is: ', payments.txid)
+// Output:
+// The txid is: 79cdd6f7649e9ca0a63e065cde3f4f5fdd6f3012eccfbea1f0e031b91a46cf54
+```
