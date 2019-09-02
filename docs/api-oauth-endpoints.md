@@ -147,12 +147,17 @@ You can get application access creating a token using your `Client Identifier` a
 the `client_credentials` flow. App tokens need to be requested using basic auth with client credentials:
 
 ``` bash
+ID=8ce101e4236efd4be4881072140b3c1b
+SECRET=701e825b8f6ef16abff8a9cccfbe70cb
+CREDENTIALS=`echo -n "$ID:$SECRET" | base64 -w 0`
+
 curl --request POST \
   --url 'https://www.moneybutton.com/oauth/v1/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --header 'Authorization: <Base64Encoded(CLIENT_IDENTIFIER:CLIENT_SECRET)>' \
+  --header "Authorization: Basic $CREDENTIALS" \
   --data grant_type=client_credentials \
   --data scope=application_access:write
+
 ```
 
 The response is like the following:
