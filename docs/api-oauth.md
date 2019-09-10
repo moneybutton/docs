@@ -24,11 +24,9 @@ using that app:
 
 * `Client Identifier` and `Client Secret`: Those attributes are used to athenticated as your app. You can do this to query information related to your app.
 * `Oauth Identifier`: You can use this identifier grant flow. This flows allows a user to give permission to your app to access certain resources.
-* `OAuth Redirect URL`: Used at the end of the permission gran flow. It's where the access token will be sended.
+* `OAuth Redirect URL`: Used at the end of the permission grant flow. It's where the access token will be sent.
 
 ## Getting Access to the API
 
 There is basically 2 different ways to get access to Money Button resources: Login in with user permissions and logging
 in with app permissions. Both flows will explained in detail in the next sections.
-
-

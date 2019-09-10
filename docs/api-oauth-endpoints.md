@@ -7,7 +7,7 @@ In this section we are going to explain how to authenticate in Money Button usin
 
 ## Permission Grant Flow
 
-![User permission grant diagram](assets/oauth_permission_gran_flow_diagram.png)
+![User permission grant diagram](assets/oauth_permission_grant_flow_diagram.png)
 
 The first step is to ask the user for consensus to share certain [resources](api-rest-endpoint-list). Every resource
 is restricted to a specific scope. You can check the resource documentation to see which scope do you need.
@@ -37,7 +37,7 @@ value returned is the same as the one sent. You can read more about the state pa
 Example:
 
 ```
-https://www.moneybutton.com/oauth/v1/authorize?response_type=code&client_id=4df4b25fd2d966a41fb0f6f159096203&redirect_uri=http://localhost:5007/oauth-response-web&scope=user_identity:read&state=somesecurerandomstring
+https://www.moneybutton.com/oauth/v1/authorize?response_type=code&client_id=4df4b25fd2d966a41fb0f6f159096203&redirect_uri=http://localhost:5007/oauth-response-web&scope=auth.user_identity:read&state=somesecurerandomstring
 ```
 
 After being directed there, the user will be asked for their consent to share the specified resources with your app:
@@ -47,13 +47,13 @@ After being directed there, the user will be asked for their consent to share th
 When the user clicks OK they will be redirected to the specified redirect URI.
 
 ```
-https://myredirecyuri.com?code=<access code>&state=<client generated random string>
+https://myredirecturi.com?code=<access code>&state=<client generated random string>
 ```
 
 Example:
 
 ```
-https://myredirecyuri.com?code=5f43fb324ff1bd0fadbfa2e9bcdf3da7096e1ede&&state=somesecurerandomstring
+https://myredirecturi.com?code=5f43fb324ff1bd0fadbfa2e9bcdf3da7096e1ede&&state=somesecurerandomstring
 ```
 
 The `code` query parameter contains an authorization code. Basically a one use code to get a refresh token.
@@ -83,7 +83,7 @@ curl --request POST \
   --data grant_type=authorization_code \
   --data client_id=4df4b25fd2d966a41fb0f6f159096203 \
   --data code=5f43fb324ff1bd0fadbfa2e9bcdf3da7096e1ede \
-  --data 'redirect_uri=https://myredirecyuri.com'
+  --data 'redirect_uri=https://myredirecturi.com'
 ```
 
 The response is a JSON object that looks like this:
