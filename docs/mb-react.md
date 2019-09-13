@@ -59,12 +59,21 @@ parameters:
 
 | name       | type                          | required? |
 | ---------- | ----------------------------- | --------- |
+| `to`       | `string`                      | optional  |
 | `paymail`  | `string`                      | optional  |
 | `userId`   | `string`                      | optional  |
 | `address`  | `string`                      | optional  |
 | `script`   | `string`                      | optional  |
 | `amount`   | `string`                      | required  |
 | `currency` | `string` (`USD`, `BSV`, etc.) | required  |
+
+`to`, `amount` and `currency` work exactly as the top level attributes with the
+same name, except for the detail that all the outputs have to use the same
+currency. If there are 2 outputs using different currencies the button will fail
+before rendering.
+
+Instead of using `to` argument you can specify which kind of output you are
+using with one of the attributes `paymail`, `userId`, `address`, or `script`.
 
 Also, the `onPayment` function must look like this:
 
