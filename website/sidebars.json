@@ -1,11 +1,6 @@
 {
   "docs": {
-    "Money Button": [
-      "mb-overview",
-      "mb-html",
-      "mb-javascript",
-      "mb-react"
-    ],
+    "Money Button": ["mb-overview", "mb-html", "mb-javascript", "mb-react"],
     "API": [
       "api-overview",
       "api-currencies",
