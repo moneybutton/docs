@@ -28,9 +28,9 @@ let bsv = require('bsv')
 
 In a web browser, we recommend using webpack and React. However, a good way to get going quickly is to use unpkg. Add this to the top of your HTML in the head tag:
 ```html
-<script type="text/javascript" src="https://unpkg.com/bsv@0.26.4/bsv.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/bsv@0.30.0/bsv.min.js"></script>
 ```
 
-Please be sure to always specify the exact version of the library. In the above example, we are using v0.26.4. You can always find the latest version number [on npm](https://www.npmjs.com/package/bsv).
+Please be sure to always specify the exact version of the library. In the above example, we are using v0.30.0. You can always find the latest version number [on npm](https://www.npmjs.com/package/bsv).
 
 [The source code can be found on GitHub.](https://github.com/moneybutton/bsv)
