@@ -4,7 +4,8 @@
       "mb-overview",
       "mb-html",
       "mb-javascript",
-      "mb-react"
+      "mb-react",
+      "mb-signatures"
     ],
     "API": [
       "api-overview",
