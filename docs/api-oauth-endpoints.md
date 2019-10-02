@@ -37,7 +37,7 @@ value returned is the same as the one sent. You can read more about the state pa
 Example:
 
 ```
-https://www.moneybutton.com/oauth/v1/authorize?response_type=code&client_id=4df4b25fd2d966a41fb0f6f159096203&redirect_uri=http://localhost:5007/oauth-response-web&scope=user_identity:read&state=somesecurerandomstring
+https://www.moneybutton.com/oauth/v1/authorize?response_type=code&client_id=4df4b25fd2d966a41fb0f6f159096203&redirect_uri=http://localhost:5007/oauth-response-web&scope=auth.user_identity:read&state=somesecurerandomstring
 ```
 
 After being directed there, the user will be asked for their consent to share the specified resources with your app:
