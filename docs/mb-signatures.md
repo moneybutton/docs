@@ -72,4 +72,4 @@ moneyButton.render(div, {
 })
 ```
 
-Notice how the callback receives the data with operations applied.
+Notice how the callback receives the data with operations applied. Supported data encodings are 'utf8' and 'hex'.
