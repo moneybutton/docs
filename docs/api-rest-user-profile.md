@@ -33,7 +33,8 @@ Returns profile info for the specified user..
       "default-currency": "USD",
       "default-language": "en",
       "bio": "I looooooooooooooooove Money Button.",
-      "primary-paymail": "johndoe@example.com"
+      "primary-paymail": "johndoe@example.com",
+      "avatar-url": "https://www.example.com/avatar.png"
     }
   }
 }
@@ -44,7 +45,7 @@ Returns profile info for the specified user..
 ``` js
 const { id: userId } = await mbClient.getUserIdentity()
 const profile = await mbClient.getUserProfile(userId)
-console.log(JSON.strigify(profile))
+console.log(JSON.stringify(profile))
 // Output:
 // {
 //   id: 7,
@@ -53,6 +54,7 @@ console.log(JSON.strigify(profile))
 //   defaultCurrency: "USD",
 //   defaultLanguage: "en",
 //   bio: "I looooooooooooooooove Money Button.",
-//   primaryPaymail: "johndoe@example.com"
+//   primaryPaymail: "johndoe@example.com",
+//   avatarUrl: "https://www.example.com/avatar.png"
 // }
 ```
