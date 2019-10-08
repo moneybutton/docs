@@ -34,6 +34,6 @@ Returns the minimum data to identify a user.
 ## Using our js api client
 
 ``` js
-const { id, name } = await mbClient.getUserIdentity()
+const { id, name } = await mbClient.getIdentity()
 console.log(`The id is ${id} and the name is ${name}`)
 ```
