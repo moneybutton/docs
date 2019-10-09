@@ -9,7 +9,7 @@ Returns profile info for the specified user..
 
 | Attribute | Value                                                           |
 |-----------|-----------------------------------------------------------------|
-| url            | `https://www.moneybuton.com/api/v1/users/{userId}/profile` |
+| url            | `https://www.moneybutton.com/api/v1/users/{userId}/profile` |
 | http verb      | `GET`                                                      |
 | Required scope | `users.profiles:read`
 
