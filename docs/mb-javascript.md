@@ -52,25 +52,27 @@ with options.
 
 The available options are:
 
-| option             | type                                            | default value   |
-|--------------------|-------------------------------------------------|-----------------|
-| `to`               | `string` (paymail, user ID, address, or script) | `null`          |
-| `amount`           | `string`                                        | `null`          |
-| `currency`         | `string` (`USD`, `BSV`, etc.)                   | `'USD'`         |
-| `label`            | `string`                                        | `''`            |
-| `successMessage`   | `string`                                        | `'It's yours!'` |
-| `opReturn`         | `string`                                        | `null`          |
-| `outputs`          | `array`                                         | `[]`            |
-| `clientIdentifier` | `string`                                        | `null`          |
-| `buttonId`         | `string`                                        | `null`          |
-| `buttonData`       | `string`                                        | `null`          |
-| `type`             | `string` (`'buy', 'tip'`)                       | `'buy'`         |
-| `onPayment`        | `function`                                      | `null`          |
-| `onError`          | `function`                                      | `null`          |
-| `onLoad`           | `function`                                      | `null`          |
-| `editable`         | `boolean`                                       | `false`         |
-| `disabled`         | `boolean`                                       | `false`         |
-| `devMode`          | `boolean`                                       | `false`         |
+| option               | type                                            | default value   |
+|----------------------|-------------------------------------------------|-----------------|
+| `to`                 | `string` (paymail, user ID, address, or script) | `null`          |
+| `amount`             | `string`                                        | `null`          |
+| `currency`           | `string` (`USD`, `BSV`, etc.)                   | `'USD'`         |
+| `label`              | `string`                                        | `''`            |
+| `successMessage`     | `string`                                        | `'It's yours!'` |
+| `opReturn`           | `string`                                        | `null`          |
+| `outputs`            | `array`                                         | `[]`            |
+| `cryptoOperations`   | `array`                                         | `[]`            |
+| `clientIdentifier`   | `string`                                        | `null`          |
+| `buttonId`           | `string`                                        | `null`          |
+| `buttonData`         | `string`                                        | `null`          |
+| `type`               | `string` (`'buy', 'tip'`)                       | `'buy'`         |
+| `onPayment`          | `function`                                      | `null`          |
+| `onCryptoOperations` | `function`                                      | `null`          |
+| `onError`            | `function`                                      | `null`          |
+| `onLoad`             | `function`                                      | `null`          |
+| `editable`           | `boolean`                                       | `false`         |
+| `disabled`           | `boolean`                                       | `false`         |
+| `devMode`            | `boolean`                                       | `false`         |
 
 All the options are matched with the attributes of the HTML API, and have the
 exact same behavior. The HTML version uses the Javascript version under the
@@ -130,10 +132,14 @@ type. Tip buttons shows `Thank you!`, and buy buttons show `It's yours!`.
 ### opReturn
 
 If this attribute is present an extra output is added to the transaction with a
-simple `OP_RETURN` script to post data on the BSV blockchain. The string is
+simple `OP_FALSE OP_RETURN` script to post data on the BSV blockchain. The string is
 encoded in UTF-8 and used directly in the script. The size limit is 99000 bytes
-as determined by the BSV protocol. If you want to put large amounts of data in
-an `OP_RETURN` output, please [follow these instructions](./ex-op-return.md).
+as determined by the BSV protocol.
+
+This attribute is a convenience method that always inserts the string
+`moneybutton.com` at the start of the script. If you want to put large amounts
+of data in an `OP_RETURN` output, and have full control over the contents of the
+script, please [follow these instructions](./ex-op-return.md).
 
 ### outputs
 
@@ -146,7 +152,7 @@ the same time, or "multiple recipients." It can't be used at the same time with
 `element` may have the following properties:
 
 | name       | type                          | required? |
-| ---------- | ----------------------------- | --------- |
+|------------|-------------------------------|-----------|
 | `to`       | `string`                      | optional  |
 | `address`  | `string`                      | optional  |
 | `userId`   | `string`                      | optional  |
@@ -205,6 +211,35 @@ moneyButton.render(div, {
 })
 ```
 
+### cryptoOperations
+
+Money Button is a client-side, non-custodial Bitcoin SV (BSV) wallet. Users have
+their keys and our company cannot access them. The keys are used to sign Bitcoin
+transactions.
+
+The same keys the user uses to sign BSV transactions can also be used to sign
+arbitrary data for use inside [OP_RETURN](ex-op-return.md) scripts. Further,
+those same keys can also be used to encrypt and decrypt data on-chain.
+
+Better still, with
+[paymail](https://blog.moneybutton.com/2019/05/31/introducing-paymail-an-extensible-identity-protocol-for-bitcoin-bsv/),
+we can sign data with a human-readable name (a paymail). We can also encrypt data to a
+paymail and decrypt data with a paymail.
+
+These concepts form the fundamental pieces of an [own your data paradigm for the
+internet](https://www.youtube.com/watch?v=gVW_kfghhUE) whereby users can have
+full custody of their own data.
+
+In order to enable this advanced functionality, we have created the [crypto
+operations API](mb-crypto-operations.md). The basic idea of crypto operations is
+to pass in an array specifying methods to be performed, such as signing or
+encrypting data, and then for that data to be substituted for variables inside a
+transactions or to be returned off-chain (such as for decryption) using the
+`onCryptoOperations` callback.
+
+For detailed information, please see the [crypto operations API
+documentation](mb-crypto-operations.md).
+
 ### clientIdentifier
 
 Each app that uses Money Button is called a "client" in the jargon of OAuth.
@@ -251,18 +286,20 @@ moneyButton.render(div, {
 
 The payment attribute is a javascript object with the following attributes:
 
-| name             | type     | description                                                          |
-|------------------|----------|----------------------------------------------------------------------|
-| `id`             | `string` | Unique Money Button id of the payment.                               |
-| `buttonId`       | `string` | The identifier specified in the button used to pay.                  |
-| `buttonData`     | `string` | The data indicated in the button.                                    |
-| `status`         | `string` | Status of the payment. More information on `webhooks` documentation. |
-| `txid`           | `string` | id of the BSV transaction.                                           |
-| `normalizedTxid` | `string` | Normalized id of the BSV transaction.                                |
-| `amount`         | `string` | Total amount paid.                                                   |
-| `currency`       | `string` | Currency of the button.                                              |
-| `satoshis`       | `string` | Total amount expressed in Satoshis.                                  |
-| `outputs`        | `array`  | Output details                                                       |
+| name               | type     | description                                                          |
+|--------------------|----------|----------------------------------------------------------------------|
+| `id`               | `string` | Unique Money Button id of the payment.                               |
+| `buttonId`         | `string` | The identifier specified in the button used to pay.                  |
+| `buttonData`       | `string` | The data indicated in the button.                                    |
+| `status`           | `string` | Status of the payment. More information on `webhooks` documentation. |
+| `txid`             | `string` | id of the BSV transaction.                                           |
+| `normalizedTxid`   | `string` | Normalized id of the BSV transaction.                                |
+| `amount`           | `string` | Total amount paid.                                                   |
+| `currency`         | `string` | Currency of the button.                                              |
+| `satoshis`         | `string` | Total amount expressed in Satoshis.                                  |
+| `outputs`          | `array`  | Output details                                                       |
+| `cryptoOperations` | `array`  | Results of crypto operations.                                        |
+| `rawtx`            | `string` | The fully signed raw BSV transaction in hex format.                  |
 
 The function is always called in the context of 'window' object.
 

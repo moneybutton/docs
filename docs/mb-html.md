@@ -19,6 +19,10 @@ ways:
   dynamically with javascript. To learn more about that, see the
   [Javascript](./mb-javascript.md) document.
 
+The HTML Money Button is a wrapper for the javascript version. Some details are
+omitted from this document. For full details, see the [javascript
+API](mb-javascript.md).
+
 ## Defining buttons with HTML
 
 When the document finishes loading, our script looks around the document for
@@ -36,25 +40,27 @@ When the document finishes loading, our script looks around the document for
 
 A Money Button `<div>` can take the following attributes:
 
-| prop                     | type                                            | default value |
-|--------------------------|-------------------------------------------------|---------------|
-| `data-to`                | `string` (paymail, user ID, address, or script) | `null`        |
-| `data-amount`            | `string`                                        | `null`        |
-| `data-currency`          | `string` (`'USD'`, `'BSV'`, etc.)               | `'USD'`       |
-| `data-label`             | `string`                                        | `''`          |
-| `data-success-message`   | `string`                                        | `It's yours!` |
-| `data-op-return`         | `string`                                        | `null`        |
-| `data-outputs`           | `string`                                        | `'[]'`        |
-| `data-client-identifier` | `string`                                        | `null`        |
-| `data-button-id`         | `string`                                        | `null`        |
-| `data-button-data`       | `string`                                        | `null`        |
-| `data-type`              | `string` (`'buy', 'tip'`)                       | `'buy'`       |
-| `data-on-payment`        | `string`                                        | `null`        |
-| `data-on-error`          | `string`                                        | `null`        |
-| `data-on-load`           | `string`                                        | `null`        |
-| `data-editable`          | `string` (`'true'` or `'false'`)                | `'false'`     |
-| `data-disabled`          | `string` (`'true'` or `'false'`)                | `'false'`     |
-| `data-dev-mode`          | `string` (`'true'` or `'false'`)                | `'false'`     |
+| prop                        | type                                            | default value |
+|-----------------------------|-------------------------------------------------|---------------|
+| `data-to`                   | `string` (paymail, user ID, address, or script) | `null`        |
+| `data-amount`               | `string`                                        | `null`        |
+| `data-currency`             | `string` (`'USD'`, `'BSV'`, etc.)               | `'USD'`       |
+| `data-label`                | `string`                                        | `''`          |
+| `data-success-message`      | `string`                                        | `It's yours!` |
+| `data-op-return`            | `string`                                        | `null`        |
+| `data-outputs`              | `string`                                        | `'[]'`        |
+| `data-crypto-operations`    | `string`                                        | `'[]'`        |
+| `data-client-identifier`    | `string`                                        | `null`        |
+| `data-button-id`            | `string`                                        | `null`        |
+| `data-button-data`          | `string`                                        | `null`        |
+| `data-type`                 | `string` (`'buy', 'tip'`)                       | `'buy'`       |
+| `data-on-payment`           | `string`                                        | `null`        |
+| `data-on-crypto-operations` | `string`                                        | `null`        |
+| `data-on-error`             | `string`                                        | `null`        |
+| `data-on-load`              | `string`                                        | `null`        |
+| `data-editable`             | `string` (`'true'` or `'false'`)                | `'false'`     |
+| `data-disabled`             | `string` (`'true'` or `'false'`)                | `'false'`     |
+| `data-dev-mode`             | `string` (`'true'` or `'false'`)                | `'false'`     |
 
 ### data-to
 
@@ -181,6 +187,35 @@ An example of a button that pays to two users looks like this:
 ></div>
 ```
 
+### cryptoOperations
+
+Money Button is a client-side, non-custodial Bitcoin SV (BSV) wallet. Users have
+their keys and our company cannot access them. The keys are used to sign Bitcoin
+transactions.
+
+The same keys the user uses to sign BSV transactions can also be used to sign
+arbitrary data for use inside [OP_RETURN](ex-op-return.md) scripts. Further,
+those same keys can also be used to encrypt and decrypt data on-chain.
+
+Better still, with
+[paymail](https://blog.moneybutton.com/2019/05/31/introducing-paymail-an-extensible-identity-protocol-for-bitcoin-bsv/),
+we can sign data with a human-readable name (a paymail). We can also encrypt data to a
+paymail and decrypt data with a paymail.
+
+These concepts form the fundamental pieces of an [own your data paradigm for the
+internet](https://www.youtube.com/watch?v=gVW_kfghhUE) whereby users can have
+full custody of their own data.
+
+In order to enable this advanced functionality, we have created the [crypto
+operations API](mb-crypto-operations.md). The basic idea of crypto operations is
+to pass in an array specifying methods to be performed, such as signing or
+encrypting data, and then for that data to be substituted for variables inside a
+transactions or to be returned off-chain (such as for decryption) using the
+`onCryptoOperations` callback.
+
+For detailed information, please see the [crypto operations API
+documentation](mb-crypto-operations.md).
+
 ### data-client-identifier
 
 Each app that uses Money Button is called a "client" in the jargon of OAuth.
@@ -228,18 +263,20 @@ when the user makes a successful payment.
 
 The payment attribute is a javascript object with the following attributes:
 
-| name             | type     | description                                                          |
-|------------------|----------|----------------------------------------------------------------------|
-| `id`             | `string` | Unique Money Button id of the payment.                               |
-| `buttonId`       | `string` | The identifier specified in the button used to pay.                  |
-| `buttonData`     | `string` | The data indicated in the button.                                    |
-| `status`         | `string` | Status of the payment. More information on `webhooks` documentation. |
-| `txid`           | `string` | id of the BSV transaction.                                           |
-| `normalizedTxid` | `string` | Normalized id of the BSV transaction.                                |
-| `amount`         | `string` | Total amount paid.                                                   |
-| `currency`       | `string` | Currency of the button.                                              |
-| `satoshis`       | `string` | Total amount expressed in Satoshis.                                  |
-| `outputs`        | `array`  | Output details                                                       |
+| name               | type     | description                                                          |
+|--------------------|----------|----------------------------------------------------------------------|
+| `id`               | `string` | Unique Money Button id of the payment.                               |
+| `buttonId`         | `string` | The identifier specified in the button used to pay.                  |
+| `buttonData`       | `string` | The data indicated in the button.                                    |
+| `status`           | `string` | Status of the payment. More information on `webhooks` documentation. |
+| `txid`             | `string` | id of the BSV transaction.                                           |
+| `normalizedTxid`   | `string` | Normalized id of the BSV transaction.                                |
+| `amount`           | `string` | Total amount paid.                                                   |
+| `currency`         | `string` | Currency of the button.                                              |
+| `satoshis`         | `string` | Total amount expressed in Satoshis.                                  |
+| `outputs`          | `array`  | Output details                                                       |
+| `cryptoOperations` | `array`  | Results of crypto operations.                                        |
+| `rawtx`            | `string` | The fully signed raw BSV transaction in hex format.                  |
 
 The function is always called in the context of 'window' object.
 
@@ -267,6 +304,12 @@ follows:
 Note that this simple example is not very secure. If you want to make a secure
 pay wall, you should use the [api-client](./api-client.md) and/or
 [webhooks](./api-webhooks.md).
+
+### data-on-crypto-operations
+
+It's the name of a function defined in the global scope. The function is called
+when crypto operations are performed. See the [crypto operations
+documentation](mb-crypto-operations.md) for full details.
 
 ### data-on-error
 
