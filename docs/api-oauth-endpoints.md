@@ -68,8 +68,7 @@ curl --request POST \
   --url 'https://www.moneybutton.com/oauth/v1/token' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data grant_type=authorization_code \
-  --data client_id=<YOUR_CLIENT_ID> \
-  --data client_secret=<YOUR_CLIENT_SECRET> \
+  --data client_id=<YOUR_APP_OAUTH_IDENTIFIER> \
   --data code=<YOUR_AUTHORIZATION_CODE> \
   --data 'redirect_uri=<same redirect uri that you used to get the auth code>'
 ```
