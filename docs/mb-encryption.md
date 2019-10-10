@@ -2,8 +2,11 @@
 id: mb-encryption
 title: Paymail Encryption
 ---
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FEs8-aCGvdQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-# Overview
+------------------------
+
+## Overview
 
 Paymail Encryption is a way to encrypt data on-chain. Users can encrypt data in three different ways:
 

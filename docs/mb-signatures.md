@@ -3,7 +3,11 @@ id: mb-signatures
 title: Paymail Signatures
 ---
 
-# Overview
+<iframe width="560" height="315" src="https://www.youtube.com/embed/q4HiF51YYMk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+--------------------------------
+
+## Overview
 
 Paymail Signatures are a way to sign data on-chain with a paymail. The signature can be verified with ECDSA signature verification using the [Bitcoin Signed Message protocol](./bsv-message.md) and by confirming that the public key corresponds to the paymail using the paymail API. All of this is integrated seamlessly into Money Button allowing signatures and verification with a swipe.
 
