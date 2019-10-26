@@ -13,8 +13,8 @@ Note that HD Private Keys are handled automatically by Money Button behind the s
 and it is not necessary to deal with HD Private Keys directly unless you are building
 an advanced application.
 
-Theretical Overview
--------------------
+Theoretical Overview
+--------------------
 
 The original Bitcoin wallet held a bag of randomly generated private keys and
 addresses. This method has good security properties because even if one private
@@ -71,7 +71,7 @@ Here are some more concrete definitions of extended keys:
 | Key                                 | Definition                                                                                                                 |
 |-------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | Extended Private Key (HDPrivateKey) | A 256 bit private key and a 256 bit chain code. Any non-hardened path or hardened path can be derived.                     |
-| Extended Public key (HDPublicKey)   | A 512 bit public key and a 256 biy chain code. Any non-hardened path can be derived, but hardened paths cannot be derived. |
+| Extended Public key (HDPublicKey)   | A 256 bit public key and a 256 bit chain code. Any non-hardened path can be derived, but hardened paths cannot be derived. |
 
 The idea of deriving one key from another works as follows. Suppose we have a
 private key p and public key P, which have the formula P = pG.
@@ -92,7 +92,7 @@ This is the theory of deterministic keys.
 
 Now the only problem with this approach is that we may wish to share a key with
 someone in such a way that they have no ability to derive a particular subset of
-the other keys (the hardened ones - they can always derive the non-hardned
+the other keys (the hardened ones - they can always derive the non-hardened
 ones). So in that case we simply share the public chain code C with them but
 generate the private chain code c in such a way that it requires the private key
 that is not shared, like c = hash(p).
@@ -130,7 +130,7 @@ console.log(hdPrivateKey2.toString())
 This key is longer than a normal private key because it includes a "chain code",
 which is the number that factors into deriving new keys from this one.
 
-Here is now we can derive a new key from this one:
+Here is how we can derive a new key from this one:
 
 ```javascript
 let hdPrivateKey3 = hdPrivateKey.deriveChild("m/5/2/8").toString()
@@ -143,7 +143,7 @@ console.log(hdPrivateKey3.toString())
 Here is how we can derive a *hardened* extended private key from this one:
 
 ```javascript
-hlet hdPrivateKey4 = dPrivateKey.deriveChild("m/5'/2/8").toString()
+let hdPrivateKey4 = hdPrivateKey.deriveChild("m/5'/2/8").toString()
 
 console.log(hdPrivateKey4.toString())
 // prints:

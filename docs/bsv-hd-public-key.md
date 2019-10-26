@@ -81,7 +81,7 @@ var hdPublicKey2 = hdPublicKey.deriveChild("m/5'/2/8").toString()
 // Invalid argument: creating a hardened path requires an HDPrivateKey
 ```
 
-The harded extended private key is different than the non-hardened key, and
+The hardened extended private key is different than the non-hardened key, and
 there is no way to derive any keys from the extended public key on a hardened
 path.
 
