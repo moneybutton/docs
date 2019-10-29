@@ -81,7 +81,7 @@ var hdPublicKey2 = hdPublicKey.deriveChild("m/5'/2/8").toString()
 // Invalid argument: creating a hardened path requires an HDPrivateKey
 ```
 
-The harded extended private key is different than the non-hardened key, and
+The hardened extended private key is different than the non-hardened key, and
 there is no way to derive any keys from the extended public key on a hardened
 path.
 
@@ -100,3 +100,34 @@ console.log(hdPublicKey.privateKey
 // prints:
 // undefined
 ```
+
+Given an extended public key which lies on a hardened path, it is possible to
+derive a branch of non-hardened public keys. Here, using the private key, we
+derive an extended public key on a hardened path:
+
+```javascript
+var hdPublicKey3 = hdPrivateKey.deriveChild("m/5'").hdPublicKey
+console.log(hdPublicKey3.toString())
+// prints:
+// xpub69SAXkHK2SHsWU5hAxMMzFoRy4Je3GRusC7drBefmEvN8CpS4Cf9iGyFy9WNFMwgfYEZGkvGMVRm2h2ikFN38KSC1VftFMa669b3nrANzo6
+```
+
+Using this extended public key as the root of a branch, we now derive a child
+public key on a non-hardened path:
+
+```javascript
+var hdPublicKey4 = hdPublicKey3.deriveChild("m/2/8")
+console.log(hdPublicKey4.toString())
+// prints:
+// xpub6D6Vg8rxKiDKTaE4f56y1u2jUXMrLFQiefcEqQgt2jQPZGa4twwqexmfLoxAjHTqRweEt7c8qyUgcbdsuz8k9qaqoFSz6MFuZEJrB2BCrAE
+```
+
+This child public key is the same as if we had  usedthe private key with the
+full derivation path.
+
+```javascript
+var hdPublicKey5 = hdPrivateKey.deriveChild("m/5'/2/8").hdPublicKey
+console.log(hdPublicKey5.toString())
+// prints:
+// xpub6D6Vg8rxKiDKTaE4f56y1u2jUXMrLFQiefcEqQgt2jQPZGa4twwqexmfLoxAjHTqRweEt7c8qyUgcbdsuz8k9qaqoFSz6MFuZEJrB2BCrAE
+````

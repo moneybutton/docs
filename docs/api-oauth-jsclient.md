@@ -59,7 +59,7 @@ user stays logged in with Money Button if they close the browser.
 If you are working server side there is another convenient method on the client:
 
 ``` javascript
-client.authorizeWithAuthFlowResponse(receivedQueryParameters, expectedStateValue)
+client.authorizeWithAuthFlowResponse(receivedQueryParameters, expectedStateValue, redirectUri)
 ```
 
 This is going to complete the flow to get a refresh token, and it's going to save it internally.

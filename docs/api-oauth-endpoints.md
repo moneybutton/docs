@@ -47,13 +47,13 @@ After being directed there, the user will be asked for their consent to share th
 When the user clicks OK they will be redirected to the specified redirect URI.
 
 ```
-https://myredirecyuri.com?code=<access code>&state=<client generated random string>
+https://myredirecturi.com?code=<access code>&state=<client generated random string>
 ```
 
 Example:
 
 ```
-https://myredirecyuri.com?code=5f43fb324ff1bd0fadbfa2e9bcdf3da7096e1ede&&state=somesecurerandomstring
+https://myredirecturi.com?code=5f43fb324ff1bd0fadbfa2e9bcdf3da7096e1ede&&state=somesecurerandomstring
 ```
 
 The `code` query parameter contains an authorization code. Basically a one use code to get a refresh token.
@@ -82,7 +82,7 @@ curl --request POST \
   --data grant_type=authorization_code \
   --data client_id=4df4b25fd2d966a41fb0f6f159096203 \
   --data code=5f43fb324ff1bd0fadbfa2e9bcdf3da7096e1ede \
-  --data 'redirect_uri=https://myredirecyuri.com'
+  --data 'redirect_uri=https://myredirecturi.com'
 ```
 
 The response is a JSON object that looks like this:
