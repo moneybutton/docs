@@ -129,7 +129,7 @@
     "body": "^5.1.0",
     "body-parser": "^1.18.2",
     "boolbase": "^1.0.0",
-    "braces": "^1.8.5",
+    "braces": "^2.3.1",
     "brace-expansion": "^1.1.11",
     "browserslist": "^1.7.7",
     "buffer-alloc-unsafe": "^1.1.0",
