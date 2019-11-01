@@ -387,7 +387,7 @@
     "isstream": "^0.1.2",
     "isomorphic-fetch": "^2.2.1",
     "js-base64": "^2.4.5",
-    "js-yaml": "^3.12.0",
+    "js-yaml": "^3.13.1",
     "js-tokens": "^3.0.2",
     "json-stable-stringify": "^1.0.1",
     "jsbn": "^0.1.1",
