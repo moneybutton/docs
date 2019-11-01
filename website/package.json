@@ -671,7 +671,7 @@
     "ua-parser-js": "^0.7.18",
     "typedarray": "^0.0.6",
     "underscore": "^1.9.1",
-    "underscore.string": "^2.4.0",
+    "underscore.string": "^3.3.5",
     "unique-stream": "^2.2.1",
     "universalify": "^0.1.2",
     "uniqs": "^2.0.0",
