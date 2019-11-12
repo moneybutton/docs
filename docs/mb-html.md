@@ -276,6 +276,7 @@ The payment attribute is a javascript object with the following attributes:
 | `satoshis`         | `string` | Total amount expressed in Satoshis.                                  |
 | `outputs`          | `array`  | Output details                                                       |
 | `cryptoOperations` | `array`  | Results of crypto operations.                                        |
+| `userId`           | `string` | The Money Button user ID of the sender.                              |
 | `rawtx`            | `string` | The fully signed raw BSV transaction in hex format.                  |
 
 The function is always called in the context of 'window' object.

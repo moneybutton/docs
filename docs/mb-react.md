@@ -109,6 +109,7 @@ Where the `payment` is an object that looks like this:
 | `satoshis`         | `string` |
 | `outputs`          | `array`  |
 | `cryptoOperations` | `array`  |
+| `userId`           | `string` |
 | `rawtx`            | `string` |
 
 Where in this case the outputs are slightly more sophisticated:
