@@ -24,8 +24,30 @@
       "api-rest-get-payment-by-id",
       "api-rest-get-payments"
     ],
-    "Design": ["design-overview", "design-components"],
-    "Examples": ["ex-overview", "ex-op-return"],
-    "Bitcoin SV Library": ["bsv-overview", "bsv-bn", "bsv-point", "bsv-hash", "bsv-base58", "bsv-private-key", "bsv-public-key", "bsv-address", "bsv-ecdsa", "bsv-message", "bsv-signature", "bsv-hd-private-key", "bsv-hd-public-key", "bsv-mnemonic"]
+    "Design": [
+      "design-overview",
+      "design-components"
+    ],
+    "Examples": [
+      "ex-overview",
+      "ex-op-return"
+    ],
+    "Bitcoin SV Library": [
+      "bsv-overview",
+      "bsv-bn",
+      "bsv-point",
+      "bsv-hash",
+      "bsv-base58",
+      "bsv-private-key",
+      "bsv-public-key",
+      "bsv-address",
+      "bsv-ecdsa",
+      "bsv-message",
+      "bsv-signature",
+      "bsv-hd-private-key",
+      "bsv-hd-public-key",
+      "bsv-mnemonic",
+      "bsv-script"
+    ]
   }
 }
