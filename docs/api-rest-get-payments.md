@@ -9,7 +9,7 @@ Retrieves the data related to a specific payment.
 
 | Attribute      | Value                                                    |
 |----------------|----------------------------------------------------------|
-| url            | `https://www.moneybuton.com/api/v1/payments`             |
+| url            | `https://www.moneybutton.com/api/v1/payments`             |
 | http verb      | `GET`                                                    |
 | Required scope | `payments:read` or `application_access:write`            |
 

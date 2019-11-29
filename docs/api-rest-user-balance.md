@@ -9,7 +9,7 @@ Returns the balance for the specified user.
 
 | Attribute      | Value                                                      |
 |----------------|------------------------------------------------------------|
-| url            | `https://www.moneybuton.com/api/v1/users/{userId}/balance` |
+| url            | `https://www.moneybutton.com/api/v1/users/{userId}/balance` |
 | http verb      | `GET`                                                      |
 | Required scope | `users.balance:read`
 

@@ -9,7 +9,7 @@ Returns a collection of payments belonging to the current user or app.
 
 | Attribute      | Value                                                    |
 |----------------|----------------------------------------------------------|
-| url            | `https://www.moneybuton.com/api/v1/payments/{paymentId}` |
+| url            | `https://www.moneybutton.com/api/v1/payments/{paymentId}` |
 | http verb      | `GET`                                                    |
 | Required scope | `payments:read` or `application_access:write`            |
 
