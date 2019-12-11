@@ -250,7 +250,7 @@ not a recipient or sender of the funds.
 
 You can create an app, which includes a client and the associated
 clientIdentifier, on the apps page in your user settings. Please see
-[./api-apps.md].
+(the apps documentation)[api-apps.md].
 
 ### buttonId
 
