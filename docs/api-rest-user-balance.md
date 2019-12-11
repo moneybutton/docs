@@ -37,7 +37,7 @@ Returns the balance for the specified user.
 ## Using our js api client
 
 ``` js
-const { id: userId } = await mbClient.getUserIdentity()
+const { id: userId } = await mbClient.getIdentity()
 const balance = await mbClient.getUserBalance(userId)
 console.log(JSON.strigify(balance))
 // Output:

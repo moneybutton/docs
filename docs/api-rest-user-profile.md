@@ -43,7 +43,7 @@ Returns profile info for the specified user..
 ## Using our js api client
 
 ``` js
-const { id: userId } = await mbClient.getUserIdentity()
+const { id: userId } = await mbClient.getIdentity()
 const profile = await mbClient.getUserProfile(userId)
 console.log(JSON.stringify(profile))
 // Output:
