@@ -27,7 +27,7 @@ As you can see, this url has several query parameters:
 
 * response_type: At the moment the only response type supported by Money Button is `code`. We may support
 other types in the future but right now that is the only valid value.
-* client id: This is your app `OAuth Identifier`. It's used to recognize your app.
+* client id: This is your app `OAuth identifier`. It's used to recognize your app.
 * redirect_uri: The endpoint where the access token have to be sent. It needs to be the same registered on your app's
 detail page.
 * scope: A space separated list of API scopes. For example `users.balance:read users.profiles:read`.
@@ -142,7 +142,7 @@ Again, the response is a JSON object like the following:
 
 ## Application access
 
-You can get application access creating a token using your `Client Identifier` and your `Client Secret`, and following
+You can get application access creating a token using your `Client identifier` and your `Client secret`, and following
 the `client_credentials` flow. App tokens need to be requested using basic auth with client credentials:
 
 ``` bash
