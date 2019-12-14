@@ -112,7 +112,7 @@ var hash = bsv.crypto.Hash.sha256(Buffer.from(data))
 console.log(bsv.crypto.ECDSA.sign(hash, privateKey).toString())
 // 304402202222ba63f189827abfa9c75715b794c853bf70b108e0767eaf5d019fb017ee8902204b29298bf8a11fc57e6a970f9f7a9d4cd18dd6e80b2b3aade6316f6082a2d448
 console.log(bsv.crypto.ECDSA.sign(hash, privateKey).toString())
-// 87304402202222ba63f189827abfa9c75715b794c853bf70b108e0767eaf5d019fb017ee8902204b29298bf8a11fc57e6a970f9f7a9d4cd18dd6e80b2b3aade6316f6082a2d448
+// 304402202222ba63f189827abfa9c75715b794c853bf70b108e0767eaf5d019fb017ee8902204b29298bf8a11fc57e6a970f9f7a9d4cd18dd6e80b2b3aade6316f6082a2d448
 console.log(bsv.crypto.ECDSA.sign(hash, privateKey).toString())
 // 304402202222ba63f189827abfa9c75715b794c853bf70b108e0767eaf5d019fb017ee8902204b29298bf8a11fc57e6a970f9f7a9d4cd18dd6e80b2b3aade6316f6082a2d448
 console.log(bsv.crypto.ECDSA.sign(hash, privateKey).toString())
