@@ -149,7 +149,6 @@ by the 'encrypt' operation) and plug it back into the decrypt operation in the
 'data' field.
 
 ``` js
-const content = 'Some secret data'
 moneyButton.render(div, {
   label: 'off-chain dec',
   cryptoOperations: [
