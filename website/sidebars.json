@@ -11,6 +11,7 @@
     ],
     "API": [
       "api-overview",
+      "api-client",
       "api-currencies",
       "api-apps",
       "api-webhooks",
