@@ -196,7 +196,7 @@ An example of a button that pays to two users looks like this:
 
 ```javascript
 moneyButton.render(div, {
-  outputs=[
+  outputs: [
     {
       userId: "6",
       amount: "0.085",
