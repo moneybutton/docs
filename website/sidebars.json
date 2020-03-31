@@ -25,15 +25,30 @@
       "api-rest-get-payment-by-id",
       "api-rest-get-payments"
     ],
-    "Design": [
-      "design-overview",
-      "design-components"
-    ],
     "Examples": [
       "ex-overview",
       "ex-op-return"
     ],
-    "Bitcoin SV Library": [
+    "Paymail": [
+      "paymail-overview",
+      "paymail-video-series",
+      "paymail-introduction",
+      "paymail-01-brfc-specifications",
+      "paymail-01-01-specification-documents",
+      "paymail-01-02-brfc-id-assignment",
+      "paymail-02-service-discovery",
+      "paymail-02-01-host-discovery",
+      "paymail-02-02-capability-discovery",
+      "paymail-03-public-key-infrastructure",
+      "paymail-04-payment-addressing",
+      "paymail-04-01-basic-address-resolution",
+      "paymail-04-02-sender-validation",
+      "paymail-04-03-receiver-approvals",
+      "paymail-04-04-payto-protocol-prefix",
+      "paymail-05-verify-public-key-owner",
+      "paymail-99-01-recommendations"
+    ],
+    "Bitcoin SV Library (bsv)": [
       "bsv-overview",
       "bsv-bn",
       "bsv-point",

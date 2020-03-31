@@ -40,7 +40,8 @@ const siteConfig = {
   headerLinks: [
     { doc: 'mb-overview', label: 'Money Button' },
     { doc: 'api-overview', label: 'API' },
-    { doc: 'design-overview', label: 'Design' },
+    { doc: 'ex-overview', label: 'Examples' },
+    { doc: 'paymail-overview', label: 'Paymail' },
     { doc: 'bsv-overview', label: 'bsv' }
   ],
 
