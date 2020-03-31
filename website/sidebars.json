@@ -46,6 +46,8 @@
       "paymail-04-03-receiver-approvals",
       "paymail-04-04-payto-protocol-prefix",
       "paymail-05-verify-public-key-owner",
+      "paymail-06-p2p-transactions",
+      "paymail-07-p2p-payment-destination",
       "paymail-99-01-recommendations"
     ],
     "Bitcoin SV Library (bsv)": [
