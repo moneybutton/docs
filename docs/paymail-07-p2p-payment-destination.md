@@ -22,6 +22,7 @@ For advanced uses of bitcoin one output is sometimes not enough. Event for simpl
 In addition, the BSV ecosystem is starting to move away of the idea of monitoring addresses. After release of [Genesis](https://bitcoinsv.io/genesis-hard-fork/), there are no more "standard scripts". This means that now wallets are free to use any kind of scripts to make and receive payments.
 
 Finally, wallets show interest in having a separate way to generate payment destinations between p2p and legacy transactions. In the legacy system, the transaction is send to the blockchain, and then the recipient must scan the blockchain to find the transaction. This means that for every payment destination that you create the weight of monitoring the blockhain is heavier. The payment destinations (usually addresses) generated for this capability don't need to be monitored because they are ment to be used only with [P2P transaction broadcasts](paymail-06-p2p-transactions.md).
+If a transaction constructed with those given outputs is broadcasted only in a legacy way, the receiving wallet will most likely never receive it as it is not meant to listen to the blockchain for those outputs and might not have the ability to do so.
 
 ## Capability discovery
 
