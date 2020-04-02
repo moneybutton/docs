@@ -400,7 +400,7 @@
     "jsonfile": "^4.0.0",
     "jsonify": "^0.0.0",
     "jsprim": "^1.4.1",
-    "kind-of": "^3.2.2",
+    "kind-of": "^6.0.3",
     "lazy-cache": "^2.0.2",
     "lazy-req": "^1.1.0",
     "lazystream": "^1.0.0",
