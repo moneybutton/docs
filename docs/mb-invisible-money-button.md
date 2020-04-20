@@ -3,8 +3,6 @@ id: mb-invisible-money-button
 title: Invisible Money Button
 ---
 
-[insert video for developers]
-
 # Overview
 
 Invisible Money Button (IMB) is an API to allow apps to request access to spend
@@ -19,7 +17,14 @@ Sometimes apps require many small interactions with the user’s wallet. Having 
 consciously approve every transaction or API call is cumbersome for the user.
 
 Invisible Money Button solves this issue by letting the user set a limit on the
-amount of money the app can spend. This way, the user can do transactions inside the app without having to constantly swipe the button but retaining full control over their balance at the same time.
+amount of money the app can spend. This way, the user can do transactions inside
+the app without having to constantly swipe the button but retaining full control
+over their balance at the same time.
+
+Please [read our announcement for
+users](https://blog.moneybutton.com/2020/04/20/invisible-money-button-give-apps-permission-to-work-for-you/)
+or our [announcement for
+developers](https://blog.moneybutton.com/2020/04/20/invisible-money-button-a-new-api-to-swipe-money-button-automatically-inside-web-apps/).
 
 
 # How to use Invisible Money Button
