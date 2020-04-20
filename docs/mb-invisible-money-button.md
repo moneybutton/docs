@@ -26,7 +26,6 @@ users](https://blog.moneybutton.com/2020/04/20/invisible-money-button-give-apps-
 or our [announcement for
 developers](https://blog.moneybutton.com/2020/04/20/invisible-money-button-a-new-api-to-swipe-money-button-automatically-inside-web-apps/).
 
-
 # How to use Invisible Money Button
 
 ## Prerequisites
@@ -34,36 +33,37 @@ developers](https://blog.moneybutton.com/2020/04/20/invisible-money-button-a-new
 Invisible Money Button is designed to be easy to use for developers. You need to
 do three things:
 
-1 -  Register your app on the [settings
-page](https://www.moneybutton.com/settings/apps)
+### 1. Register your app on the settings page
+
+You can register your app on the [settings page](https://www.moneybutton.com/settings/apps). Please see the [app documentation](./api-apps.md) for more information.
 
 ![create app](assets/create-app.png)
 
-
-It’s important to use the real name and real URL of your app so that the user
+It's important to use the real name and real URL of your app so that the user
 recognizes it when they grant permissions. The URL is a part of IMB security
-validations and it needs to have the same domain as the domain in the user’s web
+validations and it needs to have the same domain as the domain in the user's web
 browser when granting permissions. In development you will have a different
 domain, such as localhost, and in order to use it you will need to create an app for
 development where the domain is the same as your development environment.
 
-2 - Get your clientIdentifier.
+### 2. Get your clientIdentifier.
 
 ![client identifier](assets/client-identifier.png)
 
-That number is required to create IMB instances.
+That `clientIdentifer` is required to track the permissions your app uses with
+IMB. The `clientIdentifier` is plugged into the constructor of the IMB instance
+and you need to have it on-hand.
 
 
-3 - Load the moneybutton.js library in your webapp.
+### 3. Load the moneybutton.js library in your webapp.
 
 ``` html
 <script src="https://www.moneybutton.com/moneybutton.js"></script>
 ```
 
-
 # API
 
-Interactions with Invisible Money Button are made through the imb object. Making a
+Interactions with Invisible Money Button are made through the `imb` object. Making a
 payment using Invisible Money Button is as simple as this:
 
 ``` js
@@ -84,10 +84,10 @@ If the user agrees, the payment will be executed, and the app will be able to
 continue making payments until it runs out of the permitted amount.
 
 With this basic API you can access all the features of Money Button without
-the need for the user to swiper for every transaction. If you are familiar
-with Money Button’s API you are going to find the rest of this document pretty similar.
+the need for the user to swipe for every transaction. If you are familiar
+with the Money Button API you are going to find the rest of this document pretty similar.
 
-The IMB API allows you to use every feature of Money Button and provide a lot of
+The IMB API allows you to use every feature of Money Button. You can provide a lot of
 customization over the user experience.
 
 ## Constructor
@@ -102,30 +102,30 @@ const imb = new moneyButton.IMB(config)
 The `config` object can contain the following attributes:
 
 
-- `clientIdentifier`(mandatory, string): Your app's client identifier. You can
+- `clientIdentifier` (mandatory, string): Your app's client identifier. You can
   check your apps' client identifiers here:
   https://www.moneybutton.com/settings/apps
-- `suggestedAmount`(optional, object): This attribute allows the developer to
+- `suggestedAmount` (optional, object): This attribute allows the developer to
   choose how much money the users are going to be suggested to authorize.
-  Basically, it is the amount that appears as prefilled in the permission popup. Like
+  It is the amount that appears as prefilled in the permission popup. Like
   every amount of money in Money Button, is an object with 2 keys: `amount` and
   `currency`.
 - `minimumAmount` (optional, object): For some apps, if the user allows a very
-  low amount of money the experience gets broken. That’s why the apps have the
-  possibility to choose a minimum amount for the users to authorize. If the
-  users try to authorize less than this amount they are are going to see an
-  error. Like every money amount in Money Button, this is an object containing
-  `amount`  and `currency`.
+  low amount of money the experience is broken. Therefore the apps have the
+  ability to choose a minimum amount for the users to authorize. If the users
+  try to authorize less than this amount, they will get an error. Like every
+  money amount in Money Button, this is an object containing `amount` and
+  `currency`.
 - `permission` (optional, string): This is a permission token provided by Money
   Button in the past. This permission token allows IMB to live more than the
-  current session. We well talk more about this in the next section.
+  current session. We will explain more about this in the next section.
 - `onNewPermissionGranted` (optional, function): Every time a user gives
-  permission to an app a permission token is created. When that happens, this
-  handler is called. This is useful to keep the imb permission state full. More
+  permission to an app, a permission token is created. When that happens, this
+  handler is called. This is useful to keep the `imb` permission state full. More
   about this in the next section.
 
 
-This an example using all the possible configurations for imb:
+This an example using all the possible configurations for `imb`:
 
 ``` js
 
@@ -145,16 +145,17 @@ const config = {
 
 const imb = new moneyButton.IMB(config)
 ```
+
 Usually `permission` and `onNewPermissionGranted` are used together. Using these
-attributes you can accomplish a pretty good state full experience with IMB.
+attributes you can save and load the permission token easily.
 
 When a user grants permission to an app to spend up to certain amount of money,
 a permission token is created. That token only works for that user in the
-context of that app. That’s why the app can safely save the token. If the app
-saves the token in its backend, and retrieve it every time the user logs in, the
-user can keep using the same permission they granted the first time and it
-doesn’t have to authorize the same app again.
-
+context of that app. The token cannot be used with a different `clientIdentifer`
+or a different domain. That’s why the app can safely save the token. If the app
+saves the token in its backend, and retrieves it every time the user logs in,
+the user can keep using the same permissions they granted the first time, and
+they don't have to authorize the same app again.
 
 ## swipe
 
@@ -178,9 +179,10 @@ imb.swipe({
 )
 ```
 
-
 If no crypto operations are specified then `cryptoOperations` is an empty list.
-If no outputs are specified for the payment, then `payment` is null.
+If no outputs are specified for the payment, then `payment` is null. See more
+information about [the crypto operations API](./mb-crypto-operations.md) for
+creating signatures and encryption.
 
 The swipe method can be configured in the same way as a regular Money Button.
 Every valid configuration option for Money Button is also valid for Invisible
@@ -204,7 +206,7 @@ Here is the list of attributes that can be used, and are meaningful, for IMB:
 | onError            | function | () => {} |
 
 All of these attributes behave exactly the same as a regular [javascript Money
-Button](mb-javascript#amount-and-currency). A regular Money Button can also receive other configuration
+Button](./mb-javascript.md). A regular Money Button can also receive other configuration
 attributes like label or successMessage, but they are ignored because they do
 not have meaning for an Invisible Money Button.
 
@@ -212,14 +214,13 @@ not have meaning for an Invisible Money Button.
 
 These are callbacks executed in specific moments of the payment.
 `onCryptoOperations` is called when the crypto operations are succesfully
-applied. Then, if the payment is sucessfull, `onPayment` is executed. If there
+applied. Then, if the payment is sucessful, `onPayment` is executed. If there
 is an error, none of those are executed, `onError` is executed instead.
 
-It’s important to mention, that the functionality of these three overlaps with
-the promise interface. The promise interface is usually better, and combines
-better with modern javascript development. Still, you can use both at the same
-time, and in that case you are going to see both things happening: callbacks
-being executed and promise being handled.
+Note that the functionality of these three callbacks overlaps with the promise
+interface. The promise interface is usually more suitable for modern javascript
+development. Still, you can use both at the same time. In that case you will see
+both things happening: callbacks being executed and promise being handled.
 
 ``` js
 
@@ -302,7 +303,7 @@ async/await syntax. You can do something like this, for example:
 async function myHandler (imb) {
   try {
     const payment = await imb.swipe({
-      to: 'moneybuttton@moneybutton.com',
+      to: 'moneybutton@moneybutton.com',
       amount: '1',
       currency: 'USD'}
     )
