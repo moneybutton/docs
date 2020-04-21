@@ -4,13 +4,13 @@ title: P2P Payment Destination
 ---
 
 ```
-title: P2P Payment Destination
+title: Get no monitored payment destination (p2p payment destination)
 authors:
-  - Ryan X. Charles (Money Button)
   - Miguel Duarte (Money Button)
-  - Rafa Jimenez Seibane (Handcash)
-  - Ivan Mlinarić  (Handcash)
-version: 1
+  - Ryan X. Charles (Money Button)
+  - Ivan Mlinaric (Handcash)
+  - Rafa (Handcash)
+version: 1.1
 brfc: 2a40af698840
 ```
 This protocol is an alternative protocol to [basic address resolution](./paymail-04-01-basic-address-resolution.md). Instead of returning one address, it returns a list of outputs with a reference number. It is only intended to be used with [P2P Transactions](paymail-06-p2p-transactions.md) and will continue to function even after basic address resolution is deprecated.
@@ -31,7 +31,7 @@ The `.well-known/bsvalias` document is updated to include a declaration of the e
     {
       "bsvalias": "1.0",
       "capabilities": {
-        "2a40af698840": "https://example.bsvalias.tld/api/rawtx/{alias}@{domain.tld}"
+        "2a40af698840": "https://example.bsvalias.tld/api/p2p-payment-destination/{alias}@{domain.tld}"
       }
     }
 ```
@@ -42,7 +42,7 @@ The `capabilities.2a40af698840` is an url, where the sender need to do a POST ht
 
 The `capabilities.2a40af698840` path returns a URI template. Senders MUST replace {alias}, {domain.tld} placeholders with a valid bsvalias handle. Then the client MUST perform a POST http request with the following body structure:
 ```json
-    { 
+    {
       "satoshis": 1000100,
     }
 ```

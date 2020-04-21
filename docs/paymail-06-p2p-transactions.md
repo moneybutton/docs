@@ -4,13 +4,13 @@ title: P2P Transactions
 ---
 
 ```
-title: P2P Transactions
+title: Send raw transaction
 authors:
-  - Ryan X. Charles (Money Button)
   - Miguel Duarte (Money Button)
-  - Rafa Jimenez Seibane (Handcash)
-  - Ivan Mlinarić  (Handcash)
-version: 1
+  - Ryan X. Charles (Money Button)
+  - Ivan Mlinaric (Handcash)
+  - Rafa (Handcash)
+version: 1.1
 brfc: 5f1323cddf31
 ```
 
@@ -30,7 +30,7 @@ The .well-known/bsvalias document is updated to include a declaration of the end
     {
       "bsvalias": "1.0",
       "capabilities": {
-        "5f1323cddf31": "https://example.bsvalias.tld/api/rawtx/{alias}@{domain.tld}"
+        "5f1323cddf31": "https://example.bsvalias.tld/api/receive-rawtx/{alias}@{domain.tld}"
       }
     }
 ```
@@ -40,7 +40,7 @@ The `capabilities.5f1323cddf31` is a URL where the sender needs to POST the tx d
 
 The capabilities.5f1323cddf31 path returns a URI template. Senders MUST replace {alias}, {domain.tld} placeholders with a valid bsvalias handle. Then, the client MUST perform a POST http request with the following body:
 ```json
-    { 
+    {
       "hex": "01000000012adda020db81f2155ebba69e7c841275517ebf91674268c32ff2f5c7e2853b2c010000006b483045022100872051ef0b6c47714130c12a067db4f38b988bfc22fe270731c2146f5229386b02207abf68bbf092ec03e2c616defcc4c868ad1fc3cdbffb34bcedfab391a1274f3e412102affe8c91d0a61235a3d07b1903476a2e2f7a90451b2ed592fea9937696a07077ffffffff02ed1a0000000000001976a91491b3753cf827f139d2dc654ce36f05331138ddb588acc9670300000000001976a914da036233873cc6489ff65a0185e207d243b5154888ac00000000",
       "metadata": {
         "sender": "someone@example.tld",
