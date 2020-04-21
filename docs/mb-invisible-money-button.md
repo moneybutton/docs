@@ -3,7 +3,7 @@ id: mb-invisible-money-button
 title: Invisible Money Button
 ---
 
-# Overview
+## Overview
 
 Invisible Money Button (IMB) is an API to allow apps to request access to spend
 money on the user’s behalf inside of web apps. Additionally, IMB has access to
@@ -26,14 +26,14 @@ users](https://blog.moneybutton.com/2020/04/20/invisible-money-button-give-apps-
 or our [announcement for
 developers](https://blog.moneybutton.com/2020/04/20/invisible-money-button-a-new-api-to-swipe-money-button-automatically-inside-web-apps/).
 
-# How to use Invisible Money Button
+## How to use Invisible Money Button
 
-## Prerequisites
+### Prerequisites
 
 Invisible Money Button is designed to be easy to use for developers. You need to
 do three things:
 
-### 1. Register your app on the settings page
+#### 1. Register your app on the settings page
 
 You can register your app on the [settings page](https://www.moneybutton.com/settings/apps). Please see the [app documentation](./api-apps.md) for more information.
 
@@ -46,7 +46,7 @@ browser when granting permissions. In development you will have a different
 domain, such as localhost, and in order to use it you will need to create an app for
 development where the domain is the same as your development environment.
 
-### 2. Get your clientIdentifier.
+#### 2. Get your clientIdentifier.
 
 ![client identifier](assets/client-identifier.png)
 
@@ -55,13 +55,13 @@ IMB. The `clientIdentifier` is plugged into the constructor of the IMB instance
 and you need to have it on-hand.
 
 
-### 3. Load the moneybutton.js library in your webapp.
+#### 3. Load the moneybutton.js library in your webapp.
 
 ``` html
 <script src="https://www.moneybutton.com/moneybutton.js"></script>
 ```
 
-# API
+## API
 
 Interactions with Invisible Money Button are made through the `imb` object. Making a
 payment using Invisible Money Button is as simple as this:
@@ -90,7 +90,7 @@ with the Money Button API you are going to find the rest of this document pretty
 The IMB API allows you to use every feature of Money Button. You can provide a lot of
 customization over the user experience.
 
-## Constructor
+### Constructor
 
 `IMB` objects are built passing a `config` object as parameter:
 
@@ -157,7 +157,7 @@ saves the token in its backend, and retrieves it every time the user logs in,
 the user can keep using the same permissions they granted the first time, and
 they don't have to authorize the same app again.
 
-## swipe
+### swipe
 
 This method is the main interaction between the developers and the `imb` object.
 It simulates our classic user interaction, the swipe.
@@ -210,7 +210,7 @@ Button](./mb-javascript.md). A regular Money Button can also receive other confi
 attributes like label or successMessage, but they are ignored because they do
 not have meaning for an Invisible Money Button.
 
-### onCryptoOperations, onPayment and onError
+#### onCryptoOperations, onPayment and onError
 
 These are callbacks executed in specific moments of the payment.
 `onCryptoOperations` is called when the crypto operations are succesfully
@@ -253,7 +253,7 @@ that if you already have an app using the Money Button widget, you can easily
 plug your button configuration into IMB and it will work.
 
 
-## amountLeft
+### amountLeft
 
 
 Sometimes it is useful to know how much money the app has left to spend before
@@ -268,7 +268,7 @@ imb.amountLeft().then(amount => console.log(amount))
 // => { amount:  '3.47', currency: ‘USD’, satoshis: ’123123’ }
 ```
 
-## askForPermission
+### askForPermission
 
 Sometimes it's useful to request the user's permission before starting a
 transaction. This method does exactly that.
@@ -294,7 +294,7 @@ imb.askForPermission({
 )
 ```
 
-# Usage with async/await.
+## Usage with async/await.
 
 The IMB API is fully based in promises, which makes it completely suitable for
 async/await syntax. You can do something like this, for example:
@@ -314,7 +314,7 @@ async function myHandler (imb) {
 }
 ```
 
-# General recommendations.
+## General recommendations.
 
 IMB gives a lot of power to the app developers. And with great power comes a
 great responsibility. We provide some general recommendations that will give you and 
@@ -348,7 +348,7 @@ the user the best possible experience with your app:
   about their money, and also allows your app to do better usage of the
   authorized amount.
 
-# Frequently Asked Question
+## Frequently Asked Question
 
 
 > Q: What happen if the app runs out of granted balance?
