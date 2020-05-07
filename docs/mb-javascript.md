@@ -73,6 +73,7 @@ The available options are:
 | `editable`           | `boolean`                                       | `false`         |
 | `disabled`           | `boolean`                                       | `false`         |
 | `devMode`            | `boolean`                                       | `false`         |
+| `preserveOrder`      | `boolean`                                       | `false`         |
 
 All the options are matched with the attributes of the HTML API, and have the
 exact same behavior. The HTML version uses the Javascript version under the
@@ -95,10 +96,10 @@ depending on its format it is interpreted in different ways:
 * If the this attribute doesn't match with any of the previous forms, the button
   fails.
 
-This argument works together with `data-amount` and `data-currency`. If one of
+This argument works together with `amount` and `currency`. If one of
 them is present the other two have to be present too.
 
-If this attribute is present then `data-outputs` attributes cannot be present.
+If this attribute is present then `outputs` attributes cannot be present.
 
 ### amount and currency
 
@@ -383,7 +384,7 @@ When this attribute is true the button is displayed in an editable mode,
 allowing the user to set the amount of the transaction before pay. When this
 attribute is set to `true` the values of `to`, `amount`, `currency` and
 `outputs` are ignored. Editable buttons are able to have `OP_RETURN` using the
-attribute `data-op-return`.
+attribute `opReturn`.
 
 ### disabled
 
@@ -395,3 +396,31 @@ cannot be swiped.
 This attribute is `false` by default. If it is set to `true` the button becomes
 a dummy component. It doesn't execute any callback and doesn't interact with the
 backend at all. Instead it always succeeds.
+
+### preserveOrder
+
+Money Button sorts inputs and outputs following [BIP
+69](https://github.com/moneybutton/bips/blob/master/bip-0069.mediawiki) in order
+to improve privacy. By sorting inputs and outputs this way, the change address
+cannot be distinguished from the rest of the outputs, making it harder for
+third-parties to track funds. Other inputs and outputs also have less
+identifiable information associated with them. This is a valuable feature to
+improve privacy.
+
+However, sorting input and output order can be problematic for some applications
+that require fixing the order n a particular way. To support these applications,
+the `preserveOrder` property is available to fix the order of inputs and
+outputs.
+
+If `preserveOrder` is set to `true`, the transaction will have outputs in the
+same order as they appear in the `outputs` property, and BIP 69 will not be
+used. Additionally, the change output will always appear last.
+
+Note that this property should only ever be used if it is a requirement for the
+application because it decreases the privacy of transactions.
+
+Also note that sometimes one payment output, such as to a paymail, can actually
+correspond to more than one output in the transaction. Thus fixing the order
+does not actually fix the number. Paymail outputs can be more than one output
+because the paymail recipient may desire to have their payment received at
+multiple outputs.

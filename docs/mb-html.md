@@ -61,6 +61,8 @@ A Money Button `<div>` can take the following attributes:
 | `data-editable`             | `string` (`'true'` or `'false'`)                | `'false'`     |
 | `data-disabled`             | `string` (`'true'` or `'false'`)                | `'false'`     |
 | `data-dev-mode`             | `string` (`'true'` or `'false'`)                | `'false'`     |
+| `data-preserve-order`       | `string` (`'true'` or `'false'`)                | `'false'`     |
+
 
 ### data-to
 
@@ -377,3 +379,31 @@ cannot be swiped.
 This attribute is `false` by default. If it is set to `true` the button becomes
 a dummy component. It doesn't execute any callback and doesn't interact with the
 backend at all. Instead it always succeeds.
+
+### data-preserve-order
+
+Money Button sorts inputs and outputs following [BIP
+69](https://github.com/moneybutton/bips/blob/master/bip-0069.mediawiki) in order
+to improve privacy. By sorting inputs and outputs this way, the change address
+cannot be distinguished from the rest of the outputs, making it harder for
+third-parties to track funds. Other inputs and outputs also have less
+identifiable information associated with them. This is a valuable feature to
+improve privacy.
+
+However, sorting input and output order can be problematic for some applications
+that require fixing the order n a particular way. To support these applications,
+the `data-preserve-order` property is available to fix the order of inputs and
+outputs.
+
+If `data-preserve-order` is set to `true`, the transaction will have outputs in the
+same order as they appear in the `data-outputs` property, and BIP 69 will not be
+used. Additionally, the change output will always appear last.
+
+Note that this property should only ever be used if it is a requirement for the
+application because it decreases the privacy of transactions.
+
+Also note that sometimes one payment output, such as to a paymail, can actually
+correspond to more than one output in the transaction. Thus fixing the order
+does not actually fix the number. Paymail outputs can be more than one output
+because the paymail recipient may desire to have their payment received at
+multiple outputs.
