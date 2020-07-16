@@ -407,7 +407,7 @@
     "list-item": "^1.1.1",
     "livereload-js": "^2.3.0",
     "load-json-file": "^1.1.0",
-    "lodash": "4.17.13",
+    "lodash": "4.17.19",
     "lodash._basecopy": "^3.0.1",
     "lodash._basetostring": "^3.0.1",
     "lodash._basevalues": "^3.0.0",
