@@ -125,7 +125,7 @@
     "bin-version": "^1.0.4",
     "bin-version-check": "^2.1.0",
     "bin-wrapper": "^3.0.2",
-    "bl": "^1.2.2",
+    "bl": "^2.2.1",
     "body": "^5.1.0",
     "body-parser": "^1.18.2",
     "boolbase": "^1.0.0",
