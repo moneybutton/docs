@@ -195,7 +195,7 @@
     "dateformat": "^2.2.0",
     "debug": "^2.6.9",
     "decamelize": "^1.2.0",
-    "decompress": "^3.0.0",
+    "decompress": "^4.2.1",
     "decompress-tar": "^3.1.0",
     "decompress-tarbz2": "^3.1.0",
     "decompress-targz": "^3.1.0",
