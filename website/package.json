@@ -459,7 +459,7 @@
     "multipipe": "^0.1.2",
     "mute-stream": "^0.0.7",
     "negotiator": "^0.6.1",
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^2.6.1",
     "node-status-codes": "^1.0.0",
     "normalize-package-data": "^2.4.0",
     "normalize-path": "^2.1.1",
