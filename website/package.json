@@ -312,7 +312,7 @@
     "has-ansi": "^2.0.0",
     "has-flag": "^3.0.0",
     "has-gulplog": "^0.1.0",
-    "highlight.js": "^9.12.0",
+    "highlight.js": "^10.1.2",
     "home-or-tmp": "^2.0.0",
     "homedir-polyfill": "^1.0.1",
     "hosted-git-info": "^2.6.0",
