@@ -25,7 +25,7 @@ the ability to decrypt the data.
 
 In order to make these functions possible, Money Button has created the Crypto
 Operations API. The basic idea of Crypto Operations is that the developer
-specfies with cryptographic operations are to be performed, such as `sign` or
+specfies which cryptographic operations are to be performed, such as `sign` or
 `encrypt`, and those operations are performed when the users swipes.
 
 The results of the operations can be placed into the transaction through the use
