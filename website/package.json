@@ -669,7 +669,7 @@
     "tweetnacl": "^0.14.5",
     "type-is": "^1.6.16",
     "typedarray": "^0.0.6",
-    "ua-parser-js": "^0.7.18",
+    "ua-parser-js": "^0.7.24",
     "underscore": "^1.9.1",
     "underscore.string": "3.3.5",
     "uniq": "^1.0.1",
