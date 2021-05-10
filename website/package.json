@@ -315,7 +315,7 @@
     "highlight.js": "^9.12.0",
     "home-or-tmp": "^2.0.0",
     "homedir-polyfill": "^1.0.1",
-    "hosted-git-info": "^2.6.0",
+    "hosted-git-info": "^2.8.9",
     "html-comment-regex": "^1.1.1",
     "http-errors": "^1.6.3",
     "http-parser-js": "^0.4.13",
