@@ -287,7 +287,7 @@
     "gifsicle": "^3.0.4",
     "glob": "^7.1.2",
     "glob-base": "^0.3.0",
-    "glob-parent": "^3.1.0",
+    "glob-parent": "^5.1.2",
     "glob-stream": "^5.3.5",
     "global-modules": "^1.0.0",
     "global-prefix": "^1.0.2",
