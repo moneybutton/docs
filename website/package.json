@@ -466,7 +466,7 @@
     "normalize-range": "^0.1.2",
     "normalize-url": "^1.9.1",
     "npm-run-path": "^2.0.2",
-    "nth-check": "^1.0.1",
+    "nth-check": "^2.0.1",
     "num2fraction": "^1.2.2",
     "number-is-nan": "^1.0.1",
     "oauth-sign": "^0.8.2",
