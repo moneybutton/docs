@@ -50,10 +50,10 @@ developing an app and want to do lots of testing without risking losing real
 money, you may want to use testnet. For instance:
 
 ```javascript
-let privateKey = bsv.PrivateKey.fromRandom('testnet')
-let publicKey = bsv.PublicKey.fromPrivateKey(privateKey)
-let address = bsv.Address.fromPublicKey(publicKey, 'testnet')
-let address2 = bsv.Address.fromPrivateKey(privateKey, 'testnet')
+let privateKey = bsv.PrivKey.Testnet.fromRandom()
+let publicKey = bsv.PubKey.fromPrivKey(privateKey)
+let address = bsv.Address.Testnet.fromPubKey(publicKey)
+let address2 = bsv.Address.Testnet.fromPrivKey(privateKey)
 
 console.log(address.toString())
 // prints:
