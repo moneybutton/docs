@@ -91,9 +91,9 @@ script.toHex()
 
 One final useful method is that if a script is a "pubkey hash" script type,
 a.k.a. a normal address output script, you can easily get the address for it
-with the ".toAddress()" method:
+with the "Address.fromPubKeyHashBuf()" method:
 
 ```javascript
-script.toAddress().toString()
+Address.fromPubKeyHashBuf(script.chunks[2].buf).toString()
 // '1MfQjr97hKaAvpVPJ4XsaHQDskjYhXxLW3'
 ```
