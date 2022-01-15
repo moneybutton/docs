@@ -604,7 +604,7 @@
     "shebang-command": "^1.2.0",
     "shebang-regex": "^1.0.0",
     "shell-quote": "^1.6.1",
-    "shelljs": "^0.7.8",
+    "shelljs": "^0.8.5",
     "signal-exit": "^3.0.2",
     "simple-swizzle": "^0.2.2",
     "sitemap": "^1.13.0",
