@@ -535,7 +535,7 @@
     "postcss-zindex": "^2.2.0",
     "prepend-http": "^1.0.4",
     "preserve": "^0.2.0",
-    "prismjs": "^1.15.0",
+    "prismjs": "^1.27.0",
     "private": "^0.1.8",
     "process-nextick-args": "^2.0.0",
     "promise": "^7.3.1",
