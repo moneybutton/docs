@@ -235,7 +235,7 @@
     "esprima": "^4.0.0",
     "esutils": "^2.0.2",
     "etag": "^1.8.1",
-    "eventsource": "^0.1.6",
+    "eventsource": "^2.0.2",
     "exec-buffer": "^3.2.0",
     "exec-series": "^1.0.3",
     "execa": "^0.7.0",
