@@ -296,7 +296,7 @@
     "globule": "^1.2.1",
     "glogg": "^1.0.1",
     "good-listener": "^1.2.2",
-    "got": "^5.7.1",
+    "got": "^11.8.5",
     "graceful-fs": "^4.1.11",
     "graceful-readlink": "^1.0.1",
     "gray-matter": "^2.1.1",
