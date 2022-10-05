@@ -187,7 +187,7 @@
     "css-select-base-adapter": "^0.1.0",
     "css-tree": "^1.0.0-alpha25",
     "css-url-regex": "^1.1.0",
-    "css-what": "^2.1.0",
+    "css-what": "^2.1.3",
     "cssnano": "^3.10.0",
     "csso": "^3.5.1",
     "currently-unhandled": "^0.4.1",
