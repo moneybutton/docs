@@ -544,7 +544,7 @@
     "pseudomap": "^1.0.2",
     "punycode": "^1.4.1",
     "q": "^1.5.1",
-    "qs": "^6.5.1",
+    "qs": "^6.5.3",
     "query-string": "^4.3.4",
     "querystringify": "^2.0.0",
     "randomatic": "^3.0.0",
